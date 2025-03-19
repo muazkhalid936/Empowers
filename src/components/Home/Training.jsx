@@ -38,21 +38,21 @@ const outTrainings = [
 const Training = () => {
   return (
     <div className="bg-[#ecf0ea]">
-      <div className="mt-40  container mx-auto py-20 md:px-24">
-        <div className="flex justify-center md:mx-40 mx-5 flex-col gap-8 items-center  my-10">
-          <h1 className="md:text-5xl text-3xl drop-shadow-lg font-bold">
+      <div className="  container mx-auto py-[45px] px-10 md:py-[55px] md:px-24">
+        <div className="flex justify-center   flex-col gap-4 sm:gap-8 items-center  ">
+          <h1 className="md:text-5xl text-2xl drop-shadow-lg font-bold">
             Our Training
           </h1>
-          <button className="md:text-2xl font-semibold md:tracking-wide border hover:cursor-pointer transition-all duration-300 ease-in-out rounded-full px-5 text-white bg-[#29ab87] hover:text-[#29ab87] hover:bg-white md:px-10 py-3">
+          <button className="md:text-[15px] font-semibold md:tracking-wide border hover:cursor-pointer transition-all duration-300 ease-in-out rounded-full px-5 text-white bg-[#29ab87] hover:text-[#29ab87] hover:bg-white md:px-10 py-2">
             Browse Training
           </button>
         </div>
-        <div className="md:flex md:justify-between my-5 mx-5 gap-5">
+        <div className="md:flex md:justify-between mt-10 gap-10 lg:flex-row flex-col  ">
           {outTrainings.map((data, index) => {
             return (
               <div
                 key={index}
-                className="my-10 border border-gray-300 rounded-lg flex flex-col min-h-[250px]"
+                className=" border border-gray-300 rounded-lg mt-5 sm:mt-0 flex flex-col min-h-[250px]"
               >
                 <img
                   src={`${data.img}`}
@@ -62,13 +62,13 @@ const Training = () => {
                 <div className=" m-4">
                   {data.features.map((features, index) => {
                     return (
-                      <div key={index} className="py-2">
-                        <p className="">{features}</p>
+                      <div key={index} className="mb-2">
+                        <p className="text-[16px]">{features}</p>
                       </div>
                     );
                   })}
                 </div>
-                <button className=" text-xl bg-[#29ab87] shadow-2xl hover:cursor-pointer text-white tracking-wide font-bold mt-auto py-2 rounded-lg m-2">
+                <button className=" text-lg bg-[#29ab87] shadow-2xl hover:cursor-pointer text-white tracking-wide font-bold mt-auto py-2 rounded-lg m-2">
                   Enrolled Now
                 </button>
               </div>

@@ -3,9 +3,9 @@ import React from 'react'
 const Contact = () => {
   return (
     <div className='container mx-auto'>
-        <div className="flex justify-center items-center my-20 ">
+        <div className="flex justify-center lg:flex-row flex-col md:px-24 px-10 items-center my-20 ">
       {/* Left side - Contact Form */}
-      <div className="w-1/2 ">
+      <div className="lg:w-1/2 ">
         <h2 className="text-4xl font-bold text-gray-900">
           We are always open <br /> <span className="text-gray-900">24/7 for you.</span>
         </h2>
@@ -55,7 +55,7 @@ const Contact = () => {
       </div>
 
       {/* Right side - Contact Details */}
-      <div className="w-1/2 flex justify-center items-center p-6">
+      <div className="lg:w-1/2 flex justify-center items-center p-6">
         <div className="space-y-6">
           <div className='flex flex-col gap-5'>
             <h3 className="text-2xl font-bold text-gray-900">Visit us</h3>

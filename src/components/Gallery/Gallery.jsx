@@ -27,11 +27,11 @@ export default function Gallery() {
 
   return (
     <div className="p-5">
-      <div className="flex container  mx-auto justify-center space-x-3 my-10">
+      <div className="flex container flex-wrap gap-2 sm:gap-0  mx-auto justify-center space-x-3 my-5 sm:my-10">
         {categories.map((category) => (
           <button
             key={category}
-            className={`px-4 py-2 rounded-md ${
+            className={`px-4 py-2 text-[10px] sm:text-[16px] rounded-md ${
               selectedCategory === category
                 ? "bg-black text-white"
                 : "bg-gray-200"

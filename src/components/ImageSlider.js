@@ -59,7 +59,7 @@ function ImageSlider() {
               key={index}
               src={image}
               alt="slider"
-              className="w-full h-[90vh] object-cover flex-shrink-0"
+              className="w-full  object-contain flex-shrink-0"
             />
           ))}
         </div>

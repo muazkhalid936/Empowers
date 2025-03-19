@@ -42,7 +42,7 @@ const ourServicesLeft = [
 const Sevices = () => {
   return (
     <div>
-      <div className="mt-40 md:px-24 container mx-auto">
+      <div className="md:mt-[55px] md:px-24 container mx-auto">
         <div className="text-center my-10 ">
           <h1 className="text-5xl font-bold tracking-wide text-[#29ab87] drop-shadow-lg">
             Our Services
@@ -66,7 +66,7 @@ const Sevices = () => {
                 >
                   <h1 className="text-2xl">
                     {leftData.text.split("|").map((line, index) => (
-                      <span key={index}>
+                      <span className="text-[18px]" key={index}>
                         {line}
                         <br />
                       </span>
@@ -88,7 +88,7 @@ const Sevices = () => {
                   className="flex justify-start items-center gap-5 h-[150px]"
                 >
                   <div>{leftData.icon}</div>
-                  <h1 className="text-2xl">{leftData.text}</h1>
+                  <h1 className="text-[18px]">{leftData.text}</h1>
                 </div>
               );
             })}

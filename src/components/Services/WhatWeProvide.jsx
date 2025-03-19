@@ -9,17 +9,17 @@ const WhatWeProvide = () => {
   return (
     <div className="bg-[#ECF0EA] ">
       {" "}
-      <div className="py-10  container mx-auto">
-        <div className="py-10 text-center">
-          <h1 className="font-bold text-5xl text-[#29AB87] drop-shadow-md">
-            What We Provide
+      <div className="py-[45px] sm:py-[55px] px-10 md:px-24 container mx-auto">
+        <div className=" text-center">
+        <h1 className="font-bold text-2xl sm:text-5xl text-[#29AB87] drop-shadow-md mb-5">
+        What We Provide
           </h1>
         </div>
-        <div className="m-10 p-10">
-          <div className="flex flex-wrap justify-around gap-10">
+        <div className="">
+          <div className="flex flex-wrap justify-around gap-5 sm:gap-10">
             <div className="flex flex-col items-center rounded-md text-center text-[#29AB87] border p-5 w-[500px]">
               <FaThList className="h-20 w-20" />
-              <h1 className="text-3xl font-bold my-5">
+              <h1 className="text-2xl sm:text-3xl font-bold my-2 sm:my-5">
                 eCommerce Consultation​
               </h1>
               <p className="text-[16px] ">
@@ -29,7 +29,7 @@ const WhatWeProvide = () => {
             </div>
             <div className="flex  flex-col items-center text-center rounded-md text-[#29AB87] border p-5 w-[500px]">
               <FaStoreAlt className="h-20 w-20" />
-              <h1 className="text-3xl font-bold my-5">
+              <h1 className="text-2xl sm:text-3xl font-bold my-2 sm:my-5">
                 Staff Augmentation (eBay, ETSY, Tiktok Shop)​
               </h1>
               <p className="text-[16px] ">
@@ -40,7 +40,7 @@ const WhatWeProvide = () => {
             </div>
             <div className="flex  flex-col items-center rounded-md text-center text-[#29AB87] border p-5 w-[500px]">
               <FaCommentsDollar className="h-20 w-20" />
-              <h1 className="text-3xl font-bold my-5">
+              <h1 className="text-2xl sm:text-3xl font-bold my-2 sm:my-5">
                 Managerial Services (eBay, ETSY, Tiktock Shop)​
               </h1>
               <p className="text-[16px] ">
@@ -50,14 +50,15 @@ const WhatWeProvide = () => {
             </div>
             <div className="flex  flex-col items-center rounded-md text-center text-[#29AB87] border p-5 w-[500px]">
               <FaStoreSlash className="h-20 w-20" />
-              <h1 className="text-3xl font-bold my-5">Fulfillments Centers​</h1>
+              <h1 className="text-2xl sm:text-3xl font-bold my-2 sm:my-5">
+                Fulfillments Centers​</h1>
               <p className="text-[16px] ">
                 Empowerers Providing Fullfilment center in UK, USA and Aus.
               </p>
             </div>
             <div className="flex  flex-col items-center rounded-md text-center text-[#29AB87] border p-5 w-[500px]">
               <FaRegHandshake className="h-20 w-20" />
-              <h1 className="text-3xl font-bold my-5">
+              <h1 className="text-2xl sm:text-3xl font-bold my-2 sm:my-5">
                 Shared Spaces in incubators
               </h1>
               <p className="text-[16px] ">
@@ -67,7 +68,7 @@ const WhatWeProvide = () => {
             </div>
             <div className="flex  flex-col rounded-md items-center text-center text-[#29AB87] border p-5 w-[500px]">
               <FaFacebook className="h-20 w-20" />
-              <h1 className="text-3xl font-bold my-5">
+              <h1 className="text-2xl sm:text-3xl font-bold my-2 sm:my-5">
                 Social Media Management​
               </h1>
               <p className="text-[16px] ">

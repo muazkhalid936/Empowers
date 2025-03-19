@@ -1,72 +1,11 @@
-// "use client";
-// import React, { useState } from "react";
-// import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-
-// const Gallery = [
-//   "/gallery1.jpg",
-//   "/gallery2.jpg",
-//   "/gallery3.jpg",
-//   "/gallery4.jpg",
-//   "/gallery5.jpg",
-//   "/gallery6.jpg",
-//   "/gallery7.jpg",
-// ];
-
-// function GallerySlider() {
-//   const [index, setIndex] = useState(0);
-//   const totalImages = Gallery.length;
-//   const imagesPerView = 3; // Number of images visible at a time
-
-//   const scrollLeft = () => {
-//     setIndex((prevIndex) =>
-//       prevIndex === 0 ? totalImages - imagesPerView : prevIndex - 1
-//     );
-//   };
-
-//   const scrollRight = () => {
-//     setIndex((prevIndex) =>
-//       prevIndex >= totalImages - imagesPerView ? 0 : prevIndex + 1
-//     );
-//   };
-
-//   return (
-//     <div className="relative w-[1200px] mx-auto overflow-hidden">
-//       {/* Image Container */}
-//       <div
-//         className="flex gap-2 transition-transform duration-500 ease-in-out"
-//         style={{ transform: `translateX(-${index * (400 + 10)}px)` }}
-//       >
-//         {Gallery.concat(Gallery).map((image, i) => (
-//           <div key={i} className="w-[400px] flex-shrink-0">
-//             <img
-//               src={image}
-//               alt={`Gallery ${i + 1}`}
-//               className="w-full h-[250px] object-cover rounded-lg"
-//             />
-//           </div>
-//         ))}
-//       </div>
-
-//       {/* Left Button */}
-//       <IoIosArrowBack
-//         onClick={scrollLeft}
-//         className="cursor-pointer absolute top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 text-white bg-black bg-opacity-50 rounded-full p-2"
-//       />
-
-//       {/* Right Button */}
-//       <IoIosArrowForward
-//         onClick={scrollRight}
-//         className="cursor-pointer absolute top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 text-white bg-black bg-opacity-50 rounded-full p-2"
-//       />
-//     </div>
-//   );
-// }
-
-// export default GallerySlider;
-
 "use client";
-import React, { useState } from "react";
+import React, { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import "swiper/css";
+import "swiper/css/navigation";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import { Navigation } from "swiper/modules";
 
 const Gallery = [
   "/gallery1.jpg",
@@ -79,67 +18,58 @@ const Gallery = [
 ];
 
 function GallerySlider() {
-  const [index, setIndex] = useState(0);
-  const totalImages = Gallery.length;
-  const imagesPerView = 3; // Number of images visible at a time
-
-  const scrollLeft = () => {
-    setIndex((prevIndex) =>
-      prevIndex === 0 ? totalImages - imagesPerView : prevIndex - 1
-    );
-  };
-
-  const scrollRight = () => {
-    setIndex((prevIndex) =>
-      prevIndex >= totalImages - imagesPerView ? 0 : prevIndex + 1
-    );
-  };
+  const swiperRef = useRef(null);
 
   return (
-    <div className="relative w-[1200px] mx-auto overflow-hidden">
-      {/* Image Container */}
-      <div
-        className="flex gap-2 transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(-${index * (400 + 10)}px)` }}
-      >
-        {Gallery.concat(Gallery).map((image, i) => {
-          // Determine opacity for each image
-          let opacity = 1;
-          if (i === index + 1) opacity = 1; // Center image full opacity
-          else if (i !== index && i !== index + 2) opacity = 0; // Other images hidden
-
-          return (
-            <div
-              key={i}
-              className="w-[400px] flex-shrink-0 transition-opacity duration-500 ease-in-out"
-              style={{ opacity }}
-            >
+    <div className="container mx-auto">
+      <div className="relative ">
+        <Swiper
+          spaceBetween={10}
+          loop={true}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          slidesPerView={1} // Default to 1 image for mobile
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            1024: { slidesPerView: 2 },
+            1280: { slidesPerView: 3 },
+          }}
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }}
+          modules={[Navigation]}
+          className="w-[80%] lg:w-[90%] mx-auto"
+        >
+          {Gallery.map((image, index) => (
+            <SwiperSlide key={index}>
               <img
                 src={image}
-                alt={`Gallery ${i + 1}`}
+                alt={`Gallery ${index + 1}`}
                 className="w-full h-[250px] object-cover rounded-lg"
               />
-            </div>
-          );
-        })}
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Navigation Buttons */}
+        <div className=" gap-2 flex sm:mt-0">
+          <button
+            className="h-8 w-8 absolute sm:left-0 left-1 sm:h-12  top-0 translate-y-28 sm:translate-y-24  sm:w-12 rounded-full bg-[#29ab87] flex items-center justify-center ease-in-out duration-300 hover:bg-blueColor"
+            onClick={() => swiperRef.current?.slidePrev()} // Slide to previous
+          >
+            <HiChevronLeft className="text-white text-xl sm:text-2xl font-bold" />
+          </button>
+
+          <button
+            className="h-8 w-8 absolute right-1 sm:right-0 top-0 translate-y-28 sm:translate-y-24 sm:h-12 sm:w-12 rounded-full bg-[#29ab87] flex items-center justify-center ease-in-out duration-300 hover:bg-blueColor"
+            onClick={() => swiperRef.current?.slideNext()} // Slide to previous
+          >
+            <HiChevronRight className="text-white text-xl sm:text-2xl font-bold" />
+          </button>
+        </div>
       </div>
-
-      {/* Left Button */}
-      <IoIosArrowBack
-        onClick={scrollLeft}
-        className="cursor-pointer absolute top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 text-white bg-black bg-opacity-50 rounded-full p-2"
-      />
-
-      {/* Right Button */}
-      <IoIosArrowForward
-        onClick={scrollRight}
-        className="cursor-pointer absolute top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 text-white bg-black bg-opacity-50 rounded-full p-2"
-      />
     </div>
   );
 }
 
 export default GallerySlider;
-
-
-

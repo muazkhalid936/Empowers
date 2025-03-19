@@ -1,18 +1,18 @@
-import React from 'react'
+import React from "react";
 
 const Welcome = () => {
   return (
     <div className="bg-[#ecf0ea]">
-    <div className="mb-20  container mx-auto  py-28 flex md:flex-row gap-10 flex-col  justify-center  md:px-24">
-      <div className=" p-5">
-        <h1 className="text-3xl md:text-5xl font-bold text-[#29ab87] tex drop-shadow-lg">
-          Welcome To Empowrerers
-        </h1>
-        <p className="text-2xl italic text-[#29ab87] my-3">
-          Learning often happens in classrooms but it doesn’t have to.
-        </p>
-        <div className="flex items-center flex-col my-7 text-2xl">
-          {/* <TypeAnimation
+      <div className="md:py-[55px] py-[45px] my-[45px]  container mx-auto   flex lg:flex-row gap-10 flex-col  justify-center items-center px-10  md:px-24">
+        <div className=" lg:w-1/2 flex flex-col gap-5 ">
+          <h1 className="text-2xl md:text-5xl font-bold text-[#29ab87] text-center sm:text-start  drop-shadow-lg">
+            Welcome To Empowrerers
+          </h1>
+          <p className=" text-xl sm:text-2xl italic text-center sm:text-start text-[#29ab87] ">
+            Learning often happens in classrooms but it doesn’t have to.
+          </p>
+          <div className="flex items-center flex-col text-2xl">
+            {/* <TypeAnimation
                 sequence={[
                   'Concerned about the job-shrinking market? Tired of finding a job over and over again? Learn eBay. Join Empowerers.',
                   1000,
@@ -25,42 +25,41 @@ const Welcome = () => {
                 repeat={Infinity} // Infinite loop
               /> */}
 
-          <ul className="flex flex-col gap-2">
-            <li className="list-disc">
-              Concerned about the job-shrinking market
-            </li>
-            <li className="list-disc">
-              Tired of finding a job over and over again
-            </li>
-            <li className="list-disc">
-              Empowerers Offering Ecommerce learning courses in reasonable
-              prices
-            </li>
-            <li className="list-disc">
-              Empowerers offers EBay, Etsy, and many other courses
-            </li>
-          </ul>
+            <ul className="flex flex-col text-[14px] sm:text-[18px] gap-2">
+              <li className="list-disc">
+                Concerned about the job-shrinking market
+              </li>
+              <li className="list-disc">
+                Tired of finding a job over and over again
+              </li>
+              <li className="list-disc">
+                Empowerers Offering Ecommerce learning courses in reasonable
+                prices
+              </li>
+              <li className="list-disc">
+                Empowerers offers EBay, Etsy, and many other courses
+              </li>
+            </ul>
 
-          {/* <p>Concerned about the job-shrinking market? Tired of finding a job over and over again? Learn eBay. Join Empowerers.</p> */}
-          {/* <p>Empowerers Offering Ecommerce learning courses in reasonable prices. Empowerers offers EBay, Etsy, and many other courses.</p> */}
-        </div>
+            {/* <p>Concerned about the job-shrinking market? Tired of finding a job over and over again? Learn eBay. Join Empowerers.</p> */}
+            {/* <p>Empowerers Offering Ecommerce learning courses in reasonable prices. Empowerers offers EBay, Etsy, and many other courses.</p> */}
+          </div>
 
-        <div className="mt-16  mb-5 px-5">
-          <button className="tracking-wide cursor-pointer text-xl font-bold text-white bg-[#29ab87] hover:text-[#29ab87] hover:bg-white px-10 py-4 rounded-full transition-all duration-300 ease-in-out">
-            Start Learning
-          </button>
-          <button className="tracking-wide cursor-pointer text-xl font-bold text-white bg-[#29ab87] hover:text-[#29ab87] hover:bg-white px-10 py-4 rounded-full transition-all duration-300 ease-in-out ml-8">
-            Get In Touch
-          </button>
+          <div className=" mt-5 flex justify-center items-center">
+            <button className="tracking-wide cursor-pointer text-[12px] font-bold text-white bg-[#29ab87] hover:text-[#29ab87] hover:bg-white  px-5 py-2 rounded-full transition-all duration-300 ease-in-out">
+              Start Learning
+            </button>
+            <button className="tracking-wide cursor-pointer text-[12px] font-bold text-white bg-[#29ab87] hover:text-[#29ab87] hover:bg-white px-5 py-2  rounded-full transition-all duration-300 ease-in-out ml-8">
+              Get In Touch
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="">
-        <div>
-          <img src="/bann1.png" alt="" />
+        <div className="lg:w-1/2 flex justify-center items-center">
+          <img src="/bann1.png" alt="" className="max-h-[300px]" />
         </div>
       </div>
     </div>
-  </div>  )
-}
+  );
+};
 
-export default Welcome
+export default Welcome;

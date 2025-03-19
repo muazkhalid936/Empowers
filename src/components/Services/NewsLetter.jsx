@@ -3,20 +3,22 @@ import React from "react";
 
 const NewsLetter = () => {
   return (
-    <div className="flex container mx-auto items-center justify-center p-10 ">
+    <div className="flex container mx-auto gap-10 sm:gap-0 flex-col-reverse sm:flex-row items-center sm:max-h-[600px] px-10 md:px-24 justify-center sm:py-[55px] py-[45px] ">
       {/* Left Side - Image */}
-      <div className="w-1/2 flex justify-center">
+      <div className="sm:w-1/2 flex justify-center">
         <Image
           width={500}
           height={500}
+          objectFit="contain"
           src="/mobile.png"
+          
           alt="Mobile Illustration"
-          className="object-contain"
+          className="object-contain  sm:!h-[400px]"
         />
       </div>
 
       {/* Right Side - Text & Form */}
-      <div className="w-1/2 flex flex-col  gap-5">
+      <div className="sm:w-1/2 flex flex-col  gap-2 sm:gap-5">
         <h2 className="text-[#29AB87] text-2xl font-bold">
           GET OUR FREE EBAY GUIDE AND OTHER FREE GIFTS
         </h2>
@@ -26,7 +28,7 @@ const NewsLetter = () => {
         </p>
         <p className="font-semibold mt-2">Never Miss any Gift!</p>
 
-        <div className="mt-5 flex">
+        <div className="mt-5 flex gap-2">
           <input
             type="email"
             placeholder="Your email address"

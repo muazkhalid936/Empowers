@@ -6,7 +6,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { BiSolidQuoteAltLeft, BiSolidQuoteAltRight } from "react-icons/bi";
-
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import { useRef } from "react";
 const Students = [
   {
     image: "/student1.png",
@@ -38,41 +39,56 @@ const Students = [
 ];
 
 function StudentSlider() {
+    const swiperRef = useRef(null);
+  
   return (
-    <div className="text-center my-20">
-      <h1 className="font-bold text-5xl text-[#29AB87] drop-shadow-md mb-5">
+    <div className="text-center my-[45px] md:my-[55px]">
+      <h1 className="font-bold text-2xl sm:text-5xl text-[#29AB87] drop-shadow-md mb-5">
         What Our Students Say
       </h1>
 
-      <div className="relative mx-auto rounded-lg shadow-lg border border-gray-300 my-20 w-full md:w-[700px] bg-white p-5 text-center">
+      <div className="relative mx-auto rounded-lg shadow-lg border border-gray-300 my-10 w-[70%] lg:w-[700px] bg-white p-5 text-center">
         <Swiper
           modules={[Navigation, Pagination]}
-          navigation
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          // navigation
           // pagination={{ clickable: true }}
           spaceBetween={50}
-          loop  = {true}
+          loop={true}
           slidesPerView={1}
           className="swiper-container"
+
         >
           {Students.map((student, index) => (
             <SwiperSlide key={index} className="flex flex-col items-center">
               <img
                 src={student.image}
                 alt={student.name}
-                className="w-[200px] h-[200px] mx-auto rounded-full aspect-[16/5]"
+                className="sm:w-[200px] w-[100px] h-[100px] sm:h-[200px] mx-auto rounded-full aspect-[16/5]"
               />
               <div className="p-5">
                 <h1 className="text-xl font-semibold">{student.name}</h1>
                 <span className="text-gray-500">{student.city}</span>
-                <p className="mt-3 text-lg text-gray-700 relative px-20">
-                  <BiSolidQuoteAltLeft className="inline-block mr-3 text-gray-300 h-6 w-6" />
-                  {student.message}
-                  <BiSolidQuoteAltRight className="inline-block ml-3 text-gray-300 h-6 w-6" />
-                </p>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+
+        <div className=" gap-2 flex sm:mt-0">
+          <button
+            className="h-8 w-8 absolute -left-10 sm:-left-20 sm:h-12 translate-y-24 top-0 sm:translate-y-36  sm:w-12 rounded-full bg-[#29ab87] flex items-center justify-center ease-in-out duration-300 hover:bg-blueColor"
+            onClick={() => swiperRef.current?.slidePrev()} // Slide to previous
+          >
+            <HiChevronLeft className="text-white text-xl sm:text-2xl font-bold" />
+          </button>
+
+          <button
+            className="h-8 w-8 absolute -right-10 sm:-right-20 top-0 translate-y-24 sm:translate-y-36 sm:h-12 sm:w-12 rounded-full bg-[#29ab87] flex items-center justify-center ease-in-out duration-300 hover:bg-blueColor"
+            onClick={() => swiperRef.current?.slideNext()} // Slide to previous
+          >
+            <HiChevronRight className="text-white text-xl sm:text-2xl font-bold" />
+          </button>
+        </div>
       </div>
     </div>
   );

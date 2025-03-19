@@ -7,7 +7,7 @@ const page = () => {
     <div>
       <MainHeader headings={"Blog Page"} />
 
-      <div className="container flex flex-col sm:flex-row gap-5  py-20 justify-center items-center mx-auto">
+      <div className="container flex flex-col sm:flex-row gap-5  py-10 sm:py-20 justify-center items-center md:px-24 px-10 mx-auto">
         <div className="sm:w-1/3">
           <BlogCard
             imgSrc={"/blog1.jpg"}

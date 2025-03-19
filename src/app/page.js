@@ -21,6 +21,7 @@ import Video from "@/components/Home/Video";
 import Training from "@/components/Home/Training";
 import Services from "@/components/Home/Sevices";
 import Blogs from "@/components/Home/Blogs";
+import NewsLetter from "@/components/Services/NewsLetter";
 export default function Home() {
   const [counterStart, setCounterStart] = useState(false);
   const [newStudent, setNewStudent] = useState(0);
@@ -41,8 +42,6 @@ export default function Home() {
       window.removeEventListener("scroll", handleScroll); // Cleanup event listener
     };
   }, []);
-
-
 
   //   {
   //     image : '/student1.png',
@@ -118,15 +117,15 @@ export default function Home() {
 
       <Services />
       {/* Blog Section */}
-     <Blogs />
+      <Blogs />
 
       {/* What Our Student Says */}
 
       <StudentSlider />
 
       {/* Memorable Moments Gallery */}
-      <div className=" mt-40 ">
-        <div className="text-center font-bold text-5xl my-16">
+      <div className=" mt-[55px] ">
+        <div className="text-center font-bold text-2xl sm:text-5xl my-16">
           <h1 className="text-[#29ab87] tracking-wide drop-shadow-lg ">
             Memorable Moments
           </h1>
@@ -136,9 +135,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="my-40 mx-40 hover:shadow-2xl transition-all ease-in-out duration-500 flex justify-center items-center py-20 rounded-lg">
+      <div className="md:my-[55px] w-[70%] mx-auto  hover:shadow-2xl transition-all ease-in-out duration-500 flex justify-center items-center py-20 rounded-lg">
         <iframe
-          className="w-[900px] h-[500px]"
+          className="w-[900px] h-[300px] sm:h-[500px]"
           src="https://www.youtube.com/embed/78oNsr98dBY?controls=1&rel=0&playsinline=0&modestbranding=0&autoplay=0&enablejsapi=1&origin=https%3A%2F%2Fempowerers.co&widgetid=1&forigin=https%3A%2F%2Fempowerers.co%2F&aoriginsup=1&gporigin=https%3A%2F%2Fempowerers.co%2F&vf=1"
           frameBorder="0"
         ></iframe>
@@ -154,7 +153,7 @@ export default function Home() {
          })}
         </div>
       </div> */}
-      <div className="my-40 py-[30px] bg-gray-200 overflow-hidden">
+      <div className="  py-[30px] bg-gray-200 overflow-hidden">
         <div className="flex bg-gray-200 gap-20 px-10 animate-scroll">
           {/* Duplicating the logos for seamless transition */}
           {newsLogo.concat(newsLogo).map((logo, index) => (
@@ -181,36 +180,7 @@ export default function Home() {
           }
         `}</style>
       </div>
-
-      <div className="my-40 mx-40 ">
-        <div className="flex justify-between items-center">
-          <div>
-            <img
-              src="https://empowerers.co/wp-content/uploads/2024/03/mobile.png"
-              alt=""
-            />
-          </div>
-          <div className="shadow-xl border border-gray-300 rounded-2xl h-[325px] w-[500px] flex flex-col justify-center p-10">
-            <div className="pl-7">
-              <h1 className="font-bold tracking-wide text-3xl text-[#29ab87] drop-shadow-lg">
-                Newsletter
-              </h1>
-            </div>
-            <div className="py-8 text-center">
-              <input
-                type="text"
-                className="border border-gray-400 p-4 rounded-md w-[400px] outline-none"
-                placeholder="Email"
-              />
-            </div>
-            <div className="text-right pr-7">
-              <button className="text-white bg-[#29ab87] py-3 px-8 rounded-full text-xl tracking-wide hover:bg-[white] hover:text-[#29ab87] hover:cursor-pointer border hover:border-gray-300">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <NewsLetter />
     </div>
   );
 }

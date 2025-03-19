@@ -14,8 +14,8 @@ import { MdEmail, MdOutlineEmail } from "react-icons/md";
 function Footer() {
   return (
     <div className="bg-[#807d79]">
-      <div className=" container mx-auto pt-20  text-white">
-        <div className="flex  justify-between  my-20">
+      <div className=" container mx-auto pt-20 px-10 md:px-24  text-white">
+        <div className="flex flex-wrap gap-5  justify-between  my-20">
           <div>
             <Link href={"/"}>
               <img
