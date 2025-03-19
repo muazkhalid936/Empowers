@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -58,7 +58,9 @@ export default function LoginForm() {
               />
               Keep me signed in
             </label>
-            <a href="#" className="text-blue-500 hover:underline">Forgot?</a>
+            <a href="#" className="text-blue-500 hover:underline">
+              Forgot?
+            </a>
           </div>
           <button
             type="submit"
@@ -68,7 +70,13 @@ export default function LoginForm() {
           </button>
         </form>
         <p className="mt-4 text-center text-gray-600">
-          Don't have an account? <Link href="/auth/student-registeration" className="text-[#29AB87] hover:underline">Register Now</Link>
+          Don&apos;t have an account?{" "}
+          <Link
+            href="/auth/student-registeration"
+            className="text-[#29AB87] hover:underline"
+          >
+            Register Now
+          </Link>
         </p>
       </div>
     </div>

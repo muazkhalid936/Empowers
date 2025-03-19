@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 
-
+import Link from "next/link";
 export default function RegisterForm() {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -53,9 +53,12 @@ export default function RegisterForm() {
           <div className="mb-4">
             <input type="checkbox" name="agreeTerms" checked={formData.agreeTerms} onChange={handleChange} className="mr-2" />
             <span className="text-gray-600">
-              By signing up, I agree with the website's
-              <a href="#" className="text-[#29AB87] hover:underline"> Terms and Conditions</a>
-            </span>
+  By signing up, I agree with the website&apos;s{" "}
+  <Link href="/terms" className="text-[#29AB87] hover:underline">
+    Terms and Conditions
+  </Link>
+</span>
+
           </div>
           <button
             type="submit"
