@@ -18,9 +18,8 @@ const Video = () => {
         </div>
         <div className="lg:w-1/2 flex justify-center items-center flex-col  ">
           {/* <h4 className="md:text-2xl text-xl tracking-wider font-semibold text-[#1B5EC6]">Discover about Empowerers</h4> */}
-          <h1 className="mb-8 tw text-2xl text-center lg:text-start md:text-4xl font-bold">
-            Welcome To Empowerers
-          </h1>
+          <h1 className="mb-8 tw text-2xl text-center text-[#4a4d48] lg:text-start md:text-4xl font-bold">
+How Empowerers is Empowering Pakistan eCommerce          </h1>
           <p className=" text-[16px] sm:text-[18px] text-center lg:text-start ">
             Founded in Oct 2020, primarily covering Pakistani people (overseas
             and residents), Empowerers started as an online eCommerce education

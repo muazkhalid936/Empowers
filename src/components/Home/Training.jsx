@@ -43,8 +43,8 @@ const Training = () => {
           <h1 className="md:text-5xl text-2xl drop-shadow-lg font-bold">
             Our Training
           </h1>
-          <button className="md:text-[15px] font-semibold md:tracking-wide border hover:cursor-pointer transition-all duration-300 ease-in-out rounded-full px-5 text-white bg-[#29ab87] hover:text-[#29ab87] hover:bg-white md:px-10 py-2">
-            Browse Training
+          <button className="md:text-[15px] font-semibold md:tracking-wide border hover:cursor-pointer transition-all duration-300 ease-in-out rounded-full px-5 text-[#4a4d48] bg-transparent hover:text-[#29ab87]  md:px-10 py-2">
+            Explore More Trainings
           </button>
         </div>
         <div className="md:flex md:justify-between mt-10 gap-10 lg:flex-row flex-col  ">
