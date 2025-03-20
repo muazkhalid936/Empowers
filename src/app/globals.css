@@ -12,7 +12,9 @@
 #galleryDiv {
   scrollbar-width: none;
 }
-
+.textGray{
+  color: #4a4d48;
+}
 .main_hero_slogan {
   @apply text-[12px] md:text-[14px] lg:text-[16px];
 }
@@ -22,7 +24,6 @@
 .font_inter {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  /* font-weight: <weight>; */
   font-style: normal;
 }
 

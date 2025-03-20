@@ -77,6 +77,7 @@ export default function Home() {
       </div>
       <Welcome />
 
+      <CountdownTimer targetDate="2025-04-01T02:30:00" />
       <Video />
 
       <Training />
@@ -85,7 +86,6 @@ export default function Home() {
       <Blogs />
 
       <StudentSlider />
-      <CountdownTimer targetDate="2025-04-01T00:00:00" />
 
       <div className=" mt-[55px] ">
         <div className="text-center font-bold text-2xl sm:text-5xl my-16">
