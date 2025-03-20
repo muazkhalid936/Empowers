@@ -22,6 +22,7 @@ import Training from "@/components/Home/Training";
 import Services from "@/components/Home/Sevices";
 import Blogs from "@/components/Home/Blogs";
 import NewsLetter from "@/components/Services/NewsLetter";
+import CountdownTimer from "@/components/Home/CountDownTimer";
 export default function Home() {
   const [counterStart, setCounterStart] = useState(false);
   const [newStudent, setNewStudent] = useState(0);
@@ -43,41 +44,6 @@ export default function Home() {
     };
   }, []);
 
-  //   {
-  //     image : '/student1.png',
-  //     name : "Samam Amir",
-  //     city : "Multan",
-  //     message : "A few years ago, I attempted to sell on eBay but struggled to generate sufficient income. However, after joining the Empowerers, I earned my first dollar within just 20 days. Now, after a long and rewarding journey, I am proud to call myself an eBay consultant."
-  //   },
-  //   {
-  //     image : '/student2.png',
-  //     name : "Saif Asim",
-  //     city : "Multan",
-  //     message : '"Founder of a comprehensive eBay A to Z services agency." Unfulfilled by the typical 9-to-5 grind, I decided to take control of my career. Today, I run my own eBay A to Z services agency, backed by a skilled and professional team.'
-  //   },
-  //   {
-  //     image : '/student3.png',
-  //     name : "Hassan Grewal",
-  //     city : "Multan",
-  //     message : 'Empowerers has been a game-changer for me. The guidance and training on eBay sales have transformed my approach, helping me achieve results I never thought possible. I’m grateful for the support and knowledge I’ve gained from this incredible program.'
-  //   },
-  //   {
-  //     image : '/student4.png',
-  //     name : "Abuzar Razaq",
-  //     city : "Sahiwal",
-  //     message : '"Running my online Company" Joined Empoweres in 2020. Now running my own eBay, Facebook removal and account reinstate based company named as OCCUFix.'
-  //   },
-  // ]
-
-  // const Gallery = [
-  //   '/gallery1.jpg',
-  //   '/gallery2.jpg',
-  //   '/gallery3.jpg',
-  //   '/gallery4.jpg',
-  //   '/gallery5.jpg',
-  //   '/gallery6.jpg',
-  //   '/gallery7.jpg',
-  //   ];
 
   const newsLogo = [
     "/ary-logo.png",
@@ -116,14 +82,11 @@ export default function Home() {
       <Training />
 
       <Services />
-      {/* Blog Section */}
       <Blogs />
 
-      {/* What Our Student Says */}
-
       <StudentSlider />
+      <CountdownTimer targetDate="2025-04-01T00:00:00" />
 
-      {/* Memorable Moments Gallery */}
       <div className=" mt-[55px] ">
         <div className="text-center font-bold text-2xl sm:text-5xl my-16">
           <h1 className="text-[#29ab87] tracking-wide drop-shadow-lg ">
@@ -143,19 +106,8 @@ export default function Home() {
         ></iframe>
       </div>
 
-      {/* As Seen ON */}
-      {/* <div className="my-40 py-28 bg-gray-200 overflow-hidden">
-        <div className="flex bg-gray-200  gap-8 px-10 translate-x-[-200px]">
-         {newsLogo?.map((logo,index) => {
-          return <div key={index} className="flex-shrink-0">
-              <img src={logo} alt="no Image" className="h-[150px] w-auto " />
-          </div>
-         })}
-        </div>
-      </div> */}
       <div className="  py-[30px] bg-gray-200 overflow-hidden">
         <div className="flex bg-gray-200 gap-20 px-10 animate-scroll">
-          {/* Duplicating the logos for seamless transition */}
           {newsLogo.concat(newsLogo).map((logo, index) => (
             <div key={index} className="flex-shrink-0">
               <img src={logo} alt="no Image" className="h-[120px] " />
@@ -163,7 +115,6 @@ export default function Home() {
           ))}
         </div>
 
-        {/* CSS for Infinite Scrolling Animation */}
         <style jsx>{`
           @keyframes scroll {
             0% {
