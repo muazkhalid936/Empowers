@@ -1,10 +1,11 @@
 "use client";
+import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function LoginForm() {
   const [formData, setFormData] = useState({
-    username: "",
+    email: "",
     password: "",
     keepSignedIn: false,
   });
@@ -17,9 +18,17 @@ export default function LoginForm() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted", formData);
+    try {
+      const response = await axios.post('/api/auth/login',formData);
+      // alert(response.data);
+      console.log(response);
+      localStorage.setItem("token",response.data.token);
+      localStorage.setItem("role", response.data.role);
+    } catch (error) {
+      console.log(error.response.data);
+    }
   };
 
   return (
@@ -30,9 +39,9 @@ export default function LoginForm() {
           <div className="mb-4">
             <input
               type="text"
-              name="username"
-              placeholder="Username or Email Address"
-              value={formData.username}
+              name="email"
+              placeholder="Email or Email Address"
+              value={formData.email}
               onChange={handleChange}
               className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />

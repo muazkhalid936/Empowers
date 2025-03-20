@@ -10,7 +10,8 @@ export default async function handler(req, res) {
   const hashedPassword = await bcrypt.hash(password, 10);
 
   try {
-    const user = await User.create({ firstName, lastName, username, email, password: hashedPassword });
+    const user = await User.create({ firstName, lastName, username, email, role : "student", password: hashedPassword });
+    console.log(user);
     res.status(201).json({ message: 'User created', user });
   } catch (error) {
     res.status(400).json({ error: 'Error creating user' });

@@ -9,11 +9,12 @@ export default async function handler(req, res) {
 
   const { email, password } = req.body;
   const user = await User.findOne({ email });
+ 
   if (!user) return res.status(401).json({ error: 'User not found' });
 
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) return res.status(401).json({ error: 'Invalid credentials' });
 
   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
-  res.json({ message: 'Login successful', token });
+  res.json({ message: 'Login successful', token, role : user.role });
 }
