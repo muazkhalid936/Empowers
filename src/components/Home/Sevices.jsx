@@ -42,27 +42,35 @@ const ourServicesRight = [
 const Sevices = () => {
   return (
     <div>
-      <div className="md:mt-[55px] md:px-24 container mx-auto">
-        <div className=" my-10 flex justify-around items-center gap-16 relative">
-          <div className="absolute border border-gray-300 w-[120px]  rotate-30 top-35 left-[280px]"></div>
-          <div className="absolute border border-gray-300 w-[90px]  rotate- top-75 left-[278px]"></div>
-          <div className="absolute border border-gray-300 w-[120px]  rotate-150 top-115 left-[280px]"></div>
+      <div className="md:my-[55px] md:px-24 container mx-auto px-10">
+        <div className="text-center font-bold lg:hidden  flex justify-center mt-[45px] text-2xl sm:text-5xl">
+          <h1 className="text-[#29ab87] tracking-wide drop-shadow-lg ">
+            Blog Post
+          </h1>
+        </div>
+        <div className=" sm:my-10  mb-[45px] sm:mb-0 flex  justify-between items-center gap-16 relative">
+          <div className="absolute border lg:flex  hidden border-gray-300 w-[100px] rotate-30 top-1/3 left-[20vw] -translate-y-1/2"></div>
+          <div className="absolute border lg:flex  hidden border-gray-300 w-[90px] rotate-0 top-1/2 left-[20vw] -translate-y-1/2"></div>
+          <div className="absolute border lg:flex  hidden border-gray-300 w-[100px] rotate-150 top-[70%] left-[20vw] -translate-y-1/2"></div>
 
-          <div className="absolute border border-gray-300 w-[120px]  rotate-150 top-38 right-[300px]"></div>
-          <div className="absolute border border-gray-300 w-[90px]  rotate- top-75 right-[305px]"></div>
-          <div className="absolute border border-gray-300 w-[120px]  rotate-205 top-115 right-[308px]"></div>
-          <div className="mt-[70px]">
+          <div className="absolute border lg:flex  hidden border-gray-300 w-[100px] -rotate-30 top-1/3 right-[20vw] -translate-y-1/2"></div>
+          <div className="absolute border lg:flex  hidden border-gray-300 w-[90px] rotate-0 top-1/2 right-[20vw] -translate-y-1/2"></div>
+          <div className="absolute border lg:flex  hidden border-gray-300 w-[100px] -rotate-150 top-[70%] right-[20vw] -translate-y-1/2"></div>
+
+          <div className=" w-1/2 lg:w-[30%]">
             {ourServicesLeft.map((leftData, index) => {
               return (
                 <div
                   key={index}
-                  className="flex justify-end flex-col-reverse items-center gap-10 h-[150px]"
+                  className="flex justify-center flex-col-reverse items-center  h-[150px]"
                 >
-                  <h1 className="text-2xl">
+                  <h1 className="text-2xl text-center">
                     {leftData.text.split("|").map((line, index) => (
-                      <span className="text-[18px]" key={index}>
+                      <span
+                        className="text-[16px] sm:text-[18px] text-center"
+                        key={index}
+                      >
                         {line}
-                        <br />
                       </span>
                     ))}
                   </h1>
@@ -71,20 +79,31 @@ const Sevices = () => {
               );
             })}
           </div>
-          <div className="w-[350px] h-[350px] border shadow-2xl border-gray-300 rounded-full flex items-center justify-center">
-            <h1 className="text-2xl sm:text-5xl font-bold tracking-wide text-[#29ab87] drop-shadow-lg">
-              Our Services
-            </h1>
+          <div className="w-[40%] lg:flex hidden justify-center items-center">
+            <div
+              className="w-[350px] h-[350px] border border-gray-300 rounded-full flex items-center justify-center bg-white"
+              style={{
+                boxShadow:
+                  "inset 0 20px 15px rgba(41, 171, 135, 0.15), inset 0 -20px 15px rgba(41, 171, 135, 0.15), inset 20px 0 15px rgba(41, 171, 135, 0.15), inset -20px 0 15px rgba(41, 171, 135, 0.15)",
+              }}
+            >
+              <h1 className="text-2xl sm:text-4xl font-bold tracking-wide text-gray-700 drop-shadow-lg">
+                Our Services
+              </h1>
+            </div>
           </div>
-          <div className="mt-[60px]">
+
+          <div className=" w-1/2 lg:w-[30%]">
             {ourServicesRight.map((leftData, index) => {
               return (
                 <div
                   key={index}
-                  className="flex justify-start flex-col items-center gap-10 h-[150px]"
+                  className="flex justify-center flex-col items-center  h-[150px]"
                 >
                   <div>{leftData.icon}</div>
-                  <h1 className="text-[18px]">{leftData.text}</h1>
+                  <h1 className="text-[16px[ sm:text-[18px] text-center">
+                    {leftData.text}
+                  </h1>
                 </div>
               );
             })}

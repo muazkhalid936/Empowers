@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Clock from "./Click";
 
 const CountdownTimer = ({ targetDate }) => {
   const calculateTimeLeft = () => {
@@ -29,27 +30,35 @@ const CountdownTimer = ({ targetDate }) => {
   }, [targetDate]);
 
   return (
-    <div className="flex justify-center items-center container mx-auto flex-col md:px-24 px-10">
-      <h1 className="font-bold text-2xl sm:text-5xl text-[#29AB87] drop-shadow-md mb-5">
+    <div className="flex justify-center items-center  py-[45px] container mx-auto flex-col md:px-24 gap-5 sm:gap-10 px-10">
+      <h1 className="font-bold text-2xl sm:text-5xl textGray drop-shadow-md mb-5">
         Upcoming Events
       </h1>
-
-      <div className="flex space-x-4 text-center text-white text-2xl justify-center items-center font-bold">
-        <div className="bg-gray-800 px-4 py-2 rounded-lg">
-          <p>{timeLeft.days}</p>
-          <span className="text-sm">Days</span>
+      <h1 className="font-bold text-xl sm:text-3xl textGray drop-shadow-md mb-5">
+        Mega Event{" "}
+      </h1>
+      <div className="flex justify-center flex-col sm:flex-row items-center gap-10 ">
+        <div className="flex space-x-4 flex-col  gap-2 sm:flex-row text-center text-white text-2xl justify-center items-center font-bold">
+          <h2 className="textGray">Time Left: </h2>
+       <div className="flex gap-2">   <div className=" border border-gray-800 px-4 py-2 rounded-lg">
+            <p className="textGray">{timeLeft.days}</p>
+            <span className="text-sm textGray">Days</span>
+          </div>
+          <div className=" border border-gray-800 px-4 py-2 rounded-lg">
+            <p className="textGray">{timeLeft.hours}</p>
+            <span className="text-sm textGray">Hours</span>
+          </div>
+          <div className=" border border-gray-800 px-4 py-2 rounded-lg">
+            <p className="textGray">{timeLeft.minutes}</p>
+            <span className="text-sm textGray">Minutes</span>
+          </div>
+          <div className=" border border-gray-800 px-4 py-2 rounded-lg">
+            <p className="textGray">{timeLeft.seconds}</p>
+            <span className="text-sm textGray ">Seconds</span>
+          </div></div>
         </div>
-        <div className="bg-gray-800 px-4 py-2 rounded-lg">
-          <p>{timeLeft.hours}</p>
-          <span className="text-sm">Hours</span>
-        </div>
-        <div className="bg-gray-800 px-4 py-2 rounded-lg">
-          <p>{timeLeft.minutes}</p>
-          <span className="text-sm">Minutes</span>
-        </div>
-        <div className="bg-gray-800 px-4 py-2 rounded-lg">
-          <p>{timeLeft.seconds}</p>
-          <span className="text-sm">Seconds</span>
+        <div>
+        <Clock eventTime={targetDate} />
         </div>
       </div>
     </div>

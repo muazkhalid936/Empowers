@@ -1,4 +1,5 @@
 import React from "react";
+import BlogCard from "../Blog/BlogCard";
 const Blog = [
   {
     image: "/blog1.jpg",
@@ -21,36 +22,46 @@ const Blog = [
 ];
 const Blogs = () => {
   return (
-    <div className="container mx-auto">
-      <div className="mt-[0px] sm:mt-[100px] md:mx-24">
-        <div className="text-center font-bold  text-2xl sm:text-5xl my-10 sm:my-16">
+<div className="bg-[#ecf0ea] md:py-[55px] py-[45px]">
+
+
+<div className="container mx-auto">
+      <div className="  md:mx-24">
+        <div className="text-center font-bold  text-2xl sm:text-5xl">
           <h1 className="text-[#29ab87] tracking-wide drop-shadow-lg ">
             Blog Post
           </h1>
         </div>
-        <div className="flex lg:flex-row flex-col justify-center items-center lg:justify-between gap-7">
-          {Blog.map((item, index) => {
-            return (
-              <div
-                key={index}
-                className="w-[350px] shadow-md hover:shadow-xl flex flex-col rounded-md"
-              >
-                <img
-                  src={item.image}
-                  alt="No Blog Image"
-                  className="w-[350px] h-[200px] rounded-md"
-                />
-                <h1 className="my-5 text-xl sm:text-2xl font-bold  px-5">{item.title}</h1>
-                <p className="px-5 mb-5">{item.description}</p>
-                <button className="px-5 text-[blue] mt-auto text-start mb-4 cursor-pointer">
-                  Read More
-                </button>
-              </div>
-            );
-          })}
+        <div className="container flex flex-col sm:flex-row gap-5  py-10 sm:py-20 justify-center items-center md:px-24 px-10 mx-auto">
+        <div className="sm:w-1/3">
+          <BlogCard
+            imgSrc={"/blog1.jpg"}
+            date={"Jan 14, 2020"}
+            title={
+              "How to avoid eBay new account suspensions, a detailed post."
+            }
+          />
+        </div>
+        <div className="sm:w-1/3">
+          <BlogCard
+            imgSrc={"/blog2.jpg"}
+            date={"Jan 14, 2020"}
+            title={
+              "Amazon seller account from Pakistan, eBay is still easy, amazon is still hard"
+            }
+          />
+        </div>
+        <div className="sm:w-1/3">
+          <BlogCard
+            imgSrc={"/blog3.jpg"}
+            date={"Jan 14, 2020"}
+            title={"Why Ebay? Why Empowerers?"}
+          />
         </div>
       </div>
+      </div>
     </div>
+</div>
   );
 };
 
