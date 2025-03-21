@@ -9,14 +9,14 @@ const SaleBanner = () => {
       <motion.div
       className="w-1/2 flex justify-center items-center"
         animate={{ scale: [1, 1.1, 1] }} // Scale up and down
-        transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }} // Infinite loop
+        transition={{ duration: 1, repeat: 1, ease: "easeInOut" }} // Loop 3 times
       >
         <Image
           src="/sale.jpg"
           alt="sale"
           width={300}
           height={300}
-          className="!h-[150px] !w-auto"
+          className="!h-[180px] !w-auto"
         />
       </motion.div>
 

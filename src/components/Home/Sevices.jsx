@@ -45,7 +45,7 @@ const Sevices = () => {
       <div className="md:my-[55px] md:px-24 container mx-auto px-10">
         <div className="text-center font-bold lg:hidden  flex justify-center mt-[45px] text-2xl sm:text-5xl">
           <h1 className="text-[#29ab87] tracking-wide drop-shadow-lg ">
-            Blog Post
+          Our Services
           </h1>
         </div>
         <div className=" sm:my-10  mb-[45px] sm:mb-0 flex  justify-between items-center gap-16 relative">
@@ -87,7 +87,7 @@ const Sevices = () => {
                   "inset 0 20px 15px rgba(0, 0, 0, 0.15), inset 0 -20px 15px rgba(0, 0, 0, 0.15), inset 20px 0 15px rgba(0, 0, 0, 0.15), inset -20px 0 15px rgba(0, 0, 0, 0.15)",
               }}
             >
-              <h1 className="text-2xl sm:text-4xl font-bold tracking-wide text-gray-700 drop-shadow-lg">
+              <h1 className="text-2xl sm:text-4xl font-bold tracking-wide text-[#29ab87] drop-shadow-lg">
                 Our Services
               </h1>
             </div>

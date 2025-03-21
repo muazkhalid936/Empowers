@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaChevronDown, FaChevronRight, FaChevronUp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
 import {
@@ -41,11 +41,72 @@ const tools = [
   },
 ];
 
+const trainingPrograms = [
+  {
+    label: "eBay Training",
+    submenu: [
+      { label: "eBay VBT (Video Based Training)" },
+      { label: "eBay Incubator Based Training" },
+      { label: "eBay Business Course - EBC" },
+      { label: "eBay Crash Course – ECC 3.0" },
+    ],
+  },
+  {
+    label: "TikTok Shop Training",
+    submenu: [
+      { label: "TikTok Shop VBT (Video Based Training)" },
+      { label: "TikTok Shop Incubator Based Training" },
+      { label: "TikTok Shop Online Training - TTS" },
+    ],
+  },
+  {
+    label: "Etsy Training",
+    submenu: [
+      { label: "Etsy VBT (Video Based Training)" },
+      { label: "Etsy Incubator Based Training" },
+      { label: "Etsy Training Program - ETP" },
+    ],
+  },
+];
+
+const services = [
+  { label: "eCommerce Consultation" },
+  { label: "Staff Augmentation" },
+  { label: "Managerial Services" },
+  { label: "Fulfillment Centers" },
+  {
+    label: "Shared Spaces in Incubators",
+    submenu: [
+      {
+        label: "Multan",
+        submenu: [
+          { label: "Multan Head Office" },
+          { label: "Multan Central Incubator" },
+        ],
+      },
+      { label: "Lahore" },
+      { label: "Faisalabad" },
+      { label: "Rawalpindi" },
+      { label: "Sialkot" },
+      { label: "Sahiwal" },
+      { label: "Swat" },
+    ],
+  },
+  { label: "Social Media Management" },
+  { label: "Artificial Intelligence Services" },
+  { label: "Cyber Security" },
+];
+
 function Navbar() {
+  const [showServices, setShowServices] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState(false);
   const [animation, setAnimation] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [showToolsDropdown, setShowToolsDropdown] = useState(false);
   const [showTools, setShowTools] = useState(false);
+  const [showTraining, setShowTraining] = useState(false);
+  const [subMenuTraining, setSubMenuTraining] = useState(null);
+
   useEffect(() => {
     setTimeout(() => setAnimation(true), 1000);
 
@@ -207,19 +268,188 @@ function Navbar() {
               </li>
             </Link>
 
-            <Link href={"/trainingPage"}>
-              <li className="relative group cursor-pointer text-gray-700 hover:text-[#77C9B3]">
-                Trainings
-                <span className="hidden md:block absolute left-0 bottom-0 w-0 h-[2px] bg-[#77C9B3] transition-all duration-300 group-hover:w-1/2"></span>
-              </li>
-            </Link>
+            <div
+              className="relative"
+              onMouseEnter={() => setShowTraining(true)}
+              onMouseLeave={() => setShowTraining(false)}
+            >
+              <button className="cursor-pointer relative text-gray-700 gap-2 hover:text-[#77C9B3] flex items-center gap-1">
+                Training{" "}
+                <span className="text-sm">
+                  <FaChevronUp
+                    className={`${
+                      showTraining ? "" : "-rotate-180"
+                    } transition-all ease-in-out duration-300`}
+                  />
+                </span>
+              </button>
 
-            <Link href={"/ourServices"}>
-              <li className="relative group cursor-pointer text-gray-700 hover:text-[#77C9B3]">
-                Services
-                <span className="hidden md:block absolute left-0 bottom-0 w-0 h-[2px] bg-[#77C9B3] transition-all duration-300 group-hover:w-1/2"></span>
-              </li>
-            </Link>
+              <AnimatePresence>
+                {showTraining && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute left-0 mt-2 top-2 z-50 w-56 bg-white shadow-lg rounded-lg"
+                  >
+                    <ul className="py-2 text-left">
+                      {trainingPrograms.map((training, index) => (
+                        <li key={index} className="relative group">
+                          <div
+                            className="px-4 py-2 text-gray-800 hover:bg-gray-100 flex justify-between items-center cursor-pointer"
+                            onMouseEnter={() =>
+                              training.submenu &&
+                              setSubMenuTraining(training.label)
+
+                            }
+                            onMouseLeave={()=>{
+                              training.submenu &&
+                              setSubMenuTraining(null)
+                            }}
+                          >
+                            {training.label}
+                            {training.submenu && (
+                              <FaChevronRight className="text-xs" />
+                            )}
+                          </div>
+
+                          {/* Submenu */}
+                          <AnimatePresence>
+                            {training.submenu &&
+                              subMenuTraining === training.label && (
+                                <motion.div
+                                  initial={{ opacity: 0, x: 10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  exit={{ opacity: 0, x: 10 }}
+                                  transition={{ duration: 0.3 }}
+                                  className="absolute left-full top-0 w-80 bg-white shadow-lg rounded-lg"
+                                  onMouseEnter={() =>
+                                    setSubMenuTraining(training.label)
+                                  }
+                                  onMouseLeave={() => setSubMenuTraining(null)}
+                                >
+                                  <ul className="py-2 text-left">
+                                    {training.submenu.map((sub, subIndex) => (
+                                      <li key={subIndex} className="relative">
+                                        <div className="px-4 py-2 text-gray-800 hover:bg-gray-100 cursor-pointer">
+                                          {sub.label}
+                                        </div>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </motion.div>
+                              )}
+                          </AnimatePresence>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <div
+              className="relative"
+              onMouseEnter={() => setShowServices(true)}
+              onMouseLeave={() => setShowServices(false)}
+            >
+              <button className="cursor-pointer relative text-gray-700 gap-2 hover:text-[#77C9B3] flex items-center gap-1">
+                Services{" "}
+                <span className="text-sm">
+                  <FaChevronUp
+                    className={`${
+                      showServices ? "" : "-rotate-180"
+                    } transition-all ease-in-out duration-300`}
+                  />
+                </span>
+              </button>
+              <AnimatePresence>
+                {showServices && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute left-0 mt-2 top-2 z-100 w-56 bg-white shadow-lg rounded-lg"
+                  >
+                    <ul className="py-2 text-left">
+                      {services.map((service, index) => (
+                        <li key={index} className="relative group">
+                          <div
+                            className=" px-4 py-2 text-gray-800 hover:bg-gray-100 flex justify-between items-center cursor-pointer"
+                            onMouseEnter={() => {
+                              if (service.submenu) setOpenSubmenu(true);
+                            }}
+                            onMouseLeave={() => setOpenSubmenu(false)}
+                          >
+                            {service.label}
+                            {service.submenu && (
+                              <FaChevronRight className="text-xs" />
+                            )}
+                          </div>
+                          {service.submenu && openSubmenu && (
+                            <AnimatePresence>
+                              <motion.div
+                                initial={{ opacity: 0, x: 10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: 10 }}
+                                transition={{ duration: 0.3 }}
+                                className="absolute left-full top-0 w-48 bg-white shadow-lg rounded-lg"
+                              >
+                                <ul className="py-2 text-left">
+                                  {service.submenu.map((sub, subIndex) => (
+                                    <li
+                                      key={subIndex}
+                                      className="relative text-start group"
+                                    >
+                                      <div
+                                        className=" px-4 py-2 text-gray-800 hover:bg-gray-100 flex justify-between items-center cursor-pointer"
+                                        onMouseEnter={() =>
+                                          setOpenSubmenu(sub.label)
+                                        }
+                                      >
+                                        {sub.label}
+                                        {sub.submenu && (
+                                          <FaChevronRight className="text-xs" />
+                                        )}
+                                      </div>
+                                      {sub.submenu &&
+                                        openSubmenu === sub.label && (
+                                          <motion.div
+                                            initial={{ opacity: 0, x: 10 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            exit={{ opacity: 0, x: 10 }}
+                                            transition={{ duration: 0.3 }}
+                                            className="absolute left-full top-0 w-48 bg-white shadow-lg rounded-lg"
+                                          >
+                                            <ul className="py-2">
+                                              {sub.submenu.map(
+                                                (nested, nestedIndex) => (
+                                                  <li
+                                                    key={nestedIndex}
+                                                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                                                  >
+                                                    {nested.label}
+                                                  </li>
+                                                )
+                                              )}
+                                            </ul>
+                                          </motion.div>
+                                        )}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </motion.div>
+                            </AnimatePresence>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             <Link href={"/gallery"}>
               <li className="relative group cursor-pointer text-gray-700  hover:text-[#77C9B3]">
@@ -248,7 +478,11 @@ function Navbar() {
             >
               Tools{" "}
               <span className="text-sm">
-                 <FaChevronUp  className={` ${showTools?"":"-rotate-180 "} transition-all ease-in-out duration-300`}/>
+                <FaChevronUp
+                  className={` ${
+                    showTools ? "" : "-rotate-180 "
+                  } transition-all ease-in-out duration-300`}
+                />
               </span>
               <AnimatePresence>
                 {showTools && (
@@ -266,7 +500,7 @@ function Navbar() {
                         <li key={index}>
                           <Link
                             href={service.href}
-                            className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                            className="block  text-start pl-4 py-2 text-gray-800 hover:bg-gray-100"
                           >
                             {service.label}
                           </Link>

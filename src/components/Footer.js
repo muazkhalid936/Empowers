@@ -32,7 +32,7 @@ function Footer() {
             </p>
           </div>
           <div>
-            <h1 className="cursor-pointer text-2xl textGray font-bold tracking-wide mb-5">
+            <h1 className="cursor-pointer text-2xl text-black font-bold tracking-wide mb-5">
               Quick Links
             </h1>
             <p className="mb-2 cursor-pointer text-[14px] sm:text-[20px] ">
@@ -57,7 +57,7 @@ function Footer() {
             </p>
           </div>
           <div>
-            <h1 className="cursor-pointer text-2xl textGray font-bold tracking-wide mb-5">
+            <h1 className="cursor-pointer text-2xl text-black font-bold tracking-wide mb-5">
               Resources
             </h1>
             <p className="mb-2 hover:cursor-pointer text-[14px] sm:text-[20px]">
@@ -87,7 +87,7 @@ function Footer() {
             </p>
           </div>
           <div>
-            <h1 className="cursor-pointer text-2xl textGray font-bold tracking-wide mb-5">
+            <h1 className="cursor-pointer text-2xl text-black font-bold tracking-wide mb-5">
               Support
             </h1>
             <p className="mb-2 hover:cursor-pointer text-[14px] sm:text-[20px]">
@@ -117,7 +117,7 @@ function Footer() {
             </p>
           </div>
           <div className="">
-          <h1 className="cursor-pointer text-2xl textGray font-bold tracking-wide mb-5">
+          <h1 className="cursor-pointer text-2xl text-black font-bold tracking-wide mb-5">
 Contact Us            </h1>
 
             <p className="mt-5 mb-3 text-[14px] sm:text-[20px]">+92 3327195240</p>
@@ -135,7 +135,7 @@ Contact Us            </h1>
             <label htmlFor="email"  className='text-2xl'>Email <span className='text-red-600'>*</span></label><br />
             <input type="text" id='email'
             placeholder='Your Email address'
-            className='outline-none rounded-md textGray mt-2 w-[400px] p-3 text-[14px] sm:text-[20px] bg-gray-300' /> <br />
+            className='outline-none rounded-md text-black mt-2 w-[400px] p-3 text-[14px] sm:text-[20px] bg-gray-300' /> <br />
             <button className='mt-8 px-8 py-2 rounded-md cursor-pointer hover:bg-white hover:text-[#29ab87] border text-[14px] sm:text-[20px] tracking-wide'>Subscribe</button>
         </div> */}
         </div>
