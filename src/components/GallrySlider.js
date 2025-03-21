@@ -45,7 +45,7 @@ function GallerySlider() {
               <img
                 src={image}
                 alt={`Gallery ${index + 1}`}
-                className="w-full h-[250px] object-cover rounded-lg"
+                className="w-full h-[250px] object-cover scale-95 hover:scale-100 ease-in-out transition-all duration-300 rounded-lg"
               />
             </SwiperSlide>
           ))}

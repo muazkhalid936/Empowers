@@ -248,7 +248,7 @@ function Navbar() {
             >
               Tools{" "}
               <span className="text-sm">
-                {showTools ? <FaChevronUp /> : <FaChevronDown />}
+                 <FaChevronUp  className={` ${showTools?"":"-rotate-180 "} transition-all ease-in-out duration-300`}/>
               </span>
               <AnimatePresence>
                 {showTools && (
