@@ -31,6 +31,10 @@ const Blogs = () => {
           <h1 className="text-[#29ab87] tracking-wide drop-shadow-lg ">
             Blog Post
           </h1>
+
+          <button className="md:text-[15px] font-semibold md:tracking-wide border hover:cursor-pointer transition-all duration-300 ease-in-out rounded-full px-5 text-[#4a4d48] bg-transparent hover:text-[#29ab87]  md:px-10 py-2">
+            Explore More Blogs
+          </button>
         </div>
         <div className="container flex flex-col sm:flex-row gap-5  py-10 sm:py-20 justify-center items-center md:px-24 px-10 mx-auto">
         <div className="sm:w-1/3">

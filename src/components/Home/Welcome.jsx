@@ -8,10 +8,10 @@ const Welcome = () => {
           <h1 className="text-2xl md:text-5xl font-bold text-[#29ab87] text-center sm:text-start  drop-shadow-lg">
             Welcome To Empowrerers
           </h1>
-          <p className=" text-xl sm:text-2xl italic text-center sm:text-start text-[#29ab87] ">
+          <p className=" mt-[-10px] text-xl italic text-center sm:text-start text-[#29ab87] ">
             Learning often happens in classrooms but it doesn’t have to.
           </p>
-          <div className="flex items-center flex-col text-2xl">
+          <div className="flex sm:items-start items-center sm:ml-4 flex-col text-2xl">
             {/* <TypeAnimation
                 sequence={[
                   'Concerned about the job-shrinking market? Tired of finding a job over and over again? Learn eBay. Join Empowerers.',
@@ -45,7 +45,7 @@ const Welcome = () => {
             {/* <p>Empowerers Offering Ecommerce learning courses in reasonable prices. Empowerers offers EBay, Etsy, and many other courses.</p> */}
           </div>
 
-          <div className=" mt-5 flex justify-center items-center">
+          <div className=" mt-5 flex justify-center lg:justify-start items-center">
             <button className="tracking-wide cursor-pointer text-[12px] font-bold text-white bg-[#29ab87] hover:text-[#29ab87] hover:bg-white  px-5 py-2 rounded-full transition-all duration-300 ease-in-out">
               Start Learning
             </button>

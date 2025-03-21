@@ -1,6 +1,9 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+
 import {
   FaBars,
   FaFacebook,
@@ -14,23 +17,35 @@ import { MdEmail, MdOutlineEmail } from "react-icons/md";
 import { CiLogin } from "react-icons/ci";
 import News from "./News";
 import Link from "next/link";
+import SaleBanner from "./SaleBanner";
 const tools = [
-  { label: "eBoss", href: "/eboss" },
-  { label: "GoLogin", href: "/gologin" },
-  { label: "ContentStudio", href: "/contentstudio" },
-  { label: "VidIq", href: "/vidiq" },
-  { label: "ZikAnalytics", href: "/zikanalytics" },
-  { label: "Payoneer", href: "/payoneer" },
-  { label: "SendInBlue", href: "/sendinblue" },
-  { label: "NameCheap", href: "/namecheap" },
+  { label: "eBoss", href: "https://eboss.pk/" },
+  { label: "GoLogin", href: "https://gologin.com/register" },
+  { label: "ContentStudio", href: "https://contentstudio.io/" },
+  { label: "VidIq", href: "https://vidiq.com/LetsEmpower/" },
+  {
+    label: "ZikAnalytics",
+    href: "https://www.zikanalytics.com/pricing/?ReferrerId=244083",
+  },
+  {
+    label: "Payoneer",
+    href: "https://payouts.payoneer.com/partners/or.aspx?pid=YOYIZC74IO2s4KZQp7tgsw%3d%3d&utm_source=affiliatesCN&utm_medium=The+Empowerers+LLP&utm_campaign=RevShare&transaction_id=1023e758b6b90485844f115e222099&offer_id=505&aff_id=43090",
+  },
+  {
+    label: "SendInBlue",
+    href: "https://www.brevo.com/?tap_a=30591-fb13f0&tap_s=2845714-4d5a62",
+  },
+  {
+    label: "NameCheap",
+    href: "https://www.namecheap.com/?clickID=wUowdbwQGxyPU30Q9YR3mQobUkHyjoxXfTJITk0&irgwc=1&utm_source=IR&utm_medium=Affiliate&utm_campaign=3230165&affnetwork=ir&ref=ir",
+  },
 ];
 
 function Navbar() {
   const [animation, setAnimation] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [showToolsDropdown, setShowToolsDropdown] = useState(false);
-  const [showTools,setShowTools] = useState(false);
-
+  const [showTools, setShowTools] = useState(false);
   useEffect(() => {
     setTimeout(() => setAnimation(true), 1000);
 
@@ -55,7 +70,7 @@ function Navbar() {
           </div>
 
           {/* Offers div */}
-          <div className="text-xl   px-3 py-2  text-white   ">
+          {/* <div className="text-xl   px-3 py-2  text-white   ">
             <p
               className={`${
                 animation === true
@@ -66,7 +81,7 @@ function Navbar() {
               🎉 Limited Time Offer: <span className="font-bold">20% Off</span>{" "}
               on All Courses! 🚀
             </p>
-          </div>
+          </div> */}
 
           {/* Social media Links */}
           <div className="text-xl flex gap-4 items-center ">
@@ -225,38 +240,43 @@ function Navbar() {
                 <span className="hidden md:block absolute left-0 bottom-0 w-0 h-[2px] bg-[#77C9B3] transition-all duration-300 group-hover:w-1/2"></span>
               </li>
             </Link>
-            <div className="relative">
-      {/* Dropdown Button */}
-      <button
-        onMouseEnter={() => setShowTools(true)}
-        onMouseLeave={() => setShowTools(false)}
-        className="cursor-pointer text-gray-700 hover:text-[#77C9B3] flex items-center gap-1"
-      >
-        Tools <span className="text-sm">▼</span>
-      </button>
 
-      {/* Dropdown Menu */}
-      {showTools && (
-        <div
-          onMouseEnter={() => setShowTools(true)}
-          onMouseLeave={() => setShowTools(false)}
-          className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 translate-y-4 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0"
-        >
-          <ul className="py-2">
-            {tools.map((service, index) => (
-              <li key={index}>
-                <Link
-                  href={service.href}
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-                >
-                  {service.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
+            <button
+              onMouseEnter={() => setShowTools(true)}
+              onMouseLeave={() => setShowTools(false)}
+              className="cursor-pointer relative text-gray-700 gap-2 hover:text-[#77C9B3] flex items-center gap-1"
+            >
+              Tools{" "}
+              <span className="text-sm">
+                {showTools ? <FaChevronUp /> : <FaChevronDown />}
+              </span>
+              <AnimatePresence>
+                {showTools && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }} // Start hidden and slightly offset
+                    animate={{ opacity: 1, y: 0 }} // Animate to fully visible
+                    exit={{ opacity: 0, y: 10 }} // Animate out (fade and move down)
+                    transition={{ duration: 0.3 }} // Animation duration
+                    onMouseEnter={() => setShowTools(true)}
+                    onMouseLeave={() => setShowTools(false)}
+                    className="absolute left-0 mt-2 top-2 z-100 w-48 bg-white shadow-lg rounded-lg"
+                  >
+                    <ul className="py-2">
+                      {tools.map((service, index) => (
+                        <li key={index}>
+                          <Link
+                            href={service.href}
+                            className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                          >
+                            {service.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </button>
 
             <li className="relative group cursor-pointer text-gray-700 hover:text-[#77C9B3]">
               My Account
@@ -324,9 +344,7 @@ function Navbar() {
           </ul>
         </div>
       </div>
-      <div>
-        <News />
-      </div>
+      <SaleBanner />
     </>
   );
 }

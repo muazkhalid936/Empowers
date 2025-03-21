@@ -84,7 +84,7 @@ const Sevices = () => {
               className="w-[350px] h-[350px] border border-gray-300 rounded-full flex items-center justify-center bg-white"
               style={{
                 boxShadow:
-                  "inset 0 20px 15px rgba(41, 171, 135, 0.15), inset 0 -20px 15px rgba(41, 171, 135, 0.15), inset 20px 0 15px rgba(41, 171, 135, 0.15), inset -20px 0 15px rgba(41, 171, 135, 0.15)",
+                  "inset 0 20px 15px rgba(0, 0, 0, 0.15), inset 0 -20px 15px rgba(0, 0, 0, 0.15), inset 20px 0 15px rgba(0, 0, 0, 0.15), inset -20px 0 15px rgba(0, 0, 0, 0.15)",
               }}
             >
               <h1 className="text-2xl sm:text-4xl font-bold tracking-wide text-gray-700 drop-shadow-lg">

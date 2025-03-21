@@ -62,9 +62,9 @@ const Training = () => {
                 <div className=" m-4">
                   {data.features.map((features, index) => {
                     return (
-                      <div key={index} className="mb-2">
-                        <p className="text-[16px]">{features}</p>
-                      </div>
+                      <ul key={index} className="mb-2 list-disc ml-2">
+                        <li className="text-[16px]">{features}</li>
+                      </ul>
                     );
                   })}
                 </div>

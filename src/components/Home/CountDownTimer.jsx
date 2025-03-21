@@ -40,25 +40,25 @@ const CountdownTimer = ({ targetDate }) => {
       <div className="flex justify-center flex-col sm:flex-row items-center gap-10 ">
         <div className="flex space-x-4 flex-col  gap-2 sm:flex-row text-center text-white text-2xl justify-center items-center font-bold">
           <h2 className="textGray">Time Left: </h2>
-       <div className="flex gap-2">   <div className=" border border-gray-800 px-4 py-2 rounded-lg">
-            <p className="textGray">{timeLeft.days}</p>
-            <span className="text-sm textGray">Days</span>
+          <div className="flex gap-2">
+            {" "}
+            <div className=" border border-gray-800 px-4 py-2 rounded-lg">
+              <p className="textGray">{timeLeft.days}</p>
+              <span className="text-sm textGray">Days</span>
+            </div>
+            <div className=" border border-gray-800 px-4 py-2 rounded-lg">
+              <p className="textGray">{timeLeft.hours}</p>
+              <span className="text-sm textGray">Hours</span>
+            </div>
+            <div className=" border border-gray-800 px-4 py-2 rounded-lg">
+              <p className="textGray">{timeLeft.minutes}</p>
+              <span className="text-sm textGray">Minutes</span>
+            </div>
+            <div className=" border border-gray-800 px-4 py-2 rounded-lg">
+              <p className="textGray">{timeLeft.seconds}</p>
+              <span className="text-sm textGray ">Seconds</span>
+            </div>
           </div>
-          <div className=" border border-gray-800 px-4 py-2 rounded-lg">
-            <p className="textGray">{timeLeft.hours}</p>
-            <span className="text-sm textGray">Hours</span>
-          </div>
-          <div className=" border border-gray-800 px-4 py-2 rounded-lg">
-            <p className="textGray">{timeLeft.minutes}</p>
-            <span className="text-sm textGray">Minutes</span>
-          </div>
-          <div className=" border border-gray-800 px-4 py-2 rounded-lg">
-            <p className="textGray">{timeLeft.seconds}</p>
-            <span className="text-sm textGray ">Seconds</span>
-          </div></div>
-        </div>
-        <div>
-        <Clock eventTime={targetDate} />
         </div>
       </div>
     </div>

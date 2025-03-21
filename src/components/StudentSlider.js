@@ -1,13 +1,13 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { BiSolidQuoteAltLeft, BiSolidQuoteAltRight } from "react-icons/bi";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
-import { useRef } from "react";
+
 const Students = [
   {
     image: "/student1.png",
@@ -20,7 +20,7 @@ const Students = [
     name: "Saif Asim",
     city: "Multan",
     message:
-      '"Founder of a comprehensive eBay A to Z services agency." Unfulfilled by the typical 9-to-5 grind, I decided to take control of my career. Today, I run my own eBay A to Z services agency, backed by a skilled and professional team.',
+      "Founder of a comprehensive eBay A to Z services agency. Unfulfilled by the typical 9-to-5 grind, I decided to take control of my career. Today, I run my own eBay A to Z services agency, backed by a skilled and professional team.",
   },
   {
     image: "/student3.png",
@@ -34,57 +34,65 @@ const Students = [
     name: "Abuzar Razaq",
     city: "Sahiwal",
     message:
-      'Running my online Company" Joined Empowerers in 2020. Now running my own eBay, Facebook removal and account reinstate based company named as OCCUFix.',
+      "Running my online company. Joined Empowerers in 2020. Now running my own eBay, Facebook removal, and account reinstatement-based company named OCCUFix.",
   },
 ];
-
 function StudentSlider() {
-    const swiperRef = useRef(null);
-  
+  const swiperRef = useRef(null);
+
   return (
     <div className="text-center my-[45px] md:my-[55px]">
       <h1 className="font-bold text-2xl sm:text-5xl text-[#29AB87] drop-shadow-md mb-5">
         What Our Students Say
       </h1>
 
-      <div className="relative mx-auto rounded-lg shadow-lg border border-gray-300 my-10 w-[70%] lg:w-[700px] bg-white p-5 text-center">
+      <div className="relative mx-auto rounded-lg shadow-lg border border-gray-300 my-10 w-[70%] lg:w-[900px] bg-white p-5 text-center">
         <Swiper
           modules={[Navigation, Pagination]}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
-          // navigation
-          // pagination={{ clickable: true }}
           spaceBetween={50}
           loop={true}
           slidesPerView={1}
           className="swiper-container"
-
         >
           {Students.map((student, index) => (
-            <SwiperSlide key={index} className="flex flex-col items-center">
-              <img
-                src={student.image}
-                alt={student.name}
-                className="sm:w-[200px] w-[100px] h-[100px] sm:h-[200px] mx-auto rounded-full aspect-[16/5]"
-              />
-              <div className="p-5">
+            <SwiperSlide key={index}>
+              <div className="flex flex-col items-center justify-center gap-5 h-[400px]">
+                <img
+                  src={student.image}
+                  alt={student.name}
+                  className="lg:w-[200px] w-[100px] h-[100px] lg:h-[200px] mx-auto rounded-full aspect-[16/5]"
+                />
                 <h1 className="text-xl font-semibold">{student.name}</h1>
                 <span className="text-gray-500">{student.city}</span>
+
+                {/* Quote section */}
+                <div className="relative text-gray-600  sm:px-20 leading-relaxed flex flex-col items-center">
+                  <div className="flex items-start w-full">
+                    <FaQuoteLeft className="text-3xl text-[#29AB87] mr-2" />
+                    <p className="text-gray-500 text-sm sm:text-base text-center flex-1">
+                      {student.message}
+                    </p>
+
+                    <FaQuoteRight className="text-3xl text-[#29AB87] " />
+                  </div>
+                </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
 
-        <div className=" gap-2 flex sm:mt-0">
+        <div className="gap-2 flex sm:mt-0">
           <button
-            className="h-8 w-8 absolute -left-10 sm:-left-20 sm:h-12 translate-y-24 top-0 sm:translate-y-36  sm:w-12 rounded-full bg-[#29ab87] flex items-center justify-center ease-in-out duration-300 hover:bg-blueColor"
-            onClick={() => swiperRef.current?.slidePrev()} // Slide to previous
+            className="h-8 w-8 absolute -left-10 sm:-left-20 sm:h-12 translate-y-24 top-0 sm:translate-y-36 sm:w-12 rounded-full bg-[#29ab87] flex items-center justify-center ease-in-out duration-300 hover:bg-blueColor"
+            onClick={() => swiperRef.current?.slidePrev()}
           >
             <HiChevronLeft className="text-white text-xl sm:text-2xl font-bold" />
           </button>
 
           <button
             className="h-8 w-8 absolute -right-10 sm:-right-20 top-0 translate-y-24 sm:translate-y-36 sm:h-12 sm:w-12 rounded-full bg-[#29ab87] flex items-center justify-center ease-in-out duration-300 hover:bg-blueColor"
-            onClick={() => swiperRef.current?.slideNext()} // Slide to previous
+            onClick={() => swiperRef.current?.slideNext()}
           >
             <HiChevronRight className="text-white text-xl sm:text-2xl font-bold" />
           </button>

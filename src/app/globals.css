@@ -40,3 +40,18 @@
 .section_headings{
   @apply text-[24px] md:text-[32px] lg:text-[52px] xl:text-[70px];
 }
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-in-out forwards;
+}
