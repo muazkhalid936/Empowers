@@ -36,8 +36,8 @@ const Blogs = () => {
             Explore More Blogs
           </button>
         </div>
-        <div className="container flex flex-col sm:flex-row gap-5  py-10 sm:py-20 justify-center items-center md:px-24 px-10 mx-auto">
-        <div className="sm:w-1/3">
+        <div className="container flex flex-col lg:flex-row gap-5  py-10 sm:py-20 justify-center items-center md:px-24 px-10 mx-auto">
+        <div className="lg:w-1/3">
           <BlogCard
             imgSrc={"/blog1.jpg"}
             date={"Jan 14, 2020"}
@@ -46,7 +46,7 @@ const Blogs = () => {
             }
           />
         </div>
-        <div className="sm:w-1/3">
+        <div className="lg:w-1/3">
           <BlogCard
             imgSrc={"/blog2.jpg"}
             date={"Jan 14, 2020"}
@@ -55,7 +55,7 @@ const Blogs = () => {
             }
           />
         </div>
-        <div className="sm:w-1/3">
+        <div className="lg:w-1/3">
           <BlogCard
             imgSrc={"/blog3.jpg"}
             date={"Jan 14, 2020"}
