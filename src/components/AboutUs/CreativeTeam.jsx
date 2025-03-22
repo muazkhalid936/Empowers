@@ -25,21 +25,21 @@ const CreativeTeam = () => {
           Our Creative Team
         </h1>
       </div>
-      <div className="flex gap-5 lg:gap-10 px-10 md:px-24 mt-5">
+      <div className="flex gap-5 flex-col sm:flex-row justify-center items-center lg:gap-10 px-10 md:px-24 mt-5">
         {outCreativeTeam.map((info, index) => {
           return (
             <div
               key={index}
-              className="border w-1/3 border-gray-300 drop-shadow-md shadow-lg rounded-[10%] overflow-hidden cursor-pointer hover:scale-105 transition-all ease-in-out duration-300"
+              className="border sm:w-1/3 border-gray-300 drop-shadow-md shadow-lg rounded-[10%] overflow-hidden cursor-pointer hover:scale-105 transition-all ease-in-out duration-300"
             >
-              <div className="md:h-[180px] h-[100px] xl:h-[400px] p-2 ">
+              <div className="md:h-[180px] h-[200px] xl:h-[400px] p-2 ">
                 <img
                   src={info.image}
                   alt="Image"
                   className=" object-cover mx-auto rounded-[10%] max-h-full"
                 />
               </div>
-              <div className="text-center lg:my-5 flex flex-col gap-5 p-2">
+              <div className="text-center lg:my-5 flex flex-col gap-5 p-5 sm:p-2">
                 <h1 className=" font-bold text-[#29AB87] text-[18px] lg:text-[20px]">{info.name}</h1>
                 <h1 className="text-[10px] lg:text-[16px] text-[#7a7a7a]">{info.detail}</h1>
               </div>

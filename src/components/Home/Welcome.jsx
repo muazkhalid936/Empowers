@@ -5,10 +5,10 @@ const Welcome = () => {
     <div className="bg-[#ecf0ea]">
       <div className="md:py-[55px] py-[45px] mb-[45px]  container mx-auto   flex lg:flex-row gap-10 flex-col  justify-center items-center px-10  md:px-24">
         <div className=" lg:w-1/2 flex flex-col gap-5 ">
-          <h1 className="text-2xl md:text-5xl font-bold text-[#29ab87] text-center sm:text-start  drop-shadow-lg">
+          <h1 className="text-2xl md:text-5xl font-bold text-[#29ab87] text-start  drop-shadow-lg">
             Welcome To Empowrerers
           </h1>
-          <p className=" mt-[-10px] text-xl italic text-center sm:text-start text-[#29ab87] ">
+          <p className=" mt-[-10px] text-xl italic text-start text-[#29ab87] ">
             Learning often happens in classrooms but it doesn’t have to.
           </p>
           <div className="flex sm:items-start items-center sm:ml-4 flex-col text-2xl">

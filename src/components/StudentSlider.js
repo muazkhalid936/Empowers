@@ -42,7 +42,7 @@ function StudentSlider() {
 
   return (
     <div className="text-center my-[45px] md:my-[55px]">
-      <h1 className="font-bold text-2xl sm:text-5xl text-[#29AB87] drop-shadow-md mb-5">
+      <h1 className="font-bold relative text-2xl sm:text-5xl text-[#29AB87] drop-shadow-md mb-5">
         What Our Students Say
       </h1>
 
@@ -57,7 +57,7 @@ function StudentSlider() {
         >
           {Students.map((student, index) => (
             <SwiperSlide key={index}>
-              <div className="flex flex-col items-center justify-center gap-5 h-[400px]">
+              <div className="flex flex-col items-center justify-center gap-5 h-[450px] sm:h-[400px]">
                 <img
                   src={student.image}
                   alt={student.name}
@@ -69,12 +69,15 @@ function StudentSlider() {
                 {/* Quote section */}
                 <div className="relative text-gray-600  sm:px-20 leading-relaxed flex flex-col items-center">
                   <div className="flex items-start w-full">
-                    <FaQuoteLeft className="text-3xl text-[#29AB87] mr-2" />
+                    <div>
+                      <FaQuoteLeft className="text-3xl text-[#29AB87] mr-2" />
+                    </div>
                     <p className="text-gray-500 text-sm sm:text-base text-center flex-1">
                       {student.message}
                     </p>
-
-                    <FaQuoteRight className="text-3xl text-[#29AB87] " />
+                    <div className="flex justify-end items-end h-full">
+                      <FaQuoteRight className="text-3xl text-[#29AB87] " />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -84,14 +87,14 @@ function StudentSlider() {
 
         <div className="gap-2 flex sm:mt-0">
           <button
-            className="h-8 w-8 absolute -left-10 sm:-left-20 sm:h-12 translate-y-24 top-0 sm:translate-y-36 sm:w-12 rounded-full bg-[#29ab87] flex items-center justify-center ease-in-out duration-300 hover:bg-blueColor"
+            className="h-8 w-8 absolute -left-10 sm:-left-20 sm:h-12 translate-y-1/2 top-1/2  sm:w-12 rounded-full bg-[#29ab87] flex items-center justify-center ease-in-out duration-300 hover:bg-blueColor"
             onClick={() => swiperRef.current?.slidePrev()}
           >
             <HiChevronLeft className="text-white text-xl sm:text-2xl font-bold" />
           </button>
 
           <button
-            className="h-8 w-8 absolute -right-10 sm:-right-20 top-0 translate-y-24 sm:translate-y-36 sm:h-12 sm:w-12 rounded-full bg-[#29ab87] flex items-center justify-center ease-in-out duration-300 hover:bg-blueColor"
+            className="h-8 w-8 absolute -right-10 sm:-right-20 top-1/2  translate-y-1/2 sm:h-12 sm:w-12 rounded-full bg-[#29ab87] flex items-center justify-center ease-in-out duration-300 hover:bg-blueColor"
             onClick={() => swiperRef.current?.slideNext()}
           >
             <HiChevronRight className="text-white text-xl sm:text-2xl font-bold" />
