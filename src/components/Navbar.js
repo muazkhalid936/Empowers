@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   FaBars,
   FaFacebook,
@@ -15,7 +17,7 @@ import {
   FaTiktok,
   FaTimes,
   FaYoutube,
-  FaMail
+  FaMail,
 } from "react-icons/fa";
 import { IoMailSharp } from "react-icons/io5";
 
@@ -46,7 +48,6 @@ const tools = [
     href: "https://www.namecheap.com/?clickID=wUowdbwQGxyPU30Q9YR3mQobUkHyjoxXfTJITk0&irgwc=1&utm_source=IR&utm_medium=Affiliate&utm_campaign=3230165&affnetwork=ir&ref=ir",
   },
 ];
-
 const trainingPrograms = [
   {
     label: "eBay Training",
@@ -74,7 +75,6 @@ const trainingPrograms = [
     ],
   },
 ];
-
 const services = [
   { label: "eCommerce Consultation" },
   { label: "Staff Augmentation" },
@@ -104,6 +104,13 @@ const services = [
 ];
 
 function Navbar() {
+  const router = useRouter();
+  const pathname = usePathname(); // Get the current route
+
+  const hadnleClick = (e) => {
+    router.push(e);
+  };
+
   const [showServices, setShowServices] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(false);
   const [animation, setAnimation] = useState(false);
@@ -115,142 +122,82 @@ function Navbar() {
 
   useEffect(() => {
     setTimeout(() => setAnimation(true), 1000);
-
+setShowSidebar(false);
     if (animation) {
       setTimeout(() => setAnimation(false), 10000);
     }
   }, [animation]);
+
+  useEffect(() => {
+    setShowSidebar(false); // Close sidebar on route change
+  }, [pathname]);
+
   return (
     <>
       <div className=" hidden bg-[#29ab87] font_inter p-2  lg:flex justify-between items-center text-white px-16">
-      <div className="flex-1 flex justify-between items-center">
-  {/* Email and contact on top bar */}
-  <div className="flex gap-5 text-xl">
-    <div className="flex items-center gap-1">
-      <FaPhoneAlt />
-      <p className=" text-[12px] 2xl:text-[16px]">+92 3327195240</p>
-    </div>
-    <div className="flex items-center gap-1">
-      <MdEmail />
-      <p className=" text-[12px] 2xl:text-[16px]">info@empowerers.com</p>
-    </div>
-  </div>
+        <div className="flex-1 flex justify-between items-center">
+          {/* Email and contact on top bar */}
+          <div className="flex gap-5 text-xl">
+            <div className="flex items-center gap-1">
+              <FaPhoneAlt />
+              <p className=" text-[12px] 2xl:text-[16px]">+92 3327195240</p>
+            </div>
+            <div className="flex items-center gap-1">
+              <MdEmail />
+              <p className=" text-[12px] 2xl:text-[16px]">
+                info@empowerers.com
+              </p>
+            </div>
+          </div>
 
-  {/* Offers div with sliding animation */}
-  <div className="text-xl px-3 py-2 text-white overflow-hidden relative w-[40%] xl:w-[50%]">
-    <div className="whitespace-nowrap animate-slide  text-[12px] 2xl:text-[16px]">
-       Limited Time Offer: <span className="font-bold">20% Off</span> on All Courses! 
-    </div>
-  </div>
+          {/* Offers div with sliding animation */}
+          <div className="text-xl px-3 py-2 text-white overflow-hidden relative w-[40%] xl:w-[50%]">
+            <div className="whitespace-nowrap animate-slide  text-[12px] 2xl:text-[16px]">
+              Limited Time Offer: <span className="font-bold">20% Off</span> on
+              All Courses!
+            </div>
+          </div>
 
-  {/* Social media Links */}
-  <div className="text-xl flex gap-2 xl:gap-4 items-center">
-    <FaFacebook />
-    <FaLinkedin />
-    <FaTiktok />
-    <FaYoutube />
-    <IoMailSharp />
-    <div className="border-l-2 border-gray-400 px-3">
-      <div className="flex items-center py-1  text-[12px] 2xl:text-[16px] rounded-sm gap-1 text-xl hover:cursor-pointer">
-        <Link href={"/auth/student-registeration"}>Register</Link>
-        <span>/</span>
-        <Link href={"/auth/Login"}>Login</Link>
-      </div>
-    </div>
-  </div>
-</div>
+          {/* Social media Links */}
+          <div className="text-xl flex gap-2 xl:gap-4 items-center">
+            <FaFacebook />
+            <FaLinkedin />
+            <FaTiktok />
+            <FaYoutube />
+            <IoMailSharp />
+            <div className="border-l-2 border-gray-400 px-3">
+              <div className="flex items-center py-1  text-[12px] 2xl:text-[16px] rounded-sm gap-1 text-xl hover:cursor-pointer">
+                <Link href={"/auth/student-registeration"}>Register</Link>
+                <span>/</span>
+                <Link href={"/auth/Login"}>Login</Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div className=" font_inter py-1 shadow-lg">
         <div className=" flex justify-between md:items-center mx-10 lg:mx-16">
           <div className="">
-            <Image
-              alt="Hero image"
-              src={"/empowerer_logo.png"}
-              className="sm:h-auto  h-1/2 w-auto"
-              width={200}
-              height={150}
-              priority
-            />
+            <Link href="/">
+              <Image
+                alt="Hero image"
+                src={"/empowerer_logo.png"}
+                className="sm:h-auto  h-1/2 w-auto"
+                width={200}
+                height={150}
+                priority
+              />
+            </Link>
           </div>
           <div className="lg:hidden flex justify-center items-center">
             <FaBars
-              onClick={() => setShowSidebar(true)}
+              onClick={() => setShowSidebar(!showSidebar)}
               className={`text-2xl  cursor-pointer duration-300 ease-in-out ${
                 showSidebar ? "rotate-90" : ""
               }`}
             />
           </div>
 
-          <div
-            className={`fixed top-0 left-0 h-screen w-[80%] max-w-[300px]
-                !font-lato main_hero_slogan bg-[#FFFFFF]  transform
-                ${
-                  showSidebar ? "translate-x-0" : "translate-x-[-400px]"
-                } transition-transform duration-300 z-[999]`}
-          >
-            <div className="flex justify-end items-center px-4 py-4 border-b border-gray-600">
-              <button
-                onClick={() => setShowSidebar(false)}
-                className="text-xl bg-black text-white hover:cursor-pointer focus:outline-none"
-              >
-                <FaTimes />
-              </button>
-            </div>
-
-            <ul className="flex flex-col gap-4 p-6 text-lg">
-              <Link href="/">
-                <li className="hover:text-[#77C9B3] border-b text-[13px] pb-[10px] border-b-gray-200 ">
-                  Home
-                </li>
-              </Link>
-              <Link href="/about-us">
-                <li className="hover:text-[#77C9B3]  border-b text-[13px] pb-[10px] border-b-gray-200">
-                  About Us
-                </li>
-              </Link>
-              <Link href="/trainingPage">
-                <li className="hover:text-[#77C9B3]  border-b text-[13px] pb-[10px] border-b-gray-200">
-                  Trainings
-                </li>
-              </Link>
-              <Link href="/ourServices">
-                <li className="hover:text-[#77C9B3]  border-b text-[13px] pb-[10px] border-b-gray-200">
-                  Services
-                </li>
-              </Link>
-              <Link href="/gallery">
-                <li className="hover:text-[#77C9B3]  border-b text-[13px] pb-[10px] border-b-gray-200">
-                  Gallery
-                </li>
-              </Link>
-              <Link href="/blog">
-                <li className="hover:text-[#77C9B3]  border-b text-[13px] pb-[10px] border-b-gray-200">
-                  Blog
-                </li>
-              </Link>
-              <Link href="/contact-us">
-                <li className="hover:text-[#77C9B3]  border-b text-[13px] pb-[10px] border-b-gray-200">
-                  Contact Us
-                </li>
-              </Link>
-              <li
-                className="relative cursor-pointer  border-b text-[13px] pb-[10px] border-b-gray-200"
-                onClick={() => setShowToolsDropdown(!showToolsDropdown)}
-              >
-                Tools
-                {showToolsDropdown && (
-                  <ul className="absolute left-0 top-full bg-white shadow-lg py-2 w-40  border-b text-[13px] pb-[10px] border-b-gray-200">
-                    <Link href="/tool1">
-                      <li className="px-4 py-2 hover:bg-gray-100">Tool 1</li>
-                    </Link>
-                    <Link href="/tool2">
-                      <li className="px-4 py-2 hover:bg-gray-100">Tool 2</li>
-                    </Link>
-                  </ul>
-                )}
-              </li>
-            </ul>
-          </div>
 
           <div className="hidden text-[16px] lg:flex text-xl list-none justify-center items-center flex-wrap gap-5 md:font-semibold">
             <Link href={"/"}>
@@ -284,8 +231,7 @@ function Navbar() {
               <AnimatePresence>
                 {showTraining && (
                   <motion.div
-                  onMouseLeave={() => setShowTraining(false)}
-
+                    onMouseLeave={() => setShowTraining(false)}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
@@ -300,10 +246,8 @@ function Navbar() {
                           </h3>
                           <ul className="space-y-1 list-disc">
                             {training.submenu.map((sub, subIndex) => (
-                              <li key={subIndex}className="  ml-4">
-                                <p
-                                  className="text-gray-700 font-normal text-[14px]"
-                                >
+                              <li key={subIndex} className="  ml-4">
+                                <p className="text-gray-700 font-normal text-[14px]">
                                   {sub.label}
                                 </p>
                               </li>
@@ -322,8 +266,11 @@ function Navbar() {
               onMouseEnter={() => setShowServices(true)}
               onMouseLeave={() => setShowServices(false)}
             >
-              <button className="cursor-pointer relative text-gray-700 gap-2 hover:text-[#77C9B3] flex items-center gap-1">
-                Services{" "}
+              <button
+                onClick={() => hadnleClick("/ourServices")}
+                className="cursor-pointer relative text-gray-700 gap-2 hover:text-[#77C9B3] flex items-center "
+              >
+                Services
                 <span className="text-sm">
                   <FaChevronUp
                     className={`${
