@@ -41,21 +41,21 @@ const ourServicesRight = [
 
 const Sevices = () => {
   return (
-    <div>
-      <div className="md:my-[55px] md:px-24 container mx-auto px-10">
+    <div className="bg-[#ecf0ea] md:py-[55px] py-[45px]">
+      <div className=" md:px-24 container mx-auto px-10">
         <div className="text-center font-bold lg:hidden  flex justify-center mt-[45px] text-2xl sm:text-5xl">
           <h1 className="text-[#29ab87] tracking-wide drop-shadow-lg ">
           Our Services
           </h1>
         </div>
         <div className=" sm:my-10  mb-[45px] sm:mb-0 flex  justify-between items-center gap-16 relative">
-          <div className="absolute border lg:flex  hidden border-gray-300 w-[100px] rotate-30 top-1/3 left-[20vw] -translate-y-1/2"></div>
-          <div className="absolute border lg:flex  hidden border-gray-300 w-[90px] rotate-0 top-1/2 left-[20vw] -translate-y-1/2"></div>
-          <div className="absolute border lg:flex  hidden border-gray-300 w-[100px] rotate-150 top-[70%] left-[20vw] -translate-y-1/2"></div>
+          <div className="absolute border lg:flex  hidden border-gray-400 w-[100px] rotate-30 top-1/3 left-[20vw] -translate-y-1/2"></div>
+          <div className="absolute border lg:flex  hidden border-gray-400 w-[90px] rotate-0 top-1/2 left-[20vw] -translate-y-1/2"></div>
+          <div className="absolute border lg:flex  hidden border-gray-400 w-[100px] rotate-150 top-[70%] left-[20vw] -translate-y-1/2"></div>
 
-          <div className="absolute border lg:flex  hidden border-gray-300 w-[100px] -rotate-30 top-1/3 right-[20vw] -translate-y-1/2"></div>
-          <div className="absolute border lg:flex  hidden border-gray-300 w-[90px] rotate-0 top-1/2 right-[20vw] -translate-y-1/2"></div>
-          <div className="absolute border lg:flex  hidden border-gray-300 w-[100px] -rotate-150 top-[70%] right-[20vw] -translate-y-1/2"></div>
+          <div className="absolute border lg:flex  hidden border-gray-400 w-[100px] -rotate-30 top-1/3 right-[20vw] -translate-y-1/2"></div>
+          <div className="absolute border lg:flex  hidden border-gray-400 w-[90px] rotate-0 top-1/2 right-[20vw] -translate-y-1/2"></div>
+          <div className="absolute border lg:flex  hidden border-gray-400 w-[100px] -rotate-150 top-[70%] right-[20vw] -translate-y-1/2"></div>
 
           <div className=" w-1/2 lg:w-[30%]">
             {ourServicesLeft.map((leftData, index) => {
@@ -81,10 +81,10 @@ const Sevices = () => {
           </div>
           <div className="w-[40%] lg:flex hidden justify-center items-center">
             <div
-              className="w-[350px] h-[350px] border border-gray-300 rounded-full flex items-center justify-center bg-white"
+              className="w-[350px] h-[350px] border border-gray-200 rounded-full flex items-center justify-center bg-white"
               style={{
                 boxShadow:
-                  "inset 0 20px 15px rgba(0, 0, 0, 0.15), inset 0 -20px 15px rgba(0, 0, 0, 0.15), inset 20px 0 15px rgba(0, 0, 0, 0.15), inset -20px 0 15px rgba(0, 0, 0, 0.15)",
+                  "inset 0 20px 15px rgba(0, 0, 0, 0.03), inset 0 -20px 15px rgba(0, 0, 0, 0.03), inset 20px 0 15px rgba(0, 0, 0, 0.03), inset -20px 0 15px rgba(0, 0, 0, 0.03)",
               }}
             >
               <h1 className="text-2xl sm:text-4xl font-bold tracking-wide text-[#29ab87] drop-shadow-lg">

@@ -38,7 +38,7 @@ function GallerySlider() {
             prevEl: ".swiper-button-prev",
           }}
           modules={[Navigation]}
-          className="w-[80%] lg:w-[90%] mx-auto"
+          className="w-[80%] lg:w-[70%] mx-auto"
         >
           {Gallery.map((image, index) => (
             <SwiperSlide key={index}>
