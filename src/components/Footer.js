@@ -16,10 +16,10 @@ function Footer() {
                 height={500}
                 src="/empowerer_logo_re_bg.png"
                 alt=""
-                className="w-[300px] cursor-pointer drop-shadow-md  mx-auto  rounded-lg"
+                className="w-[300px] cursor-pointer drop-shadow-md  mx-auto sm:mx-0  rounded-lg"
               />
             </Link>
-            <p className="text-[14px] sm:text-[20px] mt-8">
+            <p className="navbar_size mt-8">
               Being the pioneer organization in the eBay <br /> marketplace
               education in Pakistan, to date, <br /> Empowerers is considered
               the most detailed <br /> and most advanced organization in the
@@ -30,22 +30,22 @@ function Footer() {
             <h1 className="cursor-pointer text-2xl text-black font-bold tracking-wide mb-5">
               Quick Links
             </h1>
-            <p className="mb-2 cursor-pointer text-[14px] sm:text-[20px] ">
+            <p className="mb-2 cursor-pointer navbar_size ">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 About Us
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer text-[14px] sm:text-[20px]">
+            <p className="mb-2 hover:cursor-pointer navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Services
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer text-[14px] sm:text-[20px]">
+            <p className="mb-2 hover:cursor-pointer navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Blog
               </span>
             </p>
-            <p className="hover:cursor-pointer text-[14px] sm:text-[20px]">
+            <p className="hover:cursor-pointer navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Contact Us
               </span>
@@ -55,27 +55,27 @@ function Footer() {
             <h1 className="cursor-pointer text-2xl text-black font-bold tracking-wide mb-5">
               Resources
             </h1>
-            <p className="mb-2 hover:cursor-pointer text-[14px] sm:text-[20px]">
+            <p className="mb-2 hover:cursor-pointer navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Courses
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer text-[14px] sm:text-[20px]">
+            <p className="mb-2 hover:cursor-pointer navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Our Experts
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer text-[14px] sm:text-[20px]">
+            <p className="mb-2 hover:cursor-pointer navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Student
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer text-[14px] sm:text-[20px]">
+            <p className="mb-2 hover:cursor-pointer navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Verification
               </span>
             </p>
-            <p className="hover:cursor-pointer text-[14px] sm:text-[20px]">
+            <p className="hover:cursor-pointer navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Platform
               </span>
@@ -85,27 +85,27 @@ function Footer() {
             <h1 className="cursor-pointer text-2xl text-black font-bold tracking-wide mb-5">
               Support
             </h1>
-            <p className="mb-2 hover:cursor-pointer text-[14px] sm:text-[20px]">
+            <p className="mb-2 hover:cursor-pointer navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Forums
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer text-[14px] sm:text-[20px]">
+            <p className="mb-2 hover:cursor-pointer navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Documentation
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer text-[14px] sm:text-[20px]">
+            <p className="mb-2 hover:cursor-pointer navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Services
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer text-[14px] sm:text-[20px]">
+            <p className="mb-2 hover:cursor-pointer navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Verification
               </span>
             </p>
-            <p className="hover:cursor-pointer text-[14px] sm:text-[20px]">
+            <p className="hover:cursor-pointer navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Community
               </span>
@@ -116,13 +116,13 @@ function Footer() {
               Contact Us{" "}
             </h1>
 
-            <p className="mt-5 mb-3 text-[14px] sm:text-[20px]">
+            <p className="mt-5 mb-3 navbar_size">
               +92 3327195240
             </p>
-            <p className="text-[14px] sm:text-[20px] underline">
+            <p className="navbar_size underline">
               info@empowerers.co
             </p>
-            <div className="text-[14px] sm:text-[20px] flex gap-4 my-8 items-center ">
+            <div className="navbar_size flex gap-4 my-8 items-center ">
               <FaFacebook />
               <FaLinkedin />
               <FaTiktok />
@@ -135,8 +135,8 @@ function Footer() {
             <label htmlFor="email"  className='text-2xl'>Email <span className='text-red-600'>*</span></label><br />
             <input type="text" id='email'
             placeholder='Your Email address'
-            className='outline-none rounded-md text-black mt-2 w-[400px] p-3 text-[14px] sm:text-[20px] bg-gray-300' /> <br />
-            <button className='mt-8 px-8 py-2 rounded-md cursor-pointer hover:bg-white hover:text-[#29ab87] border text-[14px] sm:text-[20px] tracking-wide'>Subscribe</button>
+            className='outline-none rounded-md text-black mt-2 w-[400px] p-3 navbar_size bg-gray-300' /> <br />
+            <button className='mt-8 px-8 py-2 rounded-md cursor-pointer hover:bg-white hover:text-[#29ab87] border navbar_size tracking-wide'>Subscribe</button>
         </div> */}
         </div>
         <div className="absolute  right-0 border-t w-[100vw] border-white-[2px] bottom-16">

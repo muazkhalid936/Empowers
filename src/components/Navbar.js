@@ -199,7 +199,7 @@ setShowSidebar(false);
           </div>
 
 
-          <div className="hidden text-[16px] lg:flex text-xl list-none justify-center items-center flex-wrap gap-5 md:font-semibold">
+          <div className="hidden navbar_size lg:flex  list-none justify-center items-center flex-wrap gap-5 md:font-semibold">
             <Link href={"/"}>
               <li className="relative group cursor-pointer text-gray-700 hover:text-[#77C9B3]">
                 Home

@@ -81,7 +81,7 @@ const Sevices = () => {
           </div>
           <div className="w-[40%] lg:flex hidden justify-center items-center">
             <div
-              className="w-[350px] h-[350px] border border-gray-200 rounded-full flex items-center justify-center bg-white"
+              className="w-[350px] h-[350px] border border-gray-200 rounded-full flex items-center justify-center bg-[#ecf0ea]"
               style={{
                 boxShadow:
                   "inset 0 20px 15px rgba(0, 0, 0, 0.03), inset 0 -20px 15px rgba(0, 0, 0, 0.03), inset 20px 0 15px rgba(0, 0, 0, 0.03), inset -20px 0 15px rgba(0, 0, 0, 0.03)",

@@ -1,5 +1,6 @@
 import React from "react";
 import BlogCard from "../Blog/BlogCard";
+import { BlogsData } from "@/data";
 const Blog = [
   {
     image: "/blog1.jpg",
@@ -35,31 +36,22 @@ const Blogs = () => {
             </button>
           </div>
           <div className="container flex flex-col lg:flex-row gap-5  py-10 sm:py-20 justify-center items-center  mx-auto">
-            <div className="lg:w-1/3">
-              <BlogCard
-                imgSrc={"/blog1.jpg"}
-                date={"Jan 14, 2020"}
-                title={
-                  "How to avoid eBay new account suspensions, a detailed post."
-                }
-              />
-            </div>
-            <div className="lg:w-1/3">
-              <BlogCard
-                imgSrc={"/blog2.jpg"}
-                date={"Jan 14, 2020"}
-                title={
-                  "Amazon seller account from Pakistan, eBay is still easy, amazon is still hard"
-                }
-              />
-            </div>
-            <div className="lg:w-1/3">
-              <BlogCard
-                imgSrc={"/blog3.jpg"}
-                date={"Jan 14, 2020"}
-                title={"Why Ebay? Why Empowerers?"}
-              />
-            </div>
+            {
+              BlogsData.map((data, index) => {  
+                return (
+                  <div key={index} className="lg:w-1/3">
+                    <BlogCard
+                      imgSrc={data.imgURL}
+                      date={data.date}
+                      link= {data.id}
+                      title={data.title}
+                      description={data.description}
+                    />
+                  </div>
+                );
+              }
+            
+            )}
           </div>
         </div>
       </div>

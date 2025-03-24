@@ -23,12 +23,12 @@ const SaleBanner = () => {
       <div className="flex sm:pl-16 sm:w-1/2">
         <div className="flex flex-col f gap-3">
           <div>
-            <p className=" text-2xl xl:text-5xl font-bold textGray">
+            <p className=" text-2xl lg:text-5xl font-bold textGray">
               Limited Time Offer
             </p>
           </div>
           <div>
-            <p className="textGray text-xl sm:text-[30px]">
+            <p className="textGray text-xl lg:text-[30px]">
               20% Off on All Courses!{" "}
             </p>
           </div>

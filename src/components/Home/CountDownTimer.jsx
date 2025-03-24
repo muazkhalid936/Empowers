@@ -30,11 +30,7 @@ const CountdownTimer = ({ targetDate }) => {
   }, [targetDate]);
 
   return (
-    <div className="flex justify-center items-center  py-[45px] container mx-auto flex-col md:px-24 gap-5 sm:gap-10 px-10">
-      {/* <h1 className="font-bold text-2xl sm:text-5xl text-[#29ab87] drop-shadow-md mb-5">
-        Upcoming Events
-      </h1> */}
-
+    <div className="flex justify-center items-center  py-[45px] sm:py-[55px] container mx-auto flex-col md:px-24 gap-5 sm:gap-10 px-10">
       <div className="flex justify-center flex-col sm:flex-row items-center gap-10 ">
         <div className="flex space-x-4 flex-col  gap-2 sm:flex-row text-center text-white text-2xl justify-center items-center font-bold">
           <div>

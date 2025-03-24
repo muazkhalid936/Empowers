@@ -7,7 +7,7 @@ const Welcome = () => {
   }
   return (
     <div className="bg-[#ecf0ea]">
-      <div className="md:py-[55px] py-[45px] mb-[45px]  container mx-auto   flex lg:flex-row gap-10 flex-col  justify-center items-center px-10  md:px-24">
+      <div className="md:py-[55px] py-[45px]   container mx-auto   flex lg:flex-row gap-10 flex-col  justify-center items-center px-10  md:px-24">
         <div className=" lg:w-1/2 flex flex-col gap-5 ">
           <h1 className="text-2xl md:text-5xl font-bold text-[#29ab87] text-start  drop-shadow-lg">
             Welcome To Empowrerers

@@ -68,3 +68,24 @@
 .animate-slide {
   animation: slide 10s linear infinite; /* Adjust the duration as needed */
 }
+
+
+ol ol {
+  padding-left: 30px; /* Adds extra padding to nested lists */
+}
+ol li {
+  padding: 10px 0; /* Adds padding to all list items */
+}
+
+ol{
+  list-style: decimal;
+  padding-left: 20px;
+}
+.navbar_size{
+  font-size: 16px;
+}
+@media (min-width: 1280px) {
+  .navbar_size {
+   font-size: 14px; /* Increases padding for larger screens */
+  }
+}
