@@ -80,12 +80,12 @@ const LocationCards = () => {
         >
           <Image src={location.imgSrc} width={300} height={200} alt={location.city} className="rounded-lg" />
           <h2 className="text-lg font-bold mt-3">{location.city}</h2>
-          <p className="text-gray-600">{location.name}</p>
-          <div className="flex items-center justify-center gap-1 text-green-600 mt-2">
+          <p className="testGray">{location.name}</p>
+          <div className="flex items-center justify-center gap-1 testGray   mt-2">
             {/* <FaPhoneAlt /> */}
             <span className="text-[16px]">{location.phone}</span>
           </div>
-          <div className="flex items-start  justify-center gap-1 text-gray-600 mt-2 text-sm">
+          <div className="flex items-start  justify-center gap-1 testGray mt-2 text-sm">
             <div className="w-[20px] flex items-center">
 
             <IoLocationSharp className="mt-1 text-xl text-red-500" />

@@ -50,7 +50,9 @@ const Welcome = () => {
           </div>
 
           <div className=" mt-5 flex justify-center lg:justify-start items-center">
-            <button onClick={()=>handleStartLearning()} className="tracking-wide cursor-pointer text-[12px] font-bold text-white bg-[#29ab87] hover:text-[#29ab87] hover:bg-transparent border border-[#29ab87]  px-5 py-2 rounded-full transition-all duration-300 ease-in-out">
+            <button onClick={()=>handleStartLearning()} 
+            
+            className="tracking-wide cursor-pointer text-[12px] font-bold text-white bg-[#29ab87] hover:text-[#29ab87] hover:bg-transparent border border-[#29ab87]  px-5 py-2 rounded-full transition-all duration-300 ease-in-out">
               Start Learning
             </button>
           

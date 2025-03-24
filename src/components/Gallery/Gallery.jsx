@@ -57,14 +57,14 @@ export default function Gallery() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="overflow-hidden  rounded-lg shadow-md"
+              className="overflow-hidden scale-95 hover:scale-100 transition-all ease-in-out duration-300 rounded-lg shadow-md"
             >
               <Image
                 src={img.src}
                 alt={`Gallery Image ${index + 1}`}
                 width={500}
                 height={200}
-                className="w-full h-auto object-cover"
+                className="w-full h-auto   object-cover"
               />
             </motion.div>
           ))}

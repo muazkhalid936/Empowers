@@ -236,18 +236,18 @@ setShowSidebar(false);
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute -right-[600px] mt-2 top-7 z-50 w-[1200px] bg-white shadow-lg rounded-lg p-6"
+                    className="absolute  mt-2 top-10 z-50 w-[90vw] left-[-400px]  bg-white shadow-lg rounded-lg p-6"
                   >
                     <div className="grid grid-cols-3 gap-6">
                       {trainingPrograms.map((training, index) => (
                         <div key={index} className="group">
-                          <h3 className="text-lg  text-[#77C9B3] mb-2">
+                          <h3 className="text-[16px]  text-[#77C9B3] mb-2">
                             {training.label}
                           </h3>
                           <ul className="space-y-1 list-disc">
                             {training.submenu.map((sub, subIndex) => (
                               <li key={subIndex} className="  ml-4">
-                                <p className="text-gray-700 font-normal text-[14px]">
+                                <p className="text-gray-700 font-normal text-[12px]">
                                   {sub.label}
                                 </p>
                               </li>

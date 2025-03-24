@@ -100,7 +100,7 @@ export default function Home() {
 
       <div className="md:my-[55px] w-[70%] mx-auto  hover:shadow-2xl transition-all ease-in-out duration-500 flex justify-center items-center py-20 rounded-lg">
         <iframe
-          className="w-[900px] h-[300px] sm:h-[500px]"
+          className="w-[800px] h-[300px] sm:h-[500px]"
           src="https://www.youtube.com/embed/78oNsr98dBY?controls=1&rel=0&playsinline=0&modestbranding=0&autoplay=0&enablejsapi=1&origin=https%3A%2F%2Fempowerers.co&widgetid=1&forigin=https%3A%2F%2Fempowerers.co%2F&aoriginsup=1&gporigin=https%3A%2F%2Fempowerers.co%2F&vf=1"
           frameBorder="0"
         ></iframe>

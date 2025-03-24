@@ -39,9 +39,7 @@ const Contact = () => {
         <div className="flex justify-center lg:flex-row flex-col md:px-24 px-10 items-center my-20 ">
       {/* Left side - Contact Form */}
       <div className="lg:w-1/2 ">
-        <h2 className="text-4xl font-bold text-gray-900">
-          We are always open <br /> <span className="text-gray-900">24/7 for you.</span>
-        </h2>
+      
         <form className="mt-6 space-y-4">
           <div>
             <label className="block text-gray-700 font-medium">
@@ -93,7 +91,9 @@ const Contact = () => {
               onChange={handleInput}
             ></textarea>
           </div>
-          <button onClick={sendMessage} className="bg-[#29AB87] text-white py-3 px-6 rounded-md hover:bg-[#29AB87] transition">
+          <button onClick={sendMessage}
+          
+          className="tracking-wide cursor-pointer text-[12px] font-bold text-white bg-[#29ab87] hover:text-[#29ab87] hover:bg-transparent border border-[#29ab87]  px-5 py-2 rounded-full transition-all duration-300 ease-in-out">
             Send Message
           </button>
         </form>
@@ -104,19 +104,19 @@ const Contact = () => {
         <div className="space-y-6">
           <div className='flex flex-col gap-5'>
             <h3 className="text-2xl font-bold text-gray-900">Visit us</h3>
-            <p className="text-gray-600">166-B, Model Town, Multan, 60700.</p>
+            <p className="text-gray-600 mt-[-10px]">166-B, Model Town, Multan, 60700.</p>
           </div>
           <div className='flex flex-col gap-5'>
             <h3 className="text-2xl font-bold text-gray-900">Call us</h3>
-            <p className="text-[#29AB87]">+92 30 8090 1111</p>
+            <p className="text-gray-600 mt-[-10px]">+92 30 8090 1111</p>
           </div>
           <div className='flex flex-col gap-5'>
             <h3 className="text-2xl font-bold text-gray-900">Email us</h3>
-            <p className="text-[#29AB87]">info@empowerers.co</p>
+            <p className="text-gray-600 mt-[-10px]">info@empowerers.co</p>
           </div>
           <div className='flex flex-col gap-5'>
             <h3 className="text-2xl font-bold text-gray-900">Customer Support</h3>
-            <p className="text-[#29AB87]">support@empowerers.co</p>
+            <p className="text-gray-600 mt-[-10px]">support@empowerers.co</p>
           </div>
         </div>
       </div>

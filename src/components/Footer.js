@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { FaFacebook, FaLinkedin, FaTiktok, FaYoutube } from "react-icons/fa";
 import { MdEmail, MdOutlineEmail } from "react-icons/md";
+import { IoMailSharp } from "react-icons/io5";
 
 function Footer() {
   return (
@@ -16,7 +17,7 @@ function Footer() {
                 height={500}
                 src="/empowerer_logo_re_bg.png"
                 alt=""
-                className="w-[300px] cursor-pointer drop-shadow-md  mx-auto sm:mx-0  rounded-lg"
+                className="w-[300px]  drop-shadow-md  mx-auto sm:mx-0  rounded-lg"
               />
             </Link>
             <p className="navbar_size mt-8">
@@ -27,116 +28,116 @@ function Footer() {
             </p>
           </div>
           <div>
-            <h1 className="cursor-pointer text-2xl text-black font-bold tracking-wide mb-5">
+            <h1 className=" text-2xl text-black font-bold tracking-wide mb-3">
               Quick Links
             </h1>
-            <p className="mb-2 cursor-pointer navbar_size ">
+            <p className="mb-1  navbar_size ">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 About Us
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer navbar_size">
+            <p className="mb-1 hover: navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Services
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer navbar_size">
+            <p className="mb-1 hover: navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Blog
               </span>
             </p>
-            <p className="hover:cursor-pointer navbar_size">
+            <p className="hover: navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Contact Us
               </span>
             </p>
           </div>
           <div>
-            <h1 className="cursor-pointer text-2xl text-black font-bold tracking-wide mb-5">
+            <h1 className=" text-2xl text-black font-bold tracking-wide mb-3">
               Resources
             </h1>
-            <p className="mb-2 hover:cursor-pointer navbar_size">
+            <p className="mb-1 hover: navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Courses
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer navbar_size">
+            <p className="mb-1 hover: navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Our Experts
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer navbar_size">
+            <p className="mb-1 hover: navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Student
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer navbar_size">
+            <p className="mb-1 hover: navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Verification
               </span>
             </p>
-            <p className="hover:cursor-pointer navbar_size">
+            <p className="hover: navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Platform
               </span>
             </p>
           </div>
           <div>
-            <h1 className="cursor-pointer text-2xl text-black font-bold tracking-wide mb-5">
+            <h1 className=" text-2xl text-black font-bold tracking-wide mb-3">
               Support
             </h1>
-            <p className="mb-2 hover:cursor-pointer navbar_size">
+            <p className="mb-1 hover: navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Forums
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer navbar_size">
+            <p className="mb-1 hover: navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Documentation
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer navbar_size">
+            <p className="mb-1 hover: navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Services
               </span>
             </p>
-            <p className="mb-2 hover:cursor-pointer navbar_size">
+            <p className="mb-1 hover: navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Verification
               </span>
             </p>
-            <p className="hover:cursor-pointer navbar_size">
+            <p className="hover: navbar_size">
               <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
                 Community
               </span>
             </p>
           </div>
           <div className="">
-            <h1 className="cursor-pointer text-2xl text-black font-bold tracking-wide mb-5">
+            <h1 className=" text-2xl text-black font-bold tracking-wide mb-3">
               Contact Us{" "}
             </h1>
 
-            <p className="mt-5 mb-3 navbar_size">
+            <p className=" mb-1 navbar_size">
               +92 3327195240
             </p>
-            <p className="navbar_size underline">
+            <p className="navbar_size mb-2 underline">
               info@empowerers.co
             </p>
-            <div className="navbar_size flex gap-4 my-8 items-center ">
+            <div className="navbar_size flex gap-4  items-center ">
               <FaFacebook />
               <FaLinkedin />
               <FaTiktok />
               <FaYoutube />
-              <MdOutlineEmail />
+              <IoMailSharp />
             </div>
           </div>
           {/* Email section
-        <div className='mx-40 px-20 mb-24'>
+        <div className='mx-40 px-20 mb-14'>
             <label htmlFor="email"  className='text-2xl'>Email <span className='text-red-600'>*</span></label><br />
             <input type="text" id='email'
             placeholder='Your Email address'
             className='outline-none rounded-md text-black mt-2 w-[400px] p-3 navbar_size bg-gray-300' /> <br />
-            <button className='mt-8 px-8 py-2 rounded-md cursor-pointer hover:bg-white hover:text-[#29ab87] border navbar_size tracking-wide'>Subscribe</button>
+            <button className='mt-8 px-8 py-2 rounded-md  hover:bg-white hover:text-[#29ab87] border navbar_size tracking-wide'>Subscribe</button>
         </div> */}
         </div>
         <div className="absolute  right-0 border-t w-[100vw] border-white-[2px] bottom-16">
