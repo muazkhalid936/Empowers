@@ -1,5 +1,5 @@
 import { dbConnect } from '../../../utils/dbConnect';
-import User from '../../../models/User';
+import User from '../../../models/User_model';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
