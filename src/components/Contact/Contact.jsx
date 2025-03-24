@@ -1,6 +1,39 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState } from 'react'
 
 const Contact = () => {
+  const [message, setMessage] = useState({
+    name : "",
+    email : "",
+    subject : "",
+    description : ""
+  });
+
+  const handleInput = (e) => {
+
+    const { name, value } = e.target;
+  setMessage((prevMessage) => ({
+    ...prevMessage,
+    [name]: value,
+  }));
+
+  }
+
+
+  const sendMessage = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('/api/contact/create_form', message);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+
+
+    console.log(message);
+  };
+
   return (
     <div className='container mx-auto'>
         <div className="flex justify-center lg:flex-row flex-col md:px-24 px-10 items-center my-20 ">
@@ -16,6 +49,9 @@ const Contact = () => {
             </label>
             <input
               type="text"
+              name='name'
+              value={message.name}
+              onChange={handleInput}
               className="w-full mt-1 p-3 border rounded-md focus:ring focus:ring-green-200 outline-none"
               placeholder="Enter your name"
             />
@@ -26,6 +62,9 @@ const Contact = () => {
             </label>
             <input
               type="email"
+              name='email'
+              value={message.email}
+              onChange={handleInput}
               className="w-full mt-1 p-3 border rounded-md focus:ring focus:ring-green-200 outline-none"
               placeholder="Enter your email"
             />
@@ -36,6 +75,9 @@ const Contact = () => {
             </label>
             <input
               type="text"
+              name='subject'
+              value={message.subject}
+              onChange={handleInput}
               className="w-full mt-1 p-3 border rounded-md focus:ring focus:ring-green-200 outline-none"
               placeholder="Enter subject"
             />
@@ -46,9 +88,12 @@ const Contact = () => {
               rows="4"
               className="w-full mt-1 p-3 border max-h-40 min-h-10 rounded-md focus:ring focus:ring-green-200 outline-none"
               placeholder="Write your message"
+              name='description'
+              value={message.description}
+              onChange={handleInput}
             ></textarea>
           </div>
-          <button className="bg-[#29AB87] text-white py-3 px-6 rounded-md hover:bg-[#29AB87] transition">
+          <button onClick={sendMessage} className="bg-[#29AB87] text-white py-3 px-6 rounded-md hover:bg-[#29AB87] transition">
             Send Message
           </button>
         </form>
