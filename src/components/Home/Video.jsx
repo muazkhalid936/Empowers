@@ -2,7 +2,7 @@ import React from "react";
 
 const Video = () => {
   return (
-    <div>
+    <div className="bg-[#ecf0ea] py-[55px]">
       <div className="flex container mx-auto px-10 md:px-24 lg:flex-row flex-col justify-center items-center gap-5 sm:gap-10 my-[45px] md:my-[55px]">
         <div className=" lg:w-1/2 flex justify-center items-center">
           <iframe

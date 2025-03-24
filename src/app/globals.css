@@ -55,3 +55,16 @@
 .animate-slide-up {
   animation: slide-up 0.3s ease-in-out forwards;
 }
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-slide {
+  animation: slide 10s linear infinite; /* Adjust the duration as needed */
+}

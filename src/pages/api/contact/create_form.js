@@ -2,6 +2,7 @@ import { dbConnect } from "@/utils/dbConnect";
 import Contact from "@/models/contact_model";
 
 const contact_form = async (req, res) => {
+    console.log(req.body);
     if(req.method !== "POST") return res.status(405).end();
 
     try {

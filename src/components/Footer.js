@@ -1,24 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import {
-  FaFacebook,
-  FaLinkedin,
-  FaTiktok,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaFacebook, FaLinkedin, FaTiktok, FaYoutube } from "react-icons/fa";
 import { MdEmail, MdOutlineEmail } from "react-icons/md";
 
 function Footer() {
   return (
-    <div className="bg-[#807d79]">
-      <div className=" container mx-auto pt-10 sm:pt-20 px-10 md:px-24  text-white">
+    <div className="bg-[#807d79] relative">
+      <div className=" container  mx-auto pt-10 sm:pt-20 px-10 md:px-24  text-white">
         <div className="flex flex-wrap gap-5  justify-between  my-5 sm:my-20">
           <div>
             <Link href={"/"}>
               <Image
-              width={500}
-              height={500}
+                width={500}
+                height={500}
                 src="/empowerer_logo_re_bg.png"
                 alt=""
                 className="w-[300px] cursor-pointer drop-shadow-md  mx-auto  rounded-lg"
@@ -117,11 +112,16 @@ function Footer() {
             </p>
           </div>
           <div className="">
-          <h1 className="cursor-pointer text-2xl text-black font-bold tracking-wide mb-5">
-Contact Us            </h1>
+            <h1 className="cursor-pointer text-2xl text-black font-bold tracking-wide mb-5">
+              Contact Us{" "}
+            </h1>
 
-            <p className="mt-5 mb-3 text-[14px] sm:text-[20px]">+92 3327195240</p>
-            <p className="text-[14px] sm:text-[20px] underline">info@empowerers.co</p>
+            <p className="mt-5 mb-3 text-[14px] sm:text-[20px]">
+              +92 3327195240
+            </p>
+            <p className="text-[14px] sm:text-[20px] underline">
+              info@empowerers.co
+            </p>
             <div className="text-[14px] sm:text-[20px] flex gap-4 my-8 items-center ">
               <FaFacebook />
               <FaLinkedin />
@@ -139,7 +139,10 @@ Contact Us            </h1>
             <button className='mt-8 px-8 py-2 rounded-md cursor-pointer hover:bg-white hover:text-[#29ab87] border text-[14px] sm:text-[20px] tracking-wide'>Subscribe</button>
         </div> */}
         </div>
-        <div className=" px-20 text-center border-green-300 border-t-1 py-5 ">
+        <div className="absolute  right-0 border-t w-[100vw] border-white-[2px] bottom-16">
+{""}
+        </div>
+        <div className=" px-20 text-center  py-5 ">
           <p className="">Empowerers | © All right reserved 2025 </p>
         </div>
       </div>

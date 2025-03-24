@@ -26,7 +26,7 @@ const NewsLetter = () => {
           Get a free eBay selling guide to sell products on eBay and later on,
           you will get updates about eCommerce business.
         </p>
-        <p className="font-semibold mt-2">Never Miss any Gift!</p>
+        <p className="font-semibold mt-2 mb-[-30px]">Never Miss any Gift!</p>
 
         <div className="mt-5 flex gap-2">
           <input
@@ -34,7 +34,7 @@ const NewsLetter = () => {
             placeholder="Your email address"
             className="w-full p-3 border rounded-full focus:outline-none"
           />
-          <button className="bg-[#29AB87] whitespace-nowrap text-white px-5 rounded-full">
+          <button className="cursor-pointer text-white py-2 whitespace-nowrap bg-[#29ab87] px-5 hover:bg-white hover:border border hover:text-[#29ab87] duration-300 transition-all ease-in-out hover:border-[#29ab87] rounded-full">
             Get Free Gift
           </button>
         </div>

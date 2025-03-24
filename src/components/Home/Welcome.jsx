@@ -1,6 +1,10 @@
 import React from "react";
-
+import { useRouter } from "next/navigation";
 const Welcome = () => {
+  const route=useRouter()
+  const handleStartLearning=()=>{
+    route.push('/training')
+  }
   return (
     <div className="bg-[#ecf0ea]">
       <div className="md:py-[55px] py-[45px] mb-[45px]  container mx-auto   flex lg:flex-row gap-10 flex-col  justify-center items-center px-10  md:px-24">
@@ -46,12 +50,10 @@ const Welcome = () => {
           </div>
 
           <div className=" mt-5 flex justify-center lg:justify-start items-center">
-            <button className="tracking-wide cursor-pointer text-[12px] font-bold text-white bg-[#29ab87] hover:text-[#29ab87] hover:bg-white  px-5 py-2 rounded-full transition-all duration-300 ease-in-out">
+            <button onClick={()=>handleStartLearning()} className="tracking-wide cursor-pointer text-[12px] font-bold text-white bg-[#29ab87] hover:text-[#29ab87] hover:bg-transparent border border-[#29ab87]  px-5 py-2 rounded-full transition-all duration-300 ease-in-out">
               Start Learning
             </button>
-            <button className="tracking-wide cursor-pointer text-[12px] font-bold text-white bg-[#29ab87] hover:text-[#29ab87] hover:bg-white px-5 py-2  rounded-full transition-all duration-300 ease-in-out ml-8">
-              Get In Touch
-            </button>
+          
           </div>
         </div>
         <div className="lg:w-1/2 flex justify-center items-center">

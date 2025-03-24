@@ -3,7 +3,12 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { FaChevronDown, FaChevronRight, FaChevronUp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/autoplay";
+import { Autoplay } from "swiper/modules";
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   FaBars,
   FaFacebook,
@@ -12,7 +17,10 @@ import {
   FaTiktok,
   FaTimes,
   FaYoutube,
+  FaMail,
 } from "react-icons/fa";
+import { IoMailSharp } from "react-icons/io5";
+
 import { MdEmail, MdOutlineEmail } from "react-icons/md";
 import { CiLogin } from "react-icons/ci";
 import News from "./News";
@@ -40,7 +48,6 @@ const tools = [
     href: "https://www.namecheap.com/?clickID=wUowdbwQGxyPU30Q9YR3mQobUkHyjoxXfTJITk0&irgwc=1&utm_source=IR&utm_medium=Affiliate&utm_campaign=3230165&affnetwork=ir&ref=ir",
   },
 ];
-
 const trainingPrograms = [
   {
     label: "eBay Training",
@@ -68,7 +75,6 @@ const trainingPrograms = [
     ],
   },
 ];
-
 const services = [
   { label: "eCommerce Consultation" },
   { label: "Staff Augmentation" },
@@ -98,6 +104,13 @@ const services = [
 ];
 
 function Navbar() {
+  const router = useRouter();
+  const pathname = usePathname(); // Get the current route
+
+  const hadnleClick = (e) => {
+    router.push(e);
+  };
+
   const [showServices, setShowServices] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(false);
   const [animation, setAnimation] = useState(false);
@@ -109,50 +122,51 @@ function Navbar() {
 
   useEffect(() => {
     setTimeout(() => setAnimation(true), 1000);
-
+setShowSidebar(false);
     if (animation) {
       setTimeout(() => setAnimation(false), 10000);
     }
   }, [animation]);
+
+  useEffect(() => {
+    setShowSidebar(false); // Close sidebar on route change
+  }, [pathname]);
+
   return (
     <>
-      <div className=" hidden bg-[#29ab87] font_inter p-2 lg:flex justify-between items-center text-white px-16">
-        <div className="container mx-auto flex justify-between items-center">
+      <div className=" hidden bg-[#29ab87] font_inter p-2  lg:flex justify-between items-center text-white px-16">
+        <div className="flex-1 flex justify-between items-center">
           {/* Email and contact on top bar */}
           <div className="flex gap-5 text-xl">
             <div className="flex items-center gap-1">
               <FaPhoneAlt />
-              <p className="text-[16px]">+92 3327195240</p>
+              <p className=" text-[12px] 2xl:text-[16px]">+92 3327195240</p>
             </div>
             <div className="flex items-center gap-1">
               <MdEmail />
-              <p className="text-[16px]">info@empowerers.co</p>
+              <p className=" text-[12px] 2xl:text-[16px]">
+                info@empowerers.com
+              </p>
             </div>
           </div>
 
-          {/* Offers div */}
-          {/* <div className="text-xl   px-3 py-2  text-white   ">
-            <p
-              className={`${
-                animation === true
-                  ? "translate-x-[-450px] text-[16px] transition-all duration-13000 ease-in-out"
-                  : "translate-x-[450px] text-[16px] invisible"
-              } tracking-wide`}
-            >
-              🎉 Limited Time Offer: <span className="font-bold">20% Off</span>{" "}
-              on All Courses! 🚀
-            </p>
-          </div> */}
+          {/* Offers div with sliding animation */}
+          <div className="text-xl px-3 py-2 text-white overflow-hidden relative w-[40%] xl:w-[50%]">
+            <div className="whitespace-nowrap animate-slide  text-[12px] 2xl:text-[16px]">
+              Limited Time Offer: <span className="font-bold">20% Off</span> on
+              All Courses!
+            </div>
+          </div>
 
           {/* Social media Links */}
-          <div className="text-xl flex gap-4 items-center ">
+          <div className="text-xl flex gap-2 xl:gap-4 items-center">
             <FaFacebook />
             <FaLinkedin />
             <FaTiktok />
             <FaYoutube />
-            <MdOutlineEmail />
+            <IoMailSharp />
             <div className="border-l-2 border-gray-400 px-3">
-              <div className=" flex items-center  px-2 py-1 text-[16px] rounded-sm gap-1 text-xl hover:cursor-pointer">
+              <div className="flex items-center py-1  text-[12px] 2xl:text-[16px] rounded-sm gap-1 text-xl hover:cursor-pointer">
                 <Link href={"/auth/student-registeration"}>Register</Link>
                 <span>/</span>
                 <Link href={"/auth/Login"}>Login</Link>
@@ -164,94 +178,26 @@ function Navbar() {
       <div className=" font_inter py-1 shadow-lg">
         <div className=" flex justify-between md:items-center mx-10 lg:mx-16">
           <div className="">
-            <Image
-              alt="Hero image"
-              src={"/empowerer_logo.png"}
-              className="h-auto w-auto"
-              width={200}
-              height={150}
-              priority
-            />
+            <Link href="/">
+              <Image
+                alt="Hero image"
+                src={"/empowerer_logo.png"}
+                className="sm:h-auto  h-1/2 w-auto"
+                width={200}
+                height={150}
+                priority
+              />
+            </Link>
           </div>
-          <div className="lg:hidden">
+          <div className="lg:hidden flex justify-center items-center">
             <FaBars
-              onClick={() => setShowSidebar(true)}
+              onClick={() => setShowSidebar(!showSidebar)}
               className={`text-2xl  cursor-pointer duration-300 ease-in-out ${
                 showSidebar ? "rotate-90" : ""
               }`}
             />
           </div>
 
-          <div
-            className={`fixed top-0 left-0 h-screen w-[80%] max-w-[300px]
-                !font-lato main_hero_slogan bg-[#FFFFFF]  transform
-                ${
-                  showSidebar ? "translate-x-0" : "translate-x-[-400px]"
-                } transition-transform duration-300 z-[999]`}
-          >
-            <div className="flex justify-end items-center px-4 py-4 border-b border-gray-600">
-              <button
-                onClick={() => setShowSidebar(false)}
-                className="text-xl bg-black text-white hover:cursor-pointer focus:outline-none"
-              >
-                <FaTimes />
-              </button>
-            </div>
-
-            <ul className="flex flex-col gap-4 p-6 text-lg">
-              <Link href="/">
-                <li className="hover:text-[#77C9B3] border-b text-[13px] pb-[10px] border-b-gray-200 ">
-                  Home
-                </li>
-              </Link>
-              <Link href="/about-us">
-                <li className="hover:text-[#77C9B3]  border-b text-[13px] pb-[10px] border-b-gray-200">
-                  About Us
-                </li>
-              </Link>
-              <Link href="/trainingPage">
-                <li className="hover:text-[#77C9B3]  border-b text-[13px] pb-[10px] border-b-gray-200">
-                  Trainings
-                </li>
-              </Link>
-              <Link href="/ourServices">
-                <li className="hover:text-[#77C9B3]  border-b text-[13px] pb-[10px] border-b-gray-200">
-                  Services
-                </li>
-              </Link>
-              <Link href="/gallery">
-                <li className="hover:text-[#77C9B3]  border-b text-[13px] pb-[10px] border-b-gray-200">
-                  Gallery
-                </li>
-              </Link>
-              <Link href="/blog">
-                <li className="hover:text-[#77C9B3]  border-b text-[13px] pb-[10px] border-b-gray-200">
-                  Blog
-                </li>
-              </Link>
-              <Link href="/contact-us">
-                <li className="hover:text-[#77C9B3]  border-b text-[13px] pb-[10px] border-b-gray-200">
-                  Contact Us
-                </li>
-              </Link>
-              <li
-                className="relative cursor-pointer  border-b text-[13px] pb-[10px] border-b-gray-200"
-                onClick={() => setShowToolsDropdown(!showToolsDropdown)}
-              >
-                Tools
-                {showToolsDropdown && (
-                  <ul className="absolute left-0 top-full bg-white shadow-lg py-2 w-40  border-b text-[13px] pb-[10px] border-b-gray-200">
-                    <Link href="/tool1">
-                      <li className="px-4 py-2 hover:bg-gray-100">Tool 1</li>
-                    </Link>
-                    <Link href="/tool2">
-                      <li className="px-4 py-2 hover:bg-gray-100">Tool 2</li>
-                    </Link>
-                  </ul>
-                )}
-              </li>
-            </ul>
-          </div>
 
           <div className="hidden text-[16px] lg:flex text-xl list-none justify-center items-center flex-wrap gap-5 md:font-semibold">
             <Link href={"/"}>
@@ -267,13 +213,11 @@ function Navbar() {
                 <span className="hidden md:block absolute left-0 bottom-0 w-0 h-[2px] bg-[#77C9B3] transition-all duration-300 group-hover:w-1/2"></span>
               </li>
             </Link>
-
             <div
               className="relative"
               onMouseEnter={() => setShowTraining(true)}
-              onMouseLeave={() => setShowTraining(false)}
             >
-              <button className="cursor-pointer relative text-gray-700 gap-2 hover:text-[#77C9B3] flex items-center gap-1">
+              <button className="cursor-pointer relative text-gray-700  hover:text-[#77C9B3] flex items-center gap-1">
                 Training{" "}
                 <span className="text-sm">
                   <FaChevronUp
@@ -287,63 +231,31 @@ function Navbar() {
               <AnimatePresence>
                 {showTraining && (
                   <motion.div
+                    onMouseLeave={() => setShowTraining(false)}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute left-0 mt-2 top-2 z-50 w-56 bg-white shadow-lg rounded-lg"
+                    className="absolute -right-[600px] mt-2 top-7 z-50 w-[1200px] bg-white shadow-lg rounded-lg p-6"
                   >
-                    <ul className="py-2 text-left">
+                    <div className="grid grid-cols-3 gap-6">
                       {trainingPrograms.map((training, index) => (
-                        <li key={index} className="relative group">
-                          <div
-                            className="px-4 py-2 text-gray-800 hover:bg-gray-100 flex justify-between items-center cursor-pointer"
-                            onMouseEnter={() =>
-                              training.submenu &&
-                              setSubMenuTraining(training.label)
-
-                            }
-                            onMouseLeave={()=>{
-                              training.submenu &&
-                              setSubMenuTraining(null)
-                            }}
-                          >
+                        <div key={index} className="group">
+                          <h3 className="text-lg  text-[#77C9B3] mb-2">
                             {training.label}
-                            {training.submenu && (
-                              <FaChevronRight className="text-xs" />
-                            )}
-                          </div>
-
-                          {/* Submenu */}
-                          <AnimatePresence>
-                            {training.submenu &&
-                              subMenuTraining === training.label && (
-                                <motion.div
-                                  initial={{ opacity: 0, x: 10 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  exit={{ opacity: 0, x: 10 }}
-                                  transition={{ duration: 0.3 }}
-                                  className="absolute left-full top-0 w-80 bg-white shadow-lg rounded-lg"
-                                  onMouseEnter={() =>
-                                    setSubMenuTraining(training.label)
-                                  }
-                                  onMouseLeave={() => setSubMenuTraining(null)}
-                                >
-                                  <ul className="py-2 text-left">
-                                    {training.submenu.map((sub, subIndex) => (
-                                      <li key={subIndex} className="relative">
-                                        <div className="px-4 py-2 text-gray-800 hover:bg-gray-100 cursor-pointer">
-                                          {sub.label}
-                                        </div>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </motion.div>
-                              )}
-                          </AnimatePresence>
-                        </li>
+                          </h3>
+                          <ul className="space-y-1 list-disc">
+                            {training.submenu.map((sub, subIndex) => (
+                              <li key={subIndex} className="  ml-4">
+                                <p className="text-gray-700 font-normal text-[14px]">
+                                  {sub.label}
+                                </p>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -354,8 +266,11 @@ function Navbar() {
               onMouseEnter={() => setShowServices(true)}
               onMouseLeave={() => setShowServices(false)}
             >
-              <button className="cursor-pointer relative text-gray-700 gap-2 hover:text-[#77C9B3] flex items-center gap-1">
-                Services{" "}
+              <button
+                onClick={() => hadnleClick("/ourServices")}
+                className="cursor-pointer relative text-gray-700 gap-2 hover:text-[#77C9B3] flex items-center "
+              >
+                Services
                 <span className="text-sm">
                   <FaChevronUp
                     className={`${
@@ -516,7 +431,7 @@ function Navbar() {
               My Account
               <span className="hidden md:block absolute left-0 bottom-0 w-0 h-[2px] bg-[#77C9B3] transition-all duration-300 group-hover:w-1/2"></span>
             </li>
-            <li className="relative group cursor-pointer text-white py-2 bg-[#29ab87] px-5  rounded-full hover:text-white">
+            <li className="relative group cursor-pointer text-white py-2 bg-[#29ab87] px-5 hover:bg-white hover:border hover:text-[#29ab87] duration-300 transition-all ease-in-out hover:border-[#29ab87] rounded-full ">
               Enroll Now
               {/* <span className="hidden md:block absolute left-0 bottom-0 w-0 h-[2px] bg-[#77C9B3] transition-all duration-300 group-hover:w-1/2"></span> */}
             </li>

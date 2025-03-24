@@ -1,10 +1,9 @@
-import React from 'react'
+import React from "react";
 
-const MainHeader = ({headings}) => {
+const MainHeader = ({ headings }) => {
   return (
-<>
-
-<div className="bg-[#29AB87] flex justify-center pt-10 section_headings text-white">
+    <>
+      <div className="bg-[#29AB87] flex justify-center pt-10 section_headings text-white">
         {headings}
       </div>
       <div
@@ -55,7 +54,9 @@ const MainHeader = ({headings}) => {
             d="M15.6,13.2c0-0.1,4.3,0,6.7,0.5c2.4,0.5,5,1.9,5,2c0,0.1-2.7-0.8-5.1-1.4	C19.9,13.7,15.7,13.3,15.6,13.2z"
           ></path>
         </svg>{" "}
-      </div></>  )
-}
+      </div>
+    </>
+  );
+};
 
-export default MainHeader
+export default MainHeader;
