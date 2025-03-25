@@ -445,7 +445,7 @@ setShowSidebar(false);
             </li>
             
             <li className="relative group cursor-pointer text-white py-2 bg-[#29ab87] px-5 hover:bg-white hover:border hover:text-[#29ab87] duration-300 transition-all ease-in-out hover:border-[#29ab87] rounded-full ">
-            <Link href={'/contact-us'}>
+            <Link href={'/trainingPage'}>
               Enroll Now
             </Link>
               {/* <span className="hidden md:block absolute left-0 bottom-0 w-0 h-[2px] bg-[#77C9B3] transition-all duration-300 group-hover:w-1/2"></span> */}
