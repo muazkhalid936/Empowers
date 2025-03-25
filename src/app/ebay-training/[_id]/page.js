@@ -20,11 +20,11 @@ import { useRouter, useSearchParams } from "next/navigation";
 const AddToCart = ({params}) => {
   const [selected, setSelected] = useState("course");
 
-  const id = params._id;
+  const id = Number(params._id);
   
 
   const images = [
-     "/ebay.png",
+     "/eBay (1).png",
      '/etsy.png',
      "/tt1.png"
   ]
