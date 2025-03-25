@@ -5,7 +5,7 @@ const CourseEnrollment = () => {
   return (
     <div className=" py-10">
       {/* Who Must Enroll */}
-      <h2 className="text-4xl font-extrabold text-gray-900 mb-4">Who Must Enroll:</h2>
+      <h2 className="text-4xl font-extrabold textGray mb-4">Who Must Enroll:</h2>
       <ul className="list-decimal ml-6 text-gray-700 space-y-2">
         <li>People entering into the eCommerce business.</li>
         <li>
@@ -23,7 +23,7 @@ const CourseEnrollment = () => {
       </ul>
 
       {/* Requirements */}
-      <h2 className="text-4xl font-extrabold text-gray-900 mt-10 mb-4">Requirements:</h2>
+      <h2 className="text-4xl font-extrabold textGray mt-10 mb-4">Requirements:</h2>
       <ul className="list-decimal ml-6 text-gray-700 space-y-2">
         <li>Must have access to a computer with a stable internet connection.</li>
         <li>Must be focused on achieving PKR 100,000/month within 6 months after training.</li>

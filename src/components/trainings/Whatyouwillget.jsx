@@ -5,7 +5,7 @@ const WhatYouWillGet = () => {
   return (
     <div className="py-10">
       {/* Section Heading */}
-      <h2 className="text-4xl font-extrabold text-gray-900 mb-4">WHAT YOU WILL GET:</h2>
+      <h2 className="text-4xl font-extrabold textGray mb-4">WHAT YOU WILL GET:</h2>
 
       {/* Benefits List */}
       <ul className="list-decimal ml-6 text-gray-700 space-y-2">
@@ -28,7 +28,7 @@ const WhatYouWillGet = () => {
       </ul>
 
       {/* Emphasized Closing Statement */}
-      <p className="mt-6 font-bold text-lg text-gray-900 uppercase text-center">
+      <p className="mt-6 font-bold text-lg textGray uppercase text-center">
         WITH THIS COMPREHENSIVE BIOSPHERE OF EBAY, THE SUPPORT SYSTEM, AND DETAILED COURSE CONTENTS, ONLY YOUR “WILL” TO EARN BIG $$$ IS LEFT.
       </p>
     </div>

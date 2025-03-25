@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CiStar } from "react-icons/ci";
 import { PiShareFat } from "react-icons/pi";
 import { HiOutlineSave } from "react-icons/hi";
@@ -13,12 +13,29 @@ import CourseEnrollment from "@/components/trainings/CourseEnrollment";
 import WhatYouWillGet from "@/components/trainings/Whatyouwillget";
 import CourseContent from "@/components/trainings/CourseContent";
 import Content from "@/components/trainings/Content";
+import { useSearchParams } from "next/navigation";
 const Ebay_Training = () => {
   const [selected, setSelected] = useState("course");
-  return (
+ 
+  const searchparams = useSearchParams();
+ const id = searchparams.get("id");  // ✅ Get 'id' from query params
+  
+ 
+  const images = [
+     "/ebay.png",
+     '/etsy.png',
+     "/tt1.png"
+  ]
+
+  const trainingNames = [
+     "eBay Training",
+     'Etsy Training',
+     "Tiktok Training"
+  ]
+    return (
     <div className="container mx-auto py-[45px] px-10 md:py-[55px] md:px-24">
       <div className="flex ">
-        <CiStar className="text-orange-300 text-2xl" />
+        <CiStar className="text-orange-300 text-2xl" fill="orange" />
         <CiStar className="text-orange-300 text-2xl" />
         <CiStar className="text-orange-300 text-2xl" />
         <CiStar className="text-orange-300 text-2xl" />
@@ -27,7 +44,7 @@ const Ebay_Training = () => {
 
       <div className="flex justify-between gap-3 mt-3">
         <div className="flex flex-col gap-3">
-          <p className="font-bold textGray text-2xl">eBay Training</p>
+          <p className="font-bold textGray text-3xl">{trainingNames[id]}</p>
           <p className=" text-sm text-gray-400">Uncategorized</p>
         </div>
         <div className="flex gap-2">
@@ -45,7 +62,8 @@ const Ebay_Training = () => {
       <div className="flex lg:flex-row flex-col gap-2">
         <div className="lg:w-[70%]">
           <Image
-            src={"/ebay.png"}
+            // src={'/ebay.png'}
+            src={images[id]}
             width={400}
             height={300}
             alt="eBay Training"
@@ -59,8 +77,9 @@ const Ebay_Training = () => {
               <div className="flex justify-center items-center flex-col gap-4 py-10 bg-gray-100">
                 <p className="font-bold textGray text-2xl">$ 290.00</p>
 
-                <div className="relative group cursor-pointer text-white py-2 bg-[#29ab87] px-5 hover:bg-white hover:border hover:text-[#29ab87] duration-300 transition-all ease-in-out hover:border-[#29ab87] rounded-full ">
-                  Enroll Now
+                <div className="relative group cursor-pointer text-white py-3 bg-[#29ab87]  px-8 hover:bg-white hover:border hover:text-[#29ab87] duration-300 transition-all ease-in-out hover:border-[#29ab87] rounded-full ">
+                  {/* Enroll Now */}
+                  Add to Cart
                   {/* <span className="hidden md:block absolute left-0 bottom-0 w-0 h-[2px] bg-[#77C9B3] transition-all duration-300 group-hover:w-1/2"></span> */}
                 </div>
               </div>

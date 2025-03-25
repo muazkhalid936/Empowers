@@ -5,7 +5,7 @@ const CourseContent = () => {
   return (
     <div className=" py-10">
       {/* Section Heading */}
-      <h2 className="text-4xl font-extrabold text-gray-900 mb-4">Course Content:</h2>
+      <h2 className="text-4xl font-extrabold textGray mb-4">Course Content:</h2>
 
       {/* Course List */}
       <ul className="list-decimal ml-6 text-gray-700 space-y-2">

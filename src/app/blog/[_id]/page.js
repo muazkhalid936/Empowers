@@ -13,7 +13,7 @@ const page = async ({ params }) => {
   const work = BlogsData.find((work) => work.id === parseInt(slug));
   console.log(work);
   return (
-    <div className="container mx-auto md:px-80 px-10">
+    <div className="container mx-auto md:px-20 px-10">
       <div className="flex justify-center flex-col my-[45px] sm:py-[55px] items-center gap-5 sm:gap-10">
         <p className="textGray text-2xl sm:text-5xl font-bold w-[90%] text-center">
           {work.title}

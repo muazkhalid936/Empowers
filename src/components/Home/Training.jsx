@@ -2,6 +2,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 const outTrainings = [
   {
+    id : 0,
     img: "/trainingEbay.jpg",
     text: "eBay Training",
     features: [
@@ -13,6 +14,7 @@ const outTrainings = [
     ],
   },
   {
+    id : 1,
     img: "/trainingEtsy.jpg",
     text: "Etsy Training",
     features: [
@@ -24,6 +26,7 @@ const outTrainings = [
     ],
   },
   {
+    id : 2,
     img: "/trainingTiktok.jpg",
     text: "Tik Tok Shop Training",
     features: [
@@ -54,7 +57,7 @@ const Training = () => {
             return (
               <div
                 key={index}
-                onClick={()=>router.push('/ebay-training')}
+                onClick={() => router.push(`/ebay-training?id=${data.id}`)}
                 className=" border lg:w-1/3 border-gray-300 hover:shadow-2xl transition-all ease-in-out duration-300 rounded-2xl bg-white overflow-hidden  mt-5 sm:mt-0 flex flex-col min-h-[250px]"
               >
                 <img
@@ -62,10 +65,13 @@ const Training = () => {
                   alt="no Image"
                   className="hover:cursor-pointer rounded-t-md"
                 />
+                <div className="mx-auto my-5 font-bold text-xl">
+                  {data.text}
+                </div>
                 <div className=" m-4">
                   {data.features.map((features, index) => {
                     return (
-                      <ul key={index} className="mb-2 list-disc ml-2">
+                      <ul key={index} className="mb-2 list-disc ml-5">
                         <li className="text-[16px]">{features}</li>
                       </ul>
                     );
