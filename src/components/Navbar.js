@@ -187,7 +187,7 @@ setShowSidebar(false);
       </div>
       <div className=" font_inter py-1 shadow-lg">
         <div className=" flex justify-between md:items-center mx-10 lg:mx-16">
-          <div className="">
+          <div className="h-1/2 sm:h-auto">
             <Link href="/">
               <Image
                 alt="Hero image"

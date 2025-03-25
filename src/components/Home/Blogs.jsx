@@ -40,7 +40,7 @@ const Blogs = () => {
           <div className="container flex flex-col lg:flex-row gap-5  py-10 sm:py-20 justify-center items-center  mx-auto">
             {BlogsData.map((data, index) => {
               return (
-                <div key={index} className="lg:w-1/3">
+                <div key={index} className="w-[80%] lg:w-1/3">
                   <BlogCard
                     imgSrc={data.imgURL}
                     date={data.date}

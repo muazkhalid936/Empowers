@@ -46,8 +46,7 @@ export const BlogsData = [
     title: "Why Ebay? Why Empowerers?",
     date: "Jan 14, 2020",
     imgURL: "/blog3.jpg",
-    description:
-`<ol class="list-decimal">
+    description: `<ol class="list-decimal">
   <li>eBay is your step one to the eCommerce world due to its friendly nature for sellers.</li>
   <li>eBay is easier to learn than any other eCommerce marketplace.</li>
   <li>It does not charge you on a monthly basis just for the reason that you want to sell online.</li>
@@ -102,5 +101,6 @@ export const BlogsData = [
   </li>
   <li>The “eBay Business Central Management Software” developed by Empowerers makes your eBay business journey extremely easy. You can manage most of your eBay business functions within this software and track your financial success through it. Alhamdulillah, with Empowerers, you now have a comprehensive eBay ecosystem.</li>
 </ol>
-`  },
+`,
+  },
 ];
