@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 const SaleBanner = () => {
+  const router = useRouter();
   return (
     <div className="h-[230px]  sm:h-[200px] justify-center flex flex-col sm:flex-row items-center px-16 ">
       <motion.div
@@ -32,7 +33,7 @@ const SaleBanner = () => {
               20% Off on All Courses!{" "}
             </p>
           </div>
-          <button className="tracking-wide cursor-pointer text-[16px] font-bold text-white bg-[#29ab87] border border-[#29ab87] hover:text-[#29ab87] hover:bg-white px-7 py-2 w-[200px]  rounded-full transition-all duration-300 ease-in-out ">
+          <button onClick={()=>router.push('/contact-us')} className="tracking-wide cursor-pointer text-[16px] font-bold text-white bg-[#29ab87] border border-[#29ab87] hover:text-[#29ab87] hover:bg-white px-7 py-2 w-[200px]  rounded-full transition-all duration-300 ease-in-out ">
             Get In Touch
           </button>
         </div>

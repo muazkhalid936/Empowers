@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 const Welcome = () => {
   const route=useRouter()
   const handleStartLearning=()=>{
-    route.push('/training')
+    route.push('/trainingPage')
   }
   return (
     <div className="bg-[#ecf0ea]">

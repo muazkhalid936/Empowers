@@ -1,11 +1,17 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaFacebook, FaLinkedin, FaTiktok, FaYoutube } from "react-icons/fa";
 import { MdEmail, MdOutlineEmail } from "react-icons/md";
 import { IoMailSharp } from "react-icons/io5";
+import { useRouter } from "next/navigation";
 
 function Footer() {
+  const router = useRouter();
+  const hanfleLink = (e) => {
+    router.push(e);
+  };
   return (
     <div className="bg-[#807d79] relative">
       <div className=" container  mx-auto pt-10 sm:pt-20 px-10 md:px-24  text-white">
@@ -32,22 +38,34 @@ function Footer() {
               Quick Links
             </h1>
             <p className="mb-1  navbar_size ">
-              <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
+              <span
+                onClick={() => hanfleLink("about-us")}
+                className="border-b-1 border-transparent hover:border-white  transition-all duration-200"
+              >
                 About Us
               </span>
             </p>
             <p className="mb-1 hover: navbar_size">
-              <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
+              <span
+                onClick={() => hanfleLink("ourServices")}
+                className="border-b-1 border-transparent hover:border-white  transition-all duration-200"
+              >
                 Services
               </span>
             </p>
             <p className="mb-1 hover: navbar_size">
-              <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
+              <span
+                onClick={() => hanfleLink("blog")}
+                className="border-b-1 border-transparent hover:border-white  transition-all duration-200"
+              >
                 Blog
               </span>
             </p>
             <p className="hover: navbar_size">
-              <span className="border-b-1 border-transparent hover:border-white  transition-all duration-200">
+              <span
+                onClick={() => hanfleLink("contact-us")}
+                className="border-b-1 border-transparent hover:border-white  transition-all duration-200"
+              >
                 Contact Us
               </span>
             </p>
@@ -117,18 +135,24 @@ function Footer() {
               Contact Us{" "}
             </h1>
 
-            <p className=" mb-1 navbar_size">
-              +92 3327195240
-            </p>
-            <p className="navbar_size mb-2 underline">
-              info@empowerers.co
-            </p>
+            <p className=" mb-1 navbar_size">+92 3327195240</p>
+            <p className="navbar_size mb-2 underline">info@empowerers.co</p>
             <div className="navbar_size flex gap-4  items-center ">
-              <FaFacebook />
-              <FaLinkedin />
-              <FaTiktok />
-              <FaYoutube />
-              <IoMailSharp />
+              <Link href={"#"}>
+                <FaFacebook />
+              </Link>
+              <Link href={"#"}>
+                <FaLinkedin />
+              </Link>
+              <Link href={"#"}>
+                <FaTiktok />
+              </Link>
+              <Link href={"#"}>
+                <FaYoutube />
+              </Link>
+              <Link href={"#"}>
+                <IoMailSharp />
+              </Link>
             </div>
           </div>
           {/* Email section
@@ -141,7 +165,7 @@ function Footer() {
         </div> */}
         </div>
         <div className="absolute  right-0 border-t w-[100vw] border-white-[2px] bottom-16">
-{""}
+          {""}
         </div>
         <div className=" px-20 text-center  py-5 ">
           <p className="">Empowerers | © All right reserved 2025 </p>

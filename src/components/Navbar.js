@@ -160,11 +160,21 @@ setShowSidebar(false);
 
           {/* Social media Links */}
           <div className="text-xl flex gap-2 xl:gap-4 items-center">
+            <Link href={'#'}>
             <FaFacebook />
+            </Link>
+            <Link href={'#'}>
             <FaLinkedin />
+            </Link>
+            <Link href={'#'}>
             <FaTiktok />
+            </Link>
+            <Link href={'#'}>
             <FaYoutube />
+            </Link>
+            <Link href={'#'}>
             <IoMailSharp />
+            </Link>
             <div className="border-l-2 border-gray-400 px-3">
               <div className="flex items-center py-1  text-[12px] 2xl:text-[16px] rounded-sm gap-1 text-xl hover:cursor-pointer">
                 <Link href={"/auth/student-registeration"}>Register</Link>
@@ -217,7 +227,9 @@ setShowSidebar(false);
               className="relative"
               onMouseEnter={() => setShowTraining(true)}
             >
-              <button className="cursor-pointer relative text-gray-700  hover:text-[#77C9B3] flex items-center gap-1">
+              <button
+              onClick={() => hadnleClick("/trainingPage")}
+              className="cursor-pointer relative text-gray-700  hover:text-[#77C9B3] flex items-center gap-1">
                 Training{" "}
                 <span className="text-sm">
                   <FaChevronUp
@@ -236,7 +248,7 @@ setShowSidebar(false);
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute  mt-2 top-10 z-50 w-[90vw] left-[-400px]  bg-white shadow-lg rounded-lg p-6"
+                    className="absolute  mt-2 top-10 z-50 w-[80vw] left-[-400px] 2xl:left-[-900px]  bg-white shadow-lg rounded-lg p-6"
                   >
                     <div className="grid grid-cols-3 gap-6">
                       {trainingPrograms.map((training, index) => (
@@ -431,8 +443,11 @@ setShowSidebar(false);
               My Account
               <span className="hidden md:block absolute left-0 bottom-0 w-0 h-[2px] bg-[#77C9B3] transition-all duration-300 group-hover:w-1/2"></span>
             </li>
+            
             <li className="relative group cursor-pointer text-white py-2 bg-[#29ab87] px-5 hover:bg-white hover:border hover:text-[#29ab87] duration-300 transition-all ease-in-out hover:border-[#29ab87] rounded-full ">
+            <Link href={'/contact-us'}>
               Enroll Now
+            </Link>
               {/* <span className="hidden md:block absolute left-0 bottom-0 w-0 h-[2px] bg-[#77C9B3] transition-all duration-300 group-hover:w-1/2"></span> */}
             </li>
           </div>

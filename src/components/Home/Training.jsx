@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/navigation";
 const outTrainings = [
   {
     img: "/trainingEbay.jpg",
@@ -36,6 +37,7 @@ const outTrainings = [
 ];
 
 const Training = () => {
+  const router=useRouter();
   return (
     <div >
       <div className="  container mx-auto py-[45px] px-10 md:py-[55px] md:px-24">
@@ -43,7 +45,7 @@ const Training = () => {
           <h1 className="md:text-5xl text-[#29ab87] text-2xl drop-shadow-lg font-bold">
             Our Training
           </h1>
-          <button className="md:text-[15px] font-semibold md:tracking-wide border hover:cursor-pointer transition-all duration-300 ease-in-out rounded-full px-5 text-[#4a4d48] bg-transparent hover:text-[#29ab87] mt-[-15px]  md:px-10 py-2">
+          <button onClick={()=>router.push('/trainingPage')} className="md:text-[15px] font-semibold md:tracking-wide border hover:cursor-pointer transition-all duration-300 ease-in-out rounded-full px-5 text-[#4a4d48] bg-transparent hover:text-[#29ab87] mt-[-15px]  md:px-10 py-2">
             Explore More 
           </button>
         </div>
@@ -68,7 +70,7 @@ const Training = () => {
                     );
                   })}
                 </div>
-                <button className=" text-lg bg-[#29ab87] shadow-2xl hover:cursor-pointer text-white tracking-wide font-bold mt-auto py-2 rounded-lg m-2">
+                <button onClick={()=>router.push('/trainingPage')} className=" text-lg bg-[#29ab87] shadow-2xl hover:cursor-pointer text-white tracking-wide font-bold mt-auto py-2 rounded-lg m-2">
                   Enrolled Now
                 </button>
               </div>
