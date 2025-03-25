@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { CiStar } from "react-icons/ci";
 import { PiShareFat } from "react-icons/pi";
@@ -13,14 +14,15 @@ import CourseEnrollment from "@/components/trainings/CourseEnrollment";
 import WhatYouWillGet from "@/components/trainings/Whatyouwillget";
 import CourseContent from "@/components/trainings/CourseContent";
 import Content from "@/components/trainings/Content";
-import { useSearchParams } from "next/navigation";
-const Ebay_Training = () => {
+import { useRouter, useSearchParams } from "next/navigation";
+
+
+const AddToCart = ({params}) => {
   const [selected, setSelected] = useState("course");
- 
-  const searchparams = useSearchParams();
- const id = searchparams.get("id");  // ✅ Get 'id' from query params
+
+  const id = params._id;
   
- 
+
   const images = [
      "/ebay.png",
      '/etsy.png',
@@ -155,4 +157,4 @@ const Ebay_Training = () => {
   );
 };
 
-export default Ebay_Training;
+export default AddToCart;
