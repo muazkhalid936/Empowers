@@ -13,7 +13,7 @@ import CourseEnrollment from "@/components/trainings/CourseEnrollment";
 import WhatYouWillGet from "@/components/trainings/Whatyouwillget";
 import CourseContent from "@/components/trainings/CourseContent";
 import Content from "@/components/trainings/Content";
-const page = () => {
+const Ebay_Training = () => {
   const [selected, setSelected] = useState("course");
   return (
     <div className="container mx-auto py-[45px] px-10 md:py-[55px] md:px-24">
@@ -136,4 +136,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Ebay_Training;
