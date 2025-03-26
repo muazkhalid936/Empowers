@@ -14,6 +14,7 @@ export default async function handler(req, res) {
     console.log(user);
     res.status(201).json({ message: 'User created', user });
   } catch (error) {
+    console.log(error); 
     res.status(400).json({ error: 'Error creating user' });
   }
 }

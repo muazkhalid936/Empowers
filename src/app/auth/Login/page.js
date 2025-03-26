@@ -2,8 +2,11 @@
 import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
-
+import useUserStore from "@/store/useUserStore";
+import { useRouter } from "next/navigation";
 export default function LoginForm() {
+  const { setIsLogin, setRole, setUsername } = useUserStore();
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -21,11 +24,17 @@ export default function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/auth/login',formData);
+      const response = await axios.post("/api/auth/login", formData);
       // alert(response.data);
       console.log(response);
-      localStorage.setItem("token",response.data.token);
+      localStorage.setItem("token", response.data.token);
       localStorage.setItem("role", response.data.role);
+      localStorage.setItem("isLogin", true);
+      localStorage.setItem("username", response.data.username);
+      setIsLogin(true);
+      setRole(response.data.role);
+      setUsername(response.data.username);
+      router.push("/");
     } catch (error) {
       console.log(error.response.data);
     }

@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// Convert Multer middleware into a promise-based function
-const uploadMiddleware = promisify(upload.single("file"));
+// Change "file" to "image" to match frontend
+const uploadMiddleware = promisify(upload.single("image"));
 
-export default  uploadMiddleware;
+export default uploadMiddleware;

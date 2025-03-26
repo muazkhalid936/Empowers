@@ -3,12 +3,12 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { FaChevronDown, FaChevronRight, FaChevronUp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import useUserStore from "@/store/useUserStore";
 import {
   FaBars,
   FaFacebook,
@@ -111,6 +111,9 @@ function Navbar() {
     router.push(e);
   };
 
+  const { isLogin, username, role, setRole, setIsLogin, setUsername } =
+    useUserStore();
+
   const [showServices, setShowServices] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(false);
   const [animation, setAnimation] = useState(false);
@@ -121,8 +124,12 @@ function Navbar() {
   const [subMenuTraining, setSubMenuTraining] = useState(null);
 
   useEffect(() => {
+    setIsLogin(localStorage.getItem("isLogin"));
+    setRole(localStorage.getItem("role"));
+    setUsername(localStorage.getItem("username"));
+
     setTimeout(() => setAnimation(true), 1000);
-setShowSidebar(false);
+    setShowSidebar(false);
     if (animation) {
       setTimeout(() => setAnimation(false), 10000);
     }
@@ -160,28 +167,33 @@ setShowSidebar(false);
 
           {/* Social media Links */}
           <div className="text-xl flex gap-2 xl:gap-4 items-center">
-            <Link href={'#'}>
-            <FaFacebook />
+            <Link href={"#"}>
+              <FaFacebook />
             </Link>
-            <Link href={'#'}>
-            <FaLinkedin />
+            <Link href={"#"}>
+              <FaLinkedin />
             </Link>
-            <Link href={'#'}>
-            <FaTiktok />
+            <Link href={"#"}>
+              <FaTiktok />
             </Link>
-            <Link href={'#'}>
-            <FaYoutube />
+            <Link href={"#"}>
+              <FaYoutube />
             </Link>
-            <Link href={'#'}>
-            <IoMailSharp />
+            <Link href={"#"}>
+              <IoMailSharp />
             </Link>
-            <div className="border-l-2 border-gray-400 px-3">
-              <div className="flex items-center py-1  text-[12px] 2xl:text-[16px] rounded-sm gap-1 text-xl hover:cursor-pointer">
-                <Link href={"/auth/student-registeration"}>Register</Link>
-                <span>/</span>
-                <Link href={"/auth/Login"}>Login</Link>
+
+            {!isLogin && (
+              <div className="border-l-2 border-gray-400 px-3">
+                <div className="flex items-center py-1  text-[12px] 2xl:text-[16px] rounded-sm gap-1 text-xl hover:cursor-pointer">
+                  <Link href={"/auth/student-registeration"}>Register</Link>
+                  <span>/</span>
+                  <Link href={"/auth/Login"}>Login</Link>
+                </div>
               </div>
-            </div>
+            )}
+
+            {<p>Hi, {username}</p>}
           </div>
         </div>
       </div>
@@ -208,7 +220,6 @@ setShowSidebar(false);
             />
           </div>
 
-
           <div className="hidden navbar_size lg:flex  list-none justify-center items-center flex-wrap gap-5 md:font-semibold">
             <Link href={"/"}>
               <li className="relative group cursor-pointer text-gray-700 hover:text-[#77C9B3]">
@@ -228,8 +239,9 @@ setShowSidebar(false);
               onMouseEnter={() => setShowTraining(true)}
             >
               <button
-              onClick={() => hadnleClick("/trainingPage")}
-              className="cursor-pointer relative text-gray-700  hover:text-[#77C9B3] flex items-center gap-1">
+                onClick={() => hadnleClick("/trainingPage")}
+                className="cursor-pointer relative text-gray-700  hover:text-[#77C9B3] flex items-center gap-1"
+              >
                 Training{" "}
                 <span className="text-sm">
                   <FaChevronUp
@@ -443,13 +455,18 @@ setShowSidebar(false);
               My Account
               <span className="hidden md:block absolute left-0 bottom-0 w-0 h-[2px] bg-[#77C9B3] transition-all duration-300 group-hover:w-1/2"></span>
             </li>
-            
-            <li className="relative group cursor-pointer text-white py-2 bg-[#29ab87] px-5 hover:bg-white hover:border hover:text-[#29ab87] duration-300 transition-all ease-in-out hover:border-[#29ab87] rounded-full ">
-            <Link href={'/trainingPage'}>
-              Enroll Now
-            </Link>
-              {/* <span className="hidden md:block absolute left-0 bottom-0 w-0 h-[2px] bg-[#77C9B3] transition-all duration-300 group-hover:w-1/2"></span> */}
-            </li>
+            {role === "student" && (
+              <li className="relative group cursor-pointer text-white py-2 bg-[#29ab87] px-5 hover:bg-white hover:border hover:text-[#29ab87] duration-300 transition-all ease-in-out hover:border-[#29ab87] rounded-full ">
+                <Link href={"/trainingPage"}>Enroll Now</Link>
+                {/* <span className="hidden md:block absolute left-0 bottom-0 w-0 h-[2px] bg-[#77C9B3] transition-all duration-300 group-hover:w-1/2"></span> */}
+              </li>
+            )}
+            {role != "student" && (
+              <li className="relative group cursor-pointer text-white py-2 bg-[#29ab87] px-5 hover:bg-white hover:border hover:text-[#29ab87] duration-300 transition-all ease-in-out hover:border-[#29ab87] rounded-full ">
+                <Link href={`/dashboard/${role}`}>Dashboard</Link>
+                {/* <span className="hidden md:block absolute left-0 bottom-0 w-0 h-[2px] bg-[#77C9B3] transition-all duration-300 group-hover:w-1/2"></span> */}
+              </li>
+            )}
           </div>
         </div>
 

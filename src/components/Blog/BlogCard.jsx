@@ -21,7 +21,7 @@ const BlogCard = ({ imgSrc, date, title ,link,description }) => {
     onClick={()=>router.push(`/blog/${link}`)}
     className="hover:shadow-2xl   shadow-xl transition-all ease-in-out duration-300 cursor-pointer w-[100%] h-[420px] xl:h-[520px] rounded-2xl overflow-hidden">
       <div className="relative group">
-        <Image
+        <img
           src={imgSrc}
           width={400}
           height={300}

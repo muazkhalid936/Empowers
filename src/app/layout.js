@@ -1,12 +1,13 @@
-import { Noto_Sans  } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-
+import LayoutWrapper from "@/components/LayoutWrapper";
+import "react-quill/dist/quill.snow.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
-  subsets: ["latin"], // Add "latin" or "latin-ext" if needed
-  weight: ["400", "700"], // Specify weights if needed
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata = {
@@ -17,12 +18,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${notoSans.variable}  antialiased`}
-      >
-        <Navbar/>
-        {children}
-        <Footer/>
+      <body className={`${notoSans.variable} antialiased`}>
+        <LayoutWrapper>{children}
+
+        <ToastContainer />
+
+
+        </LayoutWrapper>
       </body>
     </html>
   );
