@@ -7,8 +7,10 @@ import Image from "@tiptap/extension-image";
 import TextAlign from "@tiptap/extension-text-align";
 import FontSize from "@tiptap/extension-font-size";
 import { Bold, Italic, List, ListOrdered, LinkIcon, ImageIcon, AlignLeft, AlignCenter, AlignRight, Text } from "lucide-react";
+import { useEffect } from "react";
 
 const RichTextEditor = ({ value, onChange }) => {
+  console.log("RichTextEditor", value);
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -17,11 +19,18 @@ const RichTextEditor = ({ value, onChange }) => {
       TextAlign.configure({ types: ["heading", "paragraph"] }),
       FontSize.configure({ types: ["textStyle"] }),
     ],
-    content: value,
+    content: value, // Initial content
     onUpdate: ({ editor }) => {
       onChange(editor.getHTML());
     },
   });
+  
+  useEffect(() => {
+    if (editor && value) {
+      editor.commands.setContent(value);
+    }
+  }, [editor, value]); // Update content when value changes
+  
 
   if (!editor) return null;
 

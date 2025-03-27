@@ -22,19 +22,25 @@ export default function EditBlogPage({ params }) {
     const fetchBlogData = async () => {
       try {
         const response = await axios.get(`/api/blog/get_blog_data?id=${id}`);
-        const { title, tags, description, image } = response.data;
-console.log(response.data)
+        const { title, tags, description, imageUrl } = response.data;
+        console.log(response.data); // Debugging
+  
         setTitle(title);
         setTags(tags);
         setDescription(description);
-        setImagePreview(image); // Assuming the API returns the image URL
+  
+        // Ensure correct image handling
+        if (imageUrl) {
+          setImagePreview(imageUrl);
+        }
       } catch (error) {
         console.error("Error fetching blog data:", error);
       }
     };
-
+  
     fetchBlogData();
   }, [id]);
+  
 
   // Handle Image Selection
   const handleImageChange = (e) => {
@@ -55,7 +61,7 @@ console.log(response.data)
       formData.append("description", description);
       if (image) formData.append("image", image);
 
-      await axios.put(`/api/blog/${id}`, formData, {
+      await axios.patch(`/api/blog/update_blog?id=${id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
