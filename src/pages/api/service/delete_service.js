@@ -3,7 +3,7 @@ import Service from "@/models/Service_model";
 
 const  delete_service = async (req, res) => {
     if(req.method !== "DELETE") return res.status(405).end();
-
+console.log("delete_service", req.query);
     try {
         dbConnect();
 

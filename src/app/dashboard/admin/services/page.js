@@ -29,7 +29,6 @@ export default function ServicesTable() {
   };
 
   const handleEditService = async () => {
-    console.log(selectedService, "Selected Service"); // Ensure correct property is logged
     await axios.patch(`/api/service/update_service?id=${selectedService._id}`, {
       service: selectedService.service,
     });
@@ -39,7 +38,9 @@ export default function ServicesTable() {
   };
 
   const handleDeleteService = async () => {
-    await axios.delete(`/api/services/${selectedService._id}`);
+    console.log(selectedService, "Selected Service"); // Ensure correct property is logged
+
+    await axios.delete(`/api/service/delete_service?id=${selectedService._id}`);
     toast.success("Service deleted successfully");
     setOpenDelete(false);
     fetchServices();
@@ -96,7 +97,7 @@ export default function ServicesTable() {
               type="text"
               value={selectedService.service}
               onChange={(e) =>
-                setSelectedService({ ...selectedService, name: e.target.value })
+                setSelectedService({ ...selectedService, service: e.target.value })
               }
               className="border p-2 w-full mt-2"
             />
