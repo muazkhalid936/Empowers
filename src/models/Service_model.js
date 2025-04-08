@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const servicesSchema = new mongoose.Schema({
-    service : {type:String, required : true}
+    service : {type:String, required : true},
 });
 
 const Service = mongoose.models.Service || mongoose.model("Service", servicesSchema);

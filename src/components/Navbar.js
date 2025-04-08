@@ -26,6 +26,7 @@ import { CiLogin } from "react-icons/ci";
 import News from "./News";
 import Link from "next/link";
 import SaleBanner from "./SaleBanner";
+import axios from "axios";
 const tools = [
   { label: "eBoss", href: "https://eboss.pk/" },
   { label: "GoLogin", href: "https://gologin.com/register" },
@@ -75,33 +76,33 @@ const trainingPrograms = [
     ],
   },
 ];
-const services = [
-  { label: "eCommerce Consultation" },
-  { label: "Staff Augmentation" },
-  { label: "Managerial Services" },
-  { label: "Fulfillment Centers" },
-  {
-    label: "Shared Spaces in Incubators",
-    submenu: [
-      {
-        label: "Multan",
-        submenu: [
-          { label: "Multan Head Office" },
-          { label: "Multan Central Incubator" },
-        ],
-      },
-      { label: "Lahore" },
-      { label: "Faisalabad" },
-      { label: "Rawalpindi" },
-      { label: "Sialkot" },
-      { label: "Sahiwal" },
-      { label: "Swat" },
-    ],
-  },
-  { label: "Social Media Management" },
-  { label: "Artificial Intelligence Services" },
-  { label: "Cyber Security" },
-];
+// const services = [
+//   { label: "eCommerce Consultation" },
+//   { label: "Staff Augmentation" },
+//   { label: "Managerial Services" },
+//   { label: "Fulfillment Centers" },
+//   {
+//     label: "Shared Spaces in Incubators",
+//     submenu: [
+//       {
+//         label: "Multan",
+//         submenu: [
+//           { label: "Multan Head Office" },
+//           { label: "Multan Central Incubator" },
+//         ],
+//       },
+//       { label: "Lahore" },
+//       { label: "Faisalabad" },
+//       { label: "Rawalpindi" },
+//       { label: "Sialkot" },
+//       { label: "Sahiwal" },
+//       { label: "Swat" },
+//     ],
+//   },
+//   { label: "Social Media Management" },
+//   { label: "Artificial Intelligence Services" },
+//   { label: "Cyber Security" },
+// ];
 
 function Navbar() {
   const router = useRouter();
@@ -122,22 +123,33 @@ function Navbar() {
   const [showTools, setShowTools] = useState(false);
   const [showTraining, setShowTraining] = useState(false);
   const [subMenuTraining, setSubMenuTraining] = useState(null);
+  const [services, setServices] = useState([])
+
+  const getAllServices = async () => {
+    try {
+      const response = await axios.get('/api/service/all_services');
+      setServices(response.data);
+    } catch (error) {
+      console.log(error, "error in get all services in navbar")
+    }
+  };
 
   useEffect(() => {
     setIsLogin(localStorage.getItem("isLogin"));
     setRole(localStorage.getItem("role"));
     setUsername(localStorage.getItem("username"));
 
-    setTimeout(() => setAnimation(true), 1000);
-    setShowSidebar(false);
-    if (animation) {
-      setTimeout(() => setAnimation(false), 10000);
-    }
-  }, [animation]);
+    // setTimeout(() => setAnimation(true), 1000);
+    // setShowSidebar(false);
+    // if (animation) {
+    //   setTimeout(() => setAnimation(false), 10000);
+    // }
+  }, []);
 
   useEffect(() => {
+    getAllServices()
     setShowSidebar(false); // Close sidebar on route change
-  }, [pathname]);
+  }, []);
 
   return (
     <>
@@ -322,7 +334,7 @@ function Navbar() {
                             }}
                             onMouseLeave={() => setOpenSubmenu(false)}
                           >
-                            {service.label}
+                            {service.service}
                             {service.submenu && (
                               <FaChevronRight className="text-xs" />
                             )}
