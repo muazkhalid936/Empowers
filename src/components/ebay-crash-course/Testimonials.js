@@ -8,10 +8,10 @@ const testimonials = [
     name: "Huzaifa",
     video: "/Huzaifa.mp4",
   },
-  {
-    name: "Moavia",
-    video: "/moavia.mp4",
-  },
+  // {
+  //   name: "Moavia",
+  //   video: "/moavia.mp4",
+  // },
   {
     name: "Sania",
     video: "/Sania.mp4",
