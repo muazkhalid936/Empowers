@@ -4,6 +4,9 @@ import CoreModules from "@/components/ebay-crash-course/CoreModules";
 import EarlyBirdDiscount from "@/components/ebay-crash-course/EarlyBirdDiscount";
 import Header from "@/components/ebay-crash-course/Header";
 import VideoSection from "@/components/ebay-crash-course/VideoSection";
+import Testimonials from "@/components/ebay-crash-course/Testimonials";
+import FAQ from "@/components/ebay-crash-course/FAQ";
+import CallToAction from "@/components/ebay-crash-course/CallToAction";
 
 export default function EbayCrashCourse() {
      const newsLogo = [
@@ -23,11 +26,14 @@ export default function EbayCrashCourse() {
   ];
   return (
     <div className="min-h-screen bg-gray-100">
-      {/* <Header /> */}
-      <VideoSection />
+      {/* <Header/> */}
+      <VideoSection/>
       <AsSeenOn/>
-      <EarlyBirdDiscount />
-      <CoreModules />
+      <EarlyBirdDiscount/>
+      <CoreModules/>
+      <Testimonials/>
+      <FAQ/>
+      <CallToAction/>
     </div>
   );
 }

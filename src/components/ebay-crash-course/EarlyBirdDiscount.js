@@ -77,7 +77,7 @@ export default function EarlyBirdDiscount() {
         {/* Image of Qasim Sir */}
         <div className="lg:w-1/2 flex justify-center items-center flex-col">
           <Image
-            alt="Qasim Sir"
+            alt="image"
             src="/qasim-sir-half-1536x1445.png"
             width={450}
             height={300}

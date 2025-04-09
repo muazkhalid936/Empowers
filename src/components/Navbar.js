@@ -79,7 +79,9 @@ const trainingPrograms = [
 // const services = [
 //   { label: "eCommerce Consultation" },
 //   { label: "Staff Augmentation" },
-//   { label: "Managerial Services" },
+//   { label: "Managerial Services",
+//     submenu : [{label : "ok"}]
+//    },
 //   { label: "Fulfillment Centers" },
 //   {
 //     label: "Shared Spaces in Incubators",
@@ -123,7 +125,10 @@ function Navbar() {
   const [showTools, setShowTools] = useState(false);
   const [showTraining, setShowTraining] = useState(false);
   const [subMenuTraining, setSubMenuTraining] = useState(null);
+  const [serviceName, setServiceName] = useState("");
   const [services, setServices] = useState([])
+
+  console.log(serviceName)
 
   const getAllServices = async () => {
     try {
@@ -330,16 +335,16 @@ function Navbar() {
                           <div
                             className=" px-4 py-2 text-gray-800 hover:bg-gray-100 flex justify-between items-center cursor-pointer"
                             onMouseEnter={() => {
-                              if (service.submenu) setOpenSubmenu(true);
+                              if (service.submenu) setOpenSubmenu(true); setServiceName(service.service);
                             }}
                             onMouseLeave={() => setOpenSubmenu(false)}
                           >
                             {service.service}
-                            {service.submenu && (
+                            {service.submenu.length > 0 && (
                               <FaChevronRight className="text-xs" />
                             )}
                           </div>
-                          {service.submenu && openSubmenu && (
+                          {service.submenu.length > 0 && openSubmenu && service.service === serviceName && (
                             <AnimatePresence>
                               <motion.div
                                 initial={{ opacity: 0, x: 10 }}
@@ -357,10 +362,10 @@ function Navbar() {
                                       <div
                                         className=" px-4 py-2 text-gray-800 hover:bg-gray-100 flex justify-between items-center cursor-pointer"
                                         onMouseEnter={() =>
-                                          setOpenSubmenu(sub.label)
+                                          setOpenSubmenu(sub.subservice)
                                         }
                                       >
-                                        {sub.label}
+                                        {sub.subservice}
                                         {sub.submenu && (
                                           <FaChevronRight className="text-xs" />
                                         )}
