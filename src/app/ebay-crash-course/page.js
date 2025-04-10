@@ -26,7 +26,7 @@ export default function EbayCrashCourse() {
   ];
   return (
     <div className="min-h-screen bg-gray-100">
-      {/* <Header/> */}
+      <Header/>
       <VideoSection/>
       <AsSeenOn/>
       <EarlyBirdDiscount/>
