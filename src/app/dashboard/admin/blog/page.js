@@ -79,7 +79,7 @@ const BlogManager = () => {
           <div className="w-16 h-16 border-t-4 border-[#29ab87] border-solid rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="space-y-4 flex flex-wrap justify-between">
+        <div className="space-y-4 flex flex-wrap gap-10">
           {blogs.map((blog, index) => (
             <div key={index} className="w-[80%] lg:w-[30%]">
               <BlogCard

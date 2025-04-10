@@ -128,8 +128,6 @@ function Navbar() {
   const [serviceName, setServiceName] = useState("");
   const [services, setServices] = useState([])
 
-  console.log(serviceName)
-
   const getAllServices = async () => {
     try {
       const response = await axios.get('/api/service/all_services');

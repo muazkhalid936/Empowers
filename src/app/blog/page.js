@@ -1,22 +1,38 @@
+"use client";
 import BlogCard from "@/components/Blog/BlogCard";
 import MainHeader from "@/components/MainHeader";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BlogsData } from "@/data";
+import axios from "axios";
 
 const page = () => {
+  const [blogs, setBlogs] = useState([]);
+
+  const getAllBlogs = async () => {
+    try {
+      const response = await axios.get('/api/blog/all_blog');
+      setBlogs(response.data);
+    } catch (error) {
+      console.log(error.response, "error in get all blogs front end");
+    }
+  }
+
+  useEffect( () => {
+    getAllBlogs();
+  },[])
   return (
     <div>
       <MainHeader headings={"Blog Page"} />
 
-      <div className="container flex flex-col sm:flex-row gap-5  py-10 sm:py-20 justify-center items-center md:px-24 px-10 mx-auto">
+      <div className="container flex flex-col sm:flex-row gap-5 py-10 sm:py-20 justify-center items-center md:px-24 px-10 mx-auto">
       {
-              BlogsData.map((data, index) => {  
+              blogs.map((data, index) => {  
                 return (
                   <div key={index} className="lg:w-1/3">
                     <BlogCard
-                      imgSrc={data.imgURL}
+                      imgSrc={data.imageUrl}
                       date={data.date}
-                      link= {data.id}
+                      _id= {data._id}
                       title={data.title}
                       description={data.description}
                     />

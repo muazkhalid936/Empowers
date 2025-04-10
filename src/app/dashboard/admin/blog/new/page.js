@@ -10,7 +10,7 @@ export default function AddBlogPage() {
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [tags, setTags] = useState("");
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState("Hello how");
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -77,7 +77,7 @@ export default function AddBlogPage() {
         {imagePreview && <img src={imagePreview} alt="Preview" className="w-full h-40 object-cover rounded" />}
 
         {/* Rich Text Editor for Description */}
-        <RichTextEditor value={description} onChange={setDescription} />
+        <RichTextEditor value={description} onChange={(e) => setDescription(e)} />
 
         {/* Submit Button */}
         <button type="submit" disabled={loading} className="bg-blue-500 text-white px-4 py-2 rounded">

@@ -3,7 +3,8 @@ import Image from "next/image";
 import React from "react";
 import { LuMoveRight } from "react-icons/lu";
 import { useRouter } from "next/navigation";
-const BlogCard = ({ imgSrc, date, title ,link,description }) => {
+
+const BlogCard = ({ imgSrc, date, title ,_id,description }) => {
   const router= useRouter ()
   const truncateTitle = (text, wordLimit) => {
     const words = text.split(" ");
@@ -18,7 +19,7 @@ const BlogCard = ({ imgSrc, date, title ,link,description }) => {
   return (
 
     <div
-    onClick={()=>router.push(`/blog/${link}`)}
+    onClick={()=>router.push(`/blog/${_id}`)}
     className="hover:shadow-2xl   shadow-xl transition-all ease-in-out duration-300 cursor-pointer w-[100%] h-[420px] xl:h-[520px] rounded-2xl overflow-hidden">
       <div className="relative group">
         <img
@@ -39,7 +40,7 @@ const BlogCard = ({ imgSrc, date, title ,link,description }) => {
         <div dangerouslySetInnerHTML={{ __html: truncateDescription(description, 15) }}>
         </div>
         <button
-        onClick={()=>router.push(`/blog/${link}`)}
+        onClick={()=>router.push(`/blog/${_id}`)}
         className=" text-[#7a7a7a] py-2  flex justify-start items-center gap-2 rounded-lg">
           Continue Reading <LuMoveRight />
         </button>

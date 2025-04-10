@@ -8,7 +8,7 @@ export default async function get_blog_data(req, res) {
     await dbConnect();
 
     const { id } = req.query;
-console.log(id)
+console.log("from backend",id)
     if (!id) {
       return res.status(400).json({ error: "Blog ID is required" });
     }
@@ -25,3 +25,4 @@ console.log(id)
     res.status(500).json({ error: "Internal server error" });
   }
 }
+
