@@ -53,7 +53,7 @@ export default function FAQ() {
   };
 
   return (
-    <section className="bg-white py-12 px-6 mx-auto">
+    <section className="bg-[#181818] py-12 px-6 mx-auto">
       <h2 className="text-3xl font-bold text-center text-[#29ab87] mb-10">
         Frequently Asked Questions
       </h2>
@@ -66,25 +66,25 @@ export default function FAQ() {
             <div
               key={index}
               className={`rounded-lg transition-all duration-300 ${
-                isOpen ? "bg-green-50 border-l-4" : "bg-gray-50"
+                isOpen ? "bg-[#1f1f1f] border-l-4" : "bg-[#252525]"
               } ${isOpen ? "border-[#29ab87]" : "border-transparent"} border`}
             >
               <button
                 onClick={() => toggle(index)}
-                className="flex items-center justify-between w-full px-5 py-4 text-left rounded-t-lg hover:bg-[#29ab87]/10 transition-colors"
+                className="flex items-center justify-between w-full px-5 py-4 text-left rounded-t-lg "
               >
-                <span className="text-base sm:text-lg font-semibold text-gray-800">
+                <span className="text-base sm:text-lg font-semibold text-white">
                   {faq.question}
                 </span>
                 <FaChevronDown
                   className={`w-4 h-4 transition-transform duration-300 ${
-                    isOpen ? "rotate-180 text-[#29ab87]" : "text-gray-600"
+                    isOpen ? "rotate-180 text-[#29ab87]" : "text-gray-400"
                   }`}
                 />
               </button>
 
               {isOpen && (
-                <div className="px-5 pb-4 pt-1 text-sm text-gray-700 leading-relaxed animate-fade-in">
+                <div className="px-5 pb-4 pt-1 text-sm text-white leading-relaxed animate-fade-in">
                   {faq.answer}
                 </div>
               )}

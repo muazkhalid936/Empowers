@@ -8,10 +8,10 @@ const testimonials = [
     name: "Huzaifa",
     video: "/Huzaifa.mp4",
   },
-  // {
-  //   name: "Moavia",
-  //   video: "/moavia.mp4",
-  // },
+  {
+    name: "Moavia",
+    video: "/moavia.mp4",
+  },
   {
     name: "Sania",
     video: "/Sania.mp4",
@@ -32,31 +32,33 @@ export default function TestimonialsSlider() {
   const testimonial = testimonials[current];
 
   return (
-    <section className="py-6 bg-gray-50">
-      <div className="mx-auto px-4 text-center">
-        <h2 className="text-3xl font-extrabold text-[#29ab87] mb-8">
+    <section className="py-10 bg-[#222]">
+      <div className="mx-auto px-4 text-center text-white">
+        <h2 className="text-3xl font-extrabold mb-10">
           Success Stories
         </h2>
 
-        {/* Main layout with arrows outside */}
-        <div className="flex items-center justify-center space-x-4">
+        {/* Layout for large screens */}
+        <div className="hidden lg:flex items-center justify-center gap-6">
           {/* Prev Button */}
           <button
             onClick={prevSlide}
-            className="p-3 bg-white border border-gray-300 rounded-full shadow hover:bg-gray-100"
+            className="p-3 bg-[#1e1e1e] border border-gray-700 rounded-full shadow hover:bg-[#333]"
           >
-            <FaChevronLeft className="text-[#29ab87] w-5 h-5" />
+            <FaChevronLeft className="text-white w-5 h-5" />
           </button>
 
-          {/* Testimonial Content */}
-          <div className="bg-white p-6 rounded-lg shadow w-full max-w-md">
-          <video
-           key={testimonial.video}
-           className="rounded-md w-full h-64 object-cover mb-4"
-           controls
-           src={testimonial.video}
-         />
-            <h4 className="text-sm font-semibold text-gray-900">
+          {/* Video */}
+          <div className="bg-[#1e1e1e] p-4 sm:p-6 rounded-lg shadow w-full max-w-xl">
+            <div className="w-full aspect-video mb-4">
+              <video
+                key={testimonial.video}
+                className="w-full h-full rounded-md object-cover"
+                controls
+                src={testimonial.video}
+              />
+            </div>
+            <h4 className="text-sm font-semibold text-[#e0e0e0]">
               — {testimonial.name}
             </h4>
           </div>
@@ -64,10 +66,43 @@ export default function TestimonialsSlider() {
           {/* Next Button */}
           <button
             onClick={nextSlide}
-            className="p-3 bg-white border border-gray-300 rounded-full shadow hover:bg-gray-100"
+            className="p-3 bg-[#1e1e1e] border border-gray-700 rounded-full shadow hover:bg-[#333]"
           >
-            <FaChevronRight className="text-[#29ab87] w-5 h-5" />
+            <FaChevronRight className="text-white  w-5 h-5" />
           </button>
+        </div>
+
+        {/* Layout for small screens */}
+        <div className="lg:hidden w-full max-w-md mx-auto">
+          <div className="bg-[#1e1e1e] p-4 rounded-lg shadow">
+            <div className="w-full aspect-video mb-4">
+              <video
+                key={testimonial.video}
+                className="w-full h-full rounded-md object-cover"
+                controls
+                src={testimonial.video}
+              />
+            </div>
+            <h4 className="text-sm font-semibold text-[#e0e0e0]">
+              — {testimonial.name}
+            </h4>
+          </div>
+
+          {/* Arrows below on small screens */}
+          <div className="mt-4 flex justify-center gap-6">
+            <button
+              onClick={prevSlide}
+              className="p-3 bg-[#1e1e1e] border border-gray-700 rounded-full shadow hover:bg-[#333]"
+            >
+              <FaChevronLeft className="text-[#29ab87] w-5 h-5" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="p-3 bg-[#1e1e1e] border border-gray-700 rounded-full shadow hover:bg-[#333]"
+            >
+              <FaChevronRight className="text-[#29ab87] w-5 h-5" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

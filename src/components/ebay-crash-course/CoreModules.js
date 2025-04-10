@@ -2,13 +2,13 @@ import { FaBookOpen, FaGift, FaTasks, FaBullhorn, FaDollarSign, FaUsers } from "
 
 export default function CoreModules() {
   return (
-    <section className="bg-white py-10 px-6 md:px-20 text-[#333]">
+    <section className="bg-[#2e2e2e] py-10 px-6 md:px-20 text-[#e0e0e0]">
       {/* Welcome Note */}
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold mb-3 flex justify-center items-center gap-2">
-          <FaBullhorn className="text-[#29ab87] text-2xl" /> Welcome to ECC 3.0!
+        <h2 className="text-3xl font-bold mb-3 flex justify-center items-center gap-2 text-[#29ab87]">
+          <FaBullhorn className="text-2xl" /> Welcome to ECC 3.0!
         </h2>
-        <p className="text-lg leading-relaxed max-w-3xl mx-auto">
+        <p className="text-lg leading-relaxed max-w-3xl mx-auto text-[#e0e0e0]">
           What exactly you will learn in this training.
         </p>
       </div>
@@ -80,14 +80,14 @@ export default function CoreModules() {
 
 function SectionBox({ icon, title, items }) {
   return (
-    <div className="border rounded-xl shadow-md overflow-hidden">
+    <div className="border rounded-xl shadow-md overflow-hidden bg-[#1e1e1e]">
       <div className="bg-[#29ab87] text-white text-center py-2 font-semibold text-lg flex justify-center items-center gap-2">
         {icon}
         {title}
       </div>
-      <div className="bg-white px-4 py-4 space-y-2">
+      <div className="bg-[#222] px-4 py-4 space-y-2">
         {items.map((item, index) => (
-          <p key={index} className="border-b pb-1 text-sm md:text-base">
+          <p key={index} className="border-b pb-1 text-sm md:text-base text-[#e0e0e0]">
             <span className="font-semibold">{item.heading}:</span>{" "}
             <span className="font-normal">{item.description}</span>
           </p>

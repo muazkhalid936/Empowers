@@ -28,7 +28,7 @@ export default function EarlyBirdDiscount() {
     //     </div>
     //   </div>
     // </div>
-    <div className="bg-[#ecf0ea] p-0 m-0 relative">
+    <div className="bg-[#222] py-1 m-0 relative">
       {/* Modal */}
       {/* {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
@@ -69,12 +69,11 @@ export default function EarlyBirdDiscount() {
           </div> */}
           
           {/* Description Text */}
-          <h1 className="text-lg text-[#4a4d48] md:text-xl font-bold">
+          <h1 className="text-lg text-white md:text-xl font-bold">
             Our EBAY CRASH COURSE (ECC) 3.0 is designed for Busy Individuals, House Wives, Students and Job Persons who want to learn fast and earn in Dollars! Plus, there's an exclusive offer you can't afford to miss.
           </h1>
         </div>
 
-        {/* Image of Qasim Sir */}
         <div className="lg:w-1/2 flex justify-center items-center flex-col">
           <Image
             alt="image"
