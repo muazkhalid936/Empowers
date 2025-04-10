@@ -17,7 +17,7 @@ const WhatWeProvide = () => {
         </div>
         <div className="">
           <div className="flex flex-wrap justify-around gap-5 sm:gap-10">
-            <div className="flex flex-col items-center rounded-md text-center text-[#29AB87] border p-5 w-[500px]">
+            <div className="flex flex-col items-center rounded-md text-center text-[#29AB87] border p-5 w-[480px]">
               <FaThList className="h-20 w-20" />
               <h1 className="text-2xl sm:text-3xl font-bold my-2 sm:my-5">
                 eCommerce Consultation​
@@ -27,7 +27,7 @@ const WhatWeProvide = () => {
                 Consultation.
               </p>
             </div>
-            <div className="flex  flex-col items-center text-center rounded-md text-[#29AB87] border p-5 w-[500px]">
+            <div className="flex  flex-col items-center text-center rounded-md text-[#29AB87] border p-5 w-[480px]">
               <FaStoreAlt className="h-20 w-20" />
               <h1 className="text-2xl sm:text-3xl font-bold my-2 sm:my-5">
                 Staff Augmentation (eBay, ETSY, Tiktok Shop)​
@@ -38,7 +38,7 @@ const WhatWeProvide = () => {
                 understand the nuances of each platform.
               </p>
             </div>
-            <div className="flex  flex-col items-center rounded-md text-center text-[#29AB87] border p-5 w-[500px]">
+            <div className="flex  flex-col items-center rounded-md text-center text-[#29AB87] border p-5 w-[480px]">
               <FaCommentsDollar className="h-20 w-20" />
               <h1 className="text-2xl sm:text-3xl font-bold my-2 sm:my-5">
                 Managerial Services (eBay, ETSY, Tiktock Shop)​
@@ -48,7 +48,7 @@ const WhatWeProvide = () => {
                 customer support, allowing you to focus on growing your brand
               </p>
             </div>
-            <div className="flex  flex-col items-center rounded-md text-center text-[#29AB87] border p-5 w-[500px]">
+            <div className="flex  flex-col items-center rounded-md text-center text-[#29AB87] border p-5 w-[480px]">
               <FaStoreSlash className="h-20 w-20" />
               <h1 className="text-2xl sm:text-3xl font-bold my-2 sm:my-5">
                 Fulfillments Centers​</h1>
@@ -56,7 +56,7 @@ const WhatWeProvide = () => {
                 Empowerers Providing Fullfilment center in UK, USA and Aus.
               </p>
             </div>
-            <div className="flex  flex-col items-center rounded-md text-center text-[#29AB87] border p-5 w-[500px]">
+            <div className="flex  flex-col items-center rounded-md text-center text-[#29AB87] border p-5 w-[480px]">
               <FaRegHandshake className="h-20 w-20" />
               <h1 className="text-2xl sm:text-3xl font-bold my-2 sm:my-5">
                 Shared Spaces in incubators
@@ -66,7 +66,7 @@ const WhatWeProvide = () => {
                 collaboration and innovation among entrepreneurs.
               </p>
             </div>
-            <div className="flex  flex-col rounded-md items-center text-center text-[#29AB87] border p-5 w-[500px]">
+            <div className="flex  flex-col rounded-md items-center text-center text-[#29AB87] border p-5 w-[480px]">
               <FaFacebook className="h-20 w-20" />
               <h1 className="text-2xl sm:text-3xl font-bold my-2 sm:my-5">
                 Social Media Management​

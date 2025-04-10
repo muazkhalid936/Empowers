@@ -13,9 +13,9 @@ function Footer() {
     router.push(e);
   };
   return (
-    <div className="bg-[#807d79] relative">
-      <div className=" container  mx-auto pt-10 sm:pt-20 px-10 md:px-24  text-white">
-        <div className="flex flex-wrap gap-5  justify-between  my-5 sm:my-20">
+    <div className="bg-[#29AB87] relative">
+      <div className=" container  mx-auto pt-5 sm:pt-2 px-10  md:px-10  text-white">
+        <div className="flex flex-wrap gap-5  justify-between  my-5 sm:my-12">
           <div>
             <Link href={"/"}>
               <Image
@@ -23,7 +23,7 @@ function Footer() {
                 height={500}
                 src="/empowerer_logo_re_bg.png"
                 alt=""
-                className="w-[300px]  drop-shadow-md  mx-auto sm:mx-0  rounded-lg"
+                className="w-[300px]  drop-shadow-md  mx-auto sm:mx-0 bg-gray-300 px-3 py-3  rounded-lg"
               />
             </Link>
             <p className="navbar_size mt-8">
