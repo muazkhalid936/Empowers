@@ -49,31 +49,35 @@ const tools = [
     href: "https://www.namecheap.com/?clickID=wUowdbwQGxyPU30Q9YR3mQobUkHyjoxXfTJITk0&irgwc=1&utm_source=IR&utm_medium=Affiliate&utm_campaign=3230165&affnetwork=ir&ref=ir",
   },
 ];
+
 const trainingPrograms = [
   {
     label: "eBay Training",
-    submenu: [
-      { label: "eBay VBT (Video Based Training)" },
-      { label: "eBay Incubator Based Training" },
-      { label: "eBay Business Course - EBC" },
-      { label: "eBay Crash Course – ECC 3.0" },
-    ],
+    url : "eBay-Training"
+    // submenu: [
+    //   { label: "eBay VBT (Video Based Training)" },
+    //   { label: "eBay Incubator Based Training" },
+    //   { label: "eBay Business Course - EBC" },
+    //   { label: "eBay Crash Course – ECC 3.0" },
+    // ],
   },
   {
     label: "TikTok Shop Training",
-    submenu: [
-      { label: "TikTok Shop VBT (Video Based Training)" },
-      { label: "TikTok Shop Incubator Based Training" },
-      { label: "TikTok Shop Online Training - TTS" },
-    ],
+    url : "TikTok-Shop-Training"
+    // submenu: [
+    //   { label: "TikTok Shop VBT (Video Based Training)" },
+    //   { label: "TikTok Shop Incubator Based Training" },
+    //   { label: "TikTok Shop Online Training - TTS" },
+    // ],
   },
   {
     label: "Etsy Training",
-    submenu: [
-      { label: "Etsy VBT (Video Based Training)" },
-      { label: "Etsy Incubator Based Training" },
-      { label: "Etsy Training Program - ETP" },
-    ],
+    url : "Etsy-Training"
+    // submenu: [
+    //   { label: "Etsy VBT (Video Based Training)" },
+    //   { label: "Etsy Incubator Based Training" },
+    //   { label: "Etsy Training Program - ETP" },
+    // ],
   },
 ];
 // const services = [
@@ -254,7 +258,6 @@ function Navbar() {
               onMouseEnter={() => setShowTraining(true)}
             >
               <button
-                onClick={() => hadnleClick("/trainingPage")}
                 className="cursor-pointer relative text-gray-700  hover:text-[#77C9B3] flex items-center gap-1"
               >
                 Training{" "}
@@ -275,15 +278,15 @@ function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute  mt-2 top-10 z-50 w-[80vw] left-[-400px] 2xl:left-[-900px]  bg-white shadow-lg rounded-lg p-6"
+                    className="absolute  mt-2 top-10 z-50 w-[15vw] left-[-400px] 2xl:left-[-00px]  bg-white shadow-lg rounded-lg p-6"
                   >
-                    <div className="grid grid-cols-3 gap-6">
+                    <div className=" ">
                       {trainingPrograms.map((training, index) => (
-                        <div key={index} className="group">
-                          <h3 className="text-[16px]  text-[#77C9B3] mb-2">
+                        <div key={index} className="" onClick={() => (router.push(`/trainingPage/${training.url}`))}>
+                          <h3 className="text-[16px] hover:cursor-pointer hover:text-[#77C9B3] mb-2">
                             {training.label}
                           </h3>
-                          <ul className="space-y-1 list-disc">
+                          {/* <ul className="space-y-1 list-disc">
                             {training.submenu.map((sub, subIndex) => (
                               <li key={subIndex} className="  ml-4">
                                 <p className="text-gray-700 font-normal text-[12px]">
@@ -291,7 +294,7 @@ function Navbar() {
                                 </p>
                               </li>
                             ))}
-                          </ul>
+                          </ul> */}
                         </div>
                       ))}
                     </div>
