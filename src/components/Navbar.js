@@ -128,14 +128,13 @@ function Navbar() {
   const [showToolsDropdown, setShowToolsDropdown] = useState(false);
   const [showTools, setShowTools] = useState(false);
   const [showTraining, setShowTraining] = useState(false);
-  const [subMenuTraining, setSubMenuTraining] = useState(null);
-  const [serviceName, setServiceName] = useState("");
-  const [services, setServices] = useState([])
+  const [trainingMenu, setTrainingMenu] = useState([])
 
   const getAllServices = async () => {
     try {
-      const response = await axios.get('/api/service/all_services');
-      setServices(response.data);
+      const response = await axios.get('/api/trainingMenu/all_training_menu');
+      console.log(response.data);
+      setTrainingMenu(response.data);
     } catch (error) {
       console.log(error, "error in get all services in navbar")
     }
@@ -145,12 +144,6 @@ function Navbar() {
     setIsLogin(localStorage.getItem("isLogin"));
     setRole(localStorage.getItem("role"));
     setUsername(localStorage.getItem("username"));
-
-    // setTimeout(() => setAnimation(true), 1000);
-    // setShowSidebar(false);
-    // if (animation) {
-    //   setTimeout(() => setAnimation(false), 10000);
-    // }
   }, []);
 
   useEffect(() => {
@@ -281,9 +274,11 @@ function Navbar() {
                     className="absolute  mt-2 top-10 z-50 w-[15vw] left-[-400px] 2xl:left-[-00px]  bg-white shadow-lg rounded-lg p-6"
                   >
                     <div className=" ">
+                      {/* {trainingMenu.map((training, index) => ( */}
                       {trainingPrograms.map((training, index) => (
                         <div key={index} className="" onClick={() => (router.push(`/trainingPage/${training.url}`))}>
                           <h3 className="text-[16px] hover:cursor-pointer hover:text-[#77C9B3] mb-2">
+                            {/* {training.Training_Menu} */}
                             {training.label}
                           </h3>
                           {/* <ul className="space-y-1 list-disc">
