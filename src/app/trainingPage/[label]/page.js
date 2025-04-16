@@ -16,7 +16,85 @@ const outTrainings = [
       "Incubator Visit Access* (1 Year)",
     ],
   },
+   {
+    id: 0,
+    img: "/trainingEbay.jpg",
+    text: "eBay Training",
+    url: "eBay-Training",
+    features: [
+      "25 eBay Sessions* (A to Z) with Practical Demonstrations",
+      "1-Year Access* to Recorded Sessions",
+      "Exclusive WhatsApp & Facebook Groups* (1 Year)",
+      "Dedicated Support* (1 Year)",
+      "Incubator Visit Access* (1 Year)",
+    ],
+  },
   {
+    id: 0,
+    img: "/trainingEbay.jpg",
+    text: "eBay Training",
+    url: "eBay-Training",
+    features: [
+      "25 eBay Sessions* (A to Z) with Practical Demonstrations",
+      "1-Year Access* to Recorded Sessions",
+      "Exclusive WhatsApp & Facebook Groups* (1 Year)",
+      "Dedicated Support* (1 Year)",
+      "Incubator Visit Access* (1 Year)",
+    ],
+  },
+  {
+    id: 0,
+    img: "/trainingEbay.jpg",
+    text: "eBay Training",
+    url: "eBay-Training",
+    features: [
+      "25 eBay Sessions* (A to Z) with Practical Demonstrations",
+      "1-Year Access* to Recorded Sessions",
+      "Exclusive WhatsApp & Facebook Groups* (1 Year)",
+      "Dedicated Support* (1 Year)",
+      "Incubator Visit Access* (1 Year)",
+    ],
+  },
+   {
+    id: 0,
+    img: "/trainingEbay.jpg",
+    text: "eBay Training",
+    url: "eBay-Training",
+    features: [
+      "25 eBay Sessions* (A to Z) with Practical Demonstrations",
+      "1-Year Access* to Recorded Sessions",
+      "Exclusive WhatsApp & Facebook Groups* (1 Year)",
+      "Dedicated Support* (1 Year)",
+      "Incubator Visit Access* (1 Year)",
+    ],
+  },
+  {
+    id: 1,
+    img: "/trainingEtsy.jpg",
+    text: "Etsy Training",
+    url: "Etsy-Training",
+    features: [
+      "16 Etsy Sessions* (A to Z)",
+      "1-Year Recording Access*",
+      "Dedicated WhatsApp & Facebook Groups",
+      "Technical Support Access",
+      "Warehouse Access",
+    ],
+  },
+    {
+    id: 1,
+    img: "/trainingEtsy.jpg",
+    text: "Etsy Training",
+    url: "Etsy-Training",
+    features: [
+      "16 Etsy Sessions* (A to Z)",
+      "1-Year Recording Access*",
+      "Dedicated WhatsApp & Facebook Groups",
+      "Technical Support Access",
+      "Warehouse Access",
+    ],
+  },
+    {
     id: 1,
     img: "/trainingEtsy.jpg",
     text: "Etsy Training",
@@ -42,6 +120,32 @@ const outTrainings = [
       "Access to Empowerers Stock Products",
     ],
   },
+   {
+    id: 2,
+    img: "/trainingTiktok.jpg",
+    text: "Tik Tok Shop Training",
+    url: "TikTok-Shop-Training",
+    features: [
+      "18 TikTok Sessions* (A to Z)",
+      "90+ Hours of Video Lectures",
+      "1-Year Recording Access",
+      "Dedicated Technical Support*",
+      "Access to Empowerers Stock Products",
+    ],
+  },
+   {
+    id: 2,
+    img: "/trainingTiktok.jpg",
+    text: "Tik Tok Shop Training",
+    url: "TikTok-Shop-Training",
+    features: [
+      "18 TikTok Sessions* (A to Z)",
+      "90+ Hours of Video Lectures",
+      "1-Year Recording Access",
+      "Dedicated Technical Support*",
+      "Access to Empowerers Stock Products",
+    ],
+  },
 ];
 
 function Page() {
@@ -53,13 +157,19 @@ function Page() {
   console.log("Matched Training:", matchedTraining);
 
   return (
-    <div className="md:flex md:justify-center my-10 md:items-center gap-5 lg:flex-row flex-col">
+    <div className='my-20'>
+    <div className='text-center'>
+       <h1 className="md:text-5xl text-[#29ab87] text-2xl drop-shadow-lg font-bold">
+            {label} 
+          </h1>
+    </div>
+    <div className="md:flex my-10 px-10 md:pl-56  gap-5 lg:flex-row flex-wrap flex-col">
       {outTrainings
         .filter(data => data.url === label)
         .map((data, index) => (
           <div
             key={index}
-            className="border lg:w-1/3 border-gray-300 hover:shadow-2xl transition-all ease-in-out duration-300 rounded-2xl bg-white overflow-hidden mt-5 sm:mt-0 flex flex-col min-h-[250px]"
+            className="border lg:w-1/4 border-gray-300 hover:shadow-2xl transition-all ease-in-out duration-300 rounded-2xl bg-white overflow-hidden mt-5 sm:mt-0 flex flex-col min-h-[250px]"
           >
             <img
               src={data.img}
@@ -76,6 +186,7 @@ function Page() {
             </div>
           </div>
         ))}
+    </div>
     </div>
   );
 }
