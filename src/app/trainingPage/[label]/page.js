@@ -16,134 +16,99 @@ const outTrainings = [
       "Incubator Visit Access* (1 Year)",
     ],
   },
-   {
-    id: 0,
-    img: "/trainingEbay.jpg",
-    text: "eBay Training",
-    url: "eBay-Training",
-    features: [
-      "25 eBay Sessions* (A to Z) with Practical Demonstrations",
-      "1-Year Access* to Recorded Sessions",
-      "Exclusive WhatsApp & Facebook Groups* (1 Year)",
-      "Dedicated Support* (1 Year)",
-      "Incubator Visit Access* (1 Year)",
-    ],
-  },
-  {
-    id: 0,
-    img: "/trainingEbay.jpg",
-    text: "eBay Training",
-    url: "eBay-Training",
-    features: [
-      "25 eBay Sessions* (A to Z) with Practical Demonstrations",
-      "1-Year Access* to Recorded Sessions",
-      "Exclusive WhatsApp & Facebook Groups* (1 Year)",
-      "Dedicated Support* (1 Year)",
-      "Incubator Visit Access* (1 Year)",
-    ],
-  },
-  {
-    id: 0,
-    img: "/trainingEbay.jpg",
-    text: "eBay Training",
-    url: "eBay-Training",
-    features: [
-      "25 eBay Sessions* (A to Z) with Practical Demonstrations",
-      "1-Year Access* to Recorded Sessions",
-      "Exclusive WhatsApp & Facebook Groups* (1 Year)",
-      "Dedicated Support* (1 Year)",
-      "Incubator Visit Access* (1 Year)",
-    ],
-  },
-   {
-    id: 0,
-    img: "/trainingEbay.jpg",
-    text: "eBay Training",
-    url: "eBay-Training",
-    features: [
-      "25 eBay Sessions* (A to Z) with Practical Demonstrations",
-      "1-Year Access* to Recorded Sessions",
-      "Exclusive WhatsApp & Facebook Groups* (1 Year)",
-      "Dedicated Support* (1 Year)",
-      "Incubator Visit Access* (1 Year)",
-    ],
-  },
+ 
+
+ 
   {
     id: 1,
     img: "/trainingEtsy.jpg",
-    text: "Etsy Training",
+    text: "Etsy Zoom Based Training",
     url: "Etsy-Training",
     features: [
-      "16 Etsy Sessions* (A to Z)",
-      "1-Year Recording Access*",
-      "Dedicated WhatsApp & Facebook Groups",
-      "Technical Support Access",
-      "Warehouse Access",
+      "2-Month Intensive Program",
+      "Practical Assignments",
+      "1-Year Access to VBT (Video Training)",
+      "Lifetime Access to Updated Content",
+      "Empowerers Product Stock Access",
+      "Private Community & WhatsApp Group",
+      "One Year Post-Course Support"
     ],
   },
+
+  {
+    id: 1,
+    img: "/trainingEtsy.jpg",
+    text: "Etsy Video Based Training",
+    url: "Etsy-Training",
+    features: [
+      "55+ Hours of High-Quality Recorded Sessions",
+      "Etsy Store Setup + SEO Optimization",
+      "Product Research, Pricing, Branding & Marketing",
+      "Full guidance on Digital & Physical Product Selling",
+      "Empowerers Private Community for Continuous Support",
+    ],
+  },
+
     {
     id: 1,
     img: "/trainingEtsy.jpg",
-    text: "Etsy Training",
+    text: "Etsy Incubator Based Training",
     url: "Etsy-Training",
     features: [
-      "16 Etsy Sessions* (A to Z)",
-      "1-Year Recording Access*",
-      "Dedicated WhatsApp & Facebook Groups",
-      "Technical Support Access",
-      "Warehouse Access",
+      "2-Month Based Incubator Training",
+      "Practical assignments ",
+      "one-on-one mentorship",
+      "1-Year Access to VBT",
+      "Lifetime Content Updates",
+      "Empowerers stock access",
+      "Private Community & WhatsApp Group"
     ],
   },
-    {
-    id: 1,
-    img: "/trainingEtsy.jpg",
-    text: "Etsy Training",
-    url: "Etsy-Training",
-    features: [
-      "16 Etsy Sessions* (A to Z)",
-      "1-Year Recording Access*",
-      "Dedicated WhatsApp & Facebook Groups",
-      "Technical Support Access",
-      "Warehouse Access",
-    ],
-  },
+
+
+  
   {
     id: 2,
     img: "/trainingTiktok.jpg",
-    text: "Tik Tok Shop Training",
+    text: "TikTok Zoom Based Training",
     url: "TikTok-Shop-Training",
     features: [
-      "18 TikTok Sessions* (A to Z)",
-      "90+ Hours of Video Lectures",
-      "1-Year Recording Access",
-      "Dedicated Technical Support*",
-      "Access to Empowerers Stock Products",
+      "2-Month Intensive Program",
+      "Practical Assignments",
+      "1-Year Access to VBT (Video Training)",
+      "Lifetime Access to Updated Content",
+      "Empowerers Product Stock Access",
+      "Private Community & WhatsApp Group",
+      "Hotline Support for TikTok Issues"
     ],
   },
+  
    {
     id: 2,
-    img: "/trainingTiktok.jpg",
-    text: "Tik Tok Shop Training",
+    img: "/TTS-VBT.jpg",
+    text: "TikTok Video Based Training",
     url: "TikTok-Shop-Training",
     features: [
-      "18 TikTok Sessions* (A to Z)",
       "90+ Hours of Video Lectures",
       "1-Year Recording Access",
-      "Dedicated Technical Support*",
-      "Access to Empowerers Stock Products",
+      "Step-by-step TikTok Shop setup & selling guide",
+      "Learn product hunting, order management, marketing & more",
     ],
   },
+
    {
     id: 2,
-    img: "/trainingTiktok.jpg",
-    text: "Tik Tok Shop Training",
+    img: "/TTS-IBT.jpg",
+    text: "TikTok Incubator Based Training",
     url: "TikTok-Shop-Training",
     features: [
-      "18 TikTok Sessions* (A to Z)",
-      "90+ Hours of Video Lectures",
-      "1-Year Recording Access",
-      "Dedicated Technical Support*",
-      "Access to Empowerers Stock Products",
+      "2-Month Intensive Training Program",
+      "Mentorship & One-on-One Support",
+      "Networking Opportunities",
+      "Lifetime Access to Updated Content",
+      "Empowerers Product Stock Access",
+      "Private Facebook Community & WhatsApp Group"
+
     ],
   },
 ];
@@ -163,13 +128,13 @@ function Page() {
             {label} 
           </h1>
     </div>
-    <div className="md:flex my-10 px-10 md:pl-56  gap-5 lg:flex-row flex-wrap flex-col">
+    <div className="md:flex my-10 px-10 md:mx-10  gap-5 lg:flex-row flex-wrap flex-col">
       {outTrainings
         .filter(data => data.url === label)
         .map((data, index) => (
           <div
             key={index}
-            className="border lg:w-1/4 border-gray-300 hover:shadow-2xl transition-all ease-in-out duration-300 rounded-2xl bg-white overflow-hidden mt-5 sm:mt-0 flex flex-col min-h-[250px]"
+            className="border lg:w-[400px] border-gray-300 hover:shadow-2xl transition-all ease-in-out duration-300 rounded-2xl bg-white overflow-hidden mt-5 sm:mt-0 flex flex-col min-h-[250px]"
           >
             <img
               src={data.img}
@@ -184,6 +149,9 @@ function Page() {
                 </ul>
               ))}
             </div>
+             <button onClick={()=>router.push('/trainingPage')} className=" text-lg bg-[#29ab87] shadow-2xl hover:cursor-pointer text-white tracking-wide font-bold mt-auto py-2 rounded-lg m-2">
+                  Enrolled Now
+                </button>
           </div>
         ))}
     </div>
