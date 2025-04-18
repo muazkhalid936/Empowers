@@ -49,7 +49,7 @@ export default function AddTrainingPage() {
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-md">
-      <h1 className="text-2xl font-bold mb-4">Add New Blog</h1>
+      <h1 className="text-2xl font-bold mb-4">Add New Training</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
           {/* Title */}
