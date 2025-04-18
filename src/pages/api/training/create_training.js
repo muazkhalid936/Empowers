@@ -21,13 +21,22 @@ export default async function create_training (req, res) {
 
         dbConnect();
 
-        const {trainingName, trainingDetails} = req.body;
+        const {trainingName, trainingDetails, trainingCategory} = req.body;
+
         const imageUrl = cloudinaryFilePath?.url;
         const publicId = cloudinaryFilePath?.public_id;
-
+        
         if([trainingDetails, trainingName].some(value => value === !value)) {return "All field are required"}
-
-        const createTraining = await Training.create({imageUrl, publicId, trainingName, trainingDetails});
+        
+        const trainingDetailsConvertToArray = trainingDetails.split(",");
+        console.log(trainingDetailsConvertToArray)
+        const createTraining = await Training.create({
+            imageUrl,
+            publicId,
+            trainingCategory,
+            trainingName,
+            trainingDetails:trainingDetailsConvertToArray
+        });
 
         return res.status(200).json({message : "Training details add successfully", createTraining});
         

@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 
 export default function AsSeenOn() {
   const newsLogo = [
@@ -18,16 +19,43 @@ export default function AsSeenOn() {
   ];
 
   return (
-    <div className="py-[30px] bg-[#2e2e2e] overflow-hidden">
+    <motion.div
+      className="py-[30px] bg-[#2e2e2e] overflow-hidden"
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
       {/* Heading */}
-      <h2 className="text-center text-3xl font-semibold mb-6 text-white">As Seen On</h2>
+      <motion.h2
+  className="text-center text-3xl font-semibold mb-6 text-white"
+  initial={{ opacity: 0, scale: 0.8, y: 20 }}
+  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+  transition={{
+    duration: 0.6,
+    ease: "easeOut",
+    type: "spring",
+    stiffness: 100,
+    damping: 10,
+  }}
+  viewport={{ once: true }}
+>
+  As Seen On
+</motion.h2>
+
 
       {/* Scrolling logos */}
       <div className="flex bg-[#2e2e2e] gap-20 px-10 animate-scroll">
         {newsLogo.concat(newsLogo).map((logo, index) => (
-          <div key={index} className="flex-shrink-0">
+          <motion.div
+            key={index}
+            className="flex-shrink-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: index * 0.05 }}
+          >
             <img src={logo} alt="no Image" className="h-[120px] rounded" />
-          </div>
+          </motion.div>
         ))}
       </div>
 
@@ -42,10 +70,10 @@ export default function AsSeenOn() {
         }
         .animate-scroll {
           display: flex;
-          animation: scroll 25s linear infinite; /* Reduced speed */
+          animation: scroll 25s linear infinite;
           width: max-content;
         }
       `}</style>
-    </div>
+    </motion.div>
   );
 }

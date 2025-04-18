@@ -1,6 +1,6 @@
-'use client';
-
-import { useState } from "react";
+"use client";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { FaChevronDown } from "react-icons/fa";
 
 const faqs = [
@@ -53,63 +53,69 @@ export default function FAQ() {
   };
 
   return (
-    <section className="bg-[#181818] py-12 px-6 mx-auto">
-      <h2 className="text-3xl font-bold text-center text-[#29ab87] mb-10">
+    <section className="bg-[#181818] py-12 px-4 sm:px-6 md:px-28 mx-auto">
+      {/* FAQ Title Animation */}
+      <motion.h2
+        className="text-3xl font-bold text-center text-[#29ab87] mb-10"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         Frequently Asked Questions
-      </h2>
+      </motion.h2>
 
       <div className="space-y-4">
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index;
 
           return (
-            <div
+            <motion.div
               key={index}
               className={`rounded-lg transition-all duration-300 ${
                 isOpen ? "bg-[#1f1f1f] border-l-4" : "bg-[#252525]"
               } ${isOpen ? "border-[#29ab87]" : "border-transparent"} border`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <button
+              {/* FAQ Question with Animation */}
+              <motion.button
                 onClick={() => toggle(index)}
-                className="flex items-center justify-between w-full px-5 py-4 text-left rounded-t-lg "
+                className="flex items-center justify-between w-full px-5 py-4 text-left rounded-t-lg"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
               >
                 <span className="text-base sm:text-lg font-semibold text-white">
                   {faq.question}
                 </span>
-                <FaChevronDown
+                <motion.div
                   className={`w-4 h-4 transition-transform duration-300 ${
                     isOpen ? "rotate-180 text-[#29ab87]" : "text-gray-400"
                   }`}
-                />
-              </button>
+                  initial={{ opacity: 0, rotate: -90 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
+                  <FaChevronDown />
+                </motion.div>
+              </motion.button>
 
+              {/* FAQ Answer Animation */}
               {isOpen && (
-                <div className="px-5 pb-4 pt-1 text-sm text-white leading-relaxed animate-fade-in">
+                <motion.div
+                  className="px-5 pb-4 pt-1 text-sm text-white leading-relaxed"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                >
                   {faq.answer}
-                </div>
+                </motion.div>
               )}
-            </div>
+            </motion.div>
           );
         })}
       </div>
-
-      {/* Fade animation */}
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(-5px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fade-in 0.3s ease-in-out;
-        }
-      `}</style>
     </section>
   );
 }

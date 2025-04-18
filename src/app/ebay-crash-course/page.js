@@ -1,39 +1,131 @@
-"use client"
-import AsSeenOn from "@/components/ebay-crash-course/AsSeenOn";
-import CoreModules from "@/components/ebay-crash-course/CoreModules";
-import EarlyBirdDiscount from "@/components/ebay-crash-course/EarlyBirdDiscount";
-import Header from "@/components/ebay-crash-course/Header";
-import VideoSection from "@/components/ebay-crash-course/VideoSection";
-import Testimonials from "@/components/ebay-crash-course/Testimonials";
-import FAQ from "@/components/ebay-crash-course/FAQ";
-import CallToAction from "@/components/ebay-crash-course/CallToAction";
+'use client';
 
-export default function EbayCrashCourse() {
-     const newsLogo = [
-    "/ary-logo.png",
-    "/tbt-logo.jpg",
-    "/ptv-logo.png",
-    "/top-logo.png",
-    "/mux9-logo.png",
-    "/rohi-logo.png",
-    "/suno-logo.jpg",
-    "/dawah-logo.png",
-    "/aik-news-logo.jpg",
-    "/ridah-oman1-logo.jpg",
-    "/lahor-ring.png",
-    "/azad-cahiwala-logo.jpg",
-    "/news-hd.jpg",
-  ];
+import { motion } from "framer-motion";
+import Header from "@/components/ebay-crash-course/Header";
+import AsSeenOn from "@/components/ebay-crash-course/AsSeenOn";
+import CallToAction from "@/components/ebay-crash-course/CallToAction";
+import EarlyBirdDiscount from "@/components/ebay-crash-course/EarlyBirdDiscount";
+import FAQ from "@/components/ebay-crash-course/FAQ";
+import Testimonials from "@/components/ebay-crash-course/Testimonials";
+import VideoSection from "@/components/ebay-crash-course/VideoSection";
+import BonusSection from "@/components/ebay-crash-course/BonusSection";
+import Assignments from "@/components/ebay-crash-course/Assignments";
+import HoverCardModule from "@/components/ebay-crash-course/HoverCardModule";
+import OneDollarChallenge from "@/components/ebay-crash-course/OneDollar";
+import LearningSection from "@/components/ebay-crash-course/LearningModule";
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+};
+
+export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <Header/>
-      <VideoSection/>
-      <AsSeenOn/>
-      <EarlyBirdDiscount/>
-      <CoreModules/>
-      <Testimonials/>
-      <FAQ/>
-      <CallToAction/>
+    <div className="min-h-screen bg-[#222] text-white">
+      <Header />
+    
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
+        <VideoSection />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
+        <AsSeenOn />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
+        <EarlyBirdDiscount />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
+        <LearningSection/>
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
+        <HoverCardModule/>
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
+      <Assignments/>
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
+        <BonusSection/>
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
+      <OneDollarChallenge/>
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
+        <Testimonials />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
+        <FAQ />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
+        <CallToAction />
+      </motion.div>
     </div>
   );
 }

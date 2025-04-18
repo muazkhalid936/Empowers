@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
   {
@@ -32,79 +33,117 @@ export default function TestimonialsSlider() {
   const testimonial = testimonials[current];
 
   return (
-    <section className="py-10 bg-[#222]">
+    <motion.section
+      className="py-10 bg-[#333]"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="mx-auto px-4 text-center text-white">
-        <h2 className="text-3xl font-extrabold mb-10">
+        <motion.h2
+          className="text-3xl font-extrabold mb-10"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           Success Stories
-        </h2>
+        </motion.h2>
 
-        {/* Layout for large screens */}
+        {/* Desktop Layout */}
         <div className="hidden lg:flex items-center justify-center gap-6">
-          {/* Prev Button */}
-          <button
+          <motion.button
             onClick={prevSlide}
-            className="p-3 bg-[#1e1e1e] border border-gray-700 rounded-full shadow hover:bg-[#333]"
+            className="p-3 bg-[#1e1e1e] border border-gray-700 rounded-full shadow hover:bg-[#333] hover:scale-110 transition"
+            whileTap={{ scale: 0.95 }}
           >
             <FaChevronLeft className="text-white w-5 h-5" />
-          </button>
+          </motion.button>
 
-          {/* Video */}
-          <div className="bg-[#1e1e1e] p-4 sm:p-6 rounded-lg shadow w-full max-w-xl">
-            <div className="w-full aspect-video mb-4">
-              <video
-                key={testimonial.video}
-                className="w-full h-full rounded-md object-cover"
-                controls
-                src={testimonial.video}
-              />
-            </div>
-            <h4 className="text-sm font-semibold text-[#e0e0e0]">
-              — {testimonial.name}
-            </h4>
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={testimonial.video}
+              className="bg-[#1e1e1e] p-6 rounded-lg shadow w-full max-w-xl"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="w-full aspect-video mb-4">
+                <video
+                  className="w-full h-full rounded-md object-cover"
+                  controls
+                  src={testimonial.video}
+                />
+              </div>
+              <motion.h4
+                className="text-sm font-semibold text-[#e0e0e0]"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                — {testimonial.name}
+              </motion.h4>
+            </motion.div>
+          </AnimatePresence>
 
-          {/* Next Button */}
-          <button
+          <motion.button
             onClick={nextSlide}
-            className="p-3 bg-[#1e1e1e] border border-gray-700 rounded-full shadow hover:bg-[#333]"
+            className="p-3 bg-[#1e1e1e] border border-gray-700 rounded-full shadow hover:bg-[#333] hover:scale-110 transition"
+            whileTap={{ scale: 0.95 }}
           >
-            <FaChevronRight className="text-white  w-5 h-5" />
-          </button>
+            <FaChevronRight className="text-white w-5 h-5" />
+          </motion.button>
         </div>
 
-        {/* Layout for small screens */}
+        {/* Mobile Layout */}
         <div className="lg:hidden w-full max-w-md mx-auto">
-          <div className="bg-[#1e1e1e] p-4 rounded-lg shadow">
-            <div className="w-full aspect-video mb-4">
-              <video
-                key={testimonial.video}
-                className="w-full h-full rounded-md object-cover"
-                controls
-                src={testimonial.video}
-              />
-            </div>
-            <h4 className="text-sm font-semibold text-[#e0e0e0]">
-              — {testimonial.name}
-            </h4>
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={testimonial.video}
+              className="bg-[#1e1e1e] p-4 rounded-lg shadow"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="w-full aspect-video mb-4">
+                <video
+                  className="w-full h-full rounded-md object-cover"
+                  controls
+                  src={testimonial.video}
+                />
+              </div>
+              <motion.h4
+                className="text-sm font-semibold text-[#e0e0e0]"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                — {testimonial.name}
+              </motion.h4>
+            </motion.div>
+          </AnimatePresence>
 
-          {/* Arrows below on small screens */}
+          {/* Arrows for mobile */}
           <div className="mt-4 flex justify-center gap-6">
-            <button
+            <motion.button
               onClick={prevSlide}
-              className="p-3 bg-[#1e1e1e] border border-gray-700 rounded-full shadow hover:bg-[#333]"
+              className="p-3 bg-[#1e1e1e] border border-gray-700 rounded-full shadow hover:bg-[#333] hover:scale-110 transition"
+              whileTap={{ scale: 0.95 }}
             >
               <FaChevronLeft className="text-[#29ab87] w-5 h-5" />
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               onClick={nextSlide}
-              className="p-3 bg-[#1e1e1e] border border-gray-700 rounded-full shadow hover:bg-[#333]"
+              className="p-3 bg-[#1e1e1e] border border-gray-700 rounded-full shadow hover:bg-[#333] hover:scale-110 transition"
+              whileTap={{ scale: 0.95 }}
             >
               <FaChevronRight className="text-[#29ab87] w-5 h-5" />
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

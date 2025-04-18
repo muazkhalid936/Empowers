@@ -1,90 +1,49 @@
-
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { FaArrowRight } from 'react-icons/fa';
 
 export default function EarlyBirdDiscount() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-    return (
-    //   <div className="bg-[#ecf0ea] p-0 m-0">
-    //   <div className="flex container mx-auto px-8 md:px-12 lg:flex-row flex-col justify-center items-center gap-5 sm:gap-10 my-[45px] md:my-[55px]">
-    //     <div className=" lg:w-1/3 flex justify-center items-center">
-    //       <h1 className="mb-6 tw text-lg text-center text-[#4a4d48] lg:text-start md:text-xl font-bold">
-    //       Our EBAY CRASH COURSE (ECC) 3.0 is designed for Busy Individuals, House Wives, Students and Job Persons who want to learn fast and earn in Dollars! Plus, there's an exclusive offer you can't afford to miss.
-    //       </h1> 
-        
-    //     </div>
-    //     <div className="lg:w-1/2 flex justify-center items-center flex-col  ">
-    //       {/* <h4 className="md:text-2xl text-xl tracking-wider font-semibold text-[#1B5EC6]">Discover about Empowerers</h4> */}
-    //       <Image
-    //     alt="image"
-    //     src={"/qasim-sir-half-1536x1445.png"}
-    //     className=" "
-    //     width={450}
-    //     height={300}
-        
-    //     />
-          
-    //     </div>
-    //   </div>
-    // </div>
-    <div className="bg-[#222] py-1 m-0 relative">
-      {/* Modal */}
-      {/* {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
-          <div className="relative">
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-2 right-2 text-white text-3xl font-bold"
-            >
-              &times;
-            </button>
-            <Image
-              src="/Special-Discount-4-1024x1024.png"
-              alt="Full Size Discount"
-              width={600}
-              height={600}
-              className="rounded-md max-h-[90vh] w-auto"
-            />
-          </div>
-        </div>
-      )} */}
 
+  return (
+    <div className="bg-[#222] py-1 m-0 relative">
       {/* Main Section */}
       <div className="flex container mx-auto px-8 md:px-12 lg:flex-row flex-col justify-center items-center gap-5 sm:gap-10 my-[45px] md:my-[55px]">
         
-        {/* Text + Discount Image Column */}
-        <div className="lg:w-1/3 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
-          
-          {/* Clickable Discount Image */}
-          {/* <div className="mb-6">
-            <Image
-              alt="Early Bird Discount"
-              src="/Special-Discount-4-1024x1024.png"
-              width={200}
-              height={200}
-              className="rounded-md cursor-pointer hover:scale-105 transition-transform duration-300"
-              onClick={() => setIsModalOpen(true)}
-            />
-          </div> */}
-          
-          {/* Description Text */}
+        {/* Text Column with Animation */}
+        <motion.div
+          className="lg:w-1/3 flex flex-col justify-center items-center lg:items-start text-center lg:text-left"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
           <h1 className="text-lg text-white md:text-xl font-bold">
             Our EBAY CRASH COURSE (ECC) 3.0 is designed for Busy Individuals, House Wives, Students and Job Persons who want to learn fast and earn in Dollars! Plus, there's an exclusive offer you can't afford to miss.
           </h1>
-        </div>
+          <button className="mt-3 bg-[#29ab87] text-white hover:bg-transparent hover:text-[#29ab87] border border-[#29ab87] font-semibold px-6 py-3 rounded-md transition-all duration-300 flex items-center gap-2">
+  Enroll Now <FaArrowRight className="text-lg" />
+</button>
+        </motion.div>
 
-        <div className="lg:w-1/2 flex justify-center items-center flex-col">
+        {/* Image Column with Animation */}
+        <motion.div
+          className="lg:w-1/2 flex justify-center items-center flex-col"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           <Image
             alt="image"
             src="/qasim-sir-half-1536x1445.png"
             width={450}
             height={300}
           />
-        </div>
-
+        </motion.div>
       </div>
     </div>
-    );
-  }
-  
+  );
+}

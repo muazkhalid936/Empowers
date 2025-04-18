@@ -22,13 +22,16 @@ export default async function create_blog(req, res) {
     await dbConnect();
 
     const { title, tags, description } = req.body;
+    const convertToArray = tags.split(",");
+    
     const imageUrl = cloudinaryFilePath?.url;
     const publicId = cloudinaryFilePath?.public_id;
     
     if ([title, tags, description].some((value) => value === "")) {
       return res.status(400).json({ error: "All fields are required" });
     };
-    const create_blog = await Blog.create({imageUrl, publicId, title, tags, description})
+    
+    const create_blog = await Blog.create({imageUrl, publicId, title, tags : convertToArray, description})
 
     res.status(200).json({
         message : "Blog create successfully",

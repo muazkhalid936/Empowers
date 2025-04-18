@@ -17,7 +17,7 @@ const BlogManager = () => {
       try {
         const res = await axios.get("/api/blog/all_blog");
         setBlogs(res.data);
-        console.log(res.data);
+        console.log(res.data.tags);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching blogs:", error);

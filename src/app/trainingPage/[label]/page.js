@@ -16,12 +16,90 @@ const outTrainings = [
       "Incubator Visit Access* (1 Year)",
     ],
   },
+
+      {
+    id: 0,
+    img: "/EBAY-VBT.jpg",
+    text: "Video Based Training",
+    url: "eBay-Training",
+    features: [
+      "90+ Hours of Recorded Content",
+      "Complete A to Z eBay Business Guide",
+      "Covers 4 Business Models in detail",
+      "Market Focus: USA, UK, AUS",
+      "Deep Product Research, Pricing, Branding & SEO and more",
+      "Guaranteed Updated Content",
+      "Access to Empowerers Facebook Community"
+    ],
+  },
+
+        {
+    id: 0,
+    img: "/EBAY-EBC.jpg",
+    text: ". eBay Business Course – Zoom-Based Training",
+    url: "eBay-Training",
+    features: [
+      "2-Month Training Program",
+      "25+ Live Sessions ",
+      "Live Practical Demonstrations in each session",
+      "1-Year Access to Recordings (VBT)",
+      "Dedicated Support Leader for Technical Assistance",
+      "1-Year Ongoing Support",
+      "Dedicated Exclusive WhatsApp Group",
+      "Private Facebook Group"
+    ],
+  },
+
+    {
+    id: 0,
+    img: "/EBAY-IBT.jpg",
+    text: "Incubator Based Training",
+    url: "eBay-Training",
+    features: [
+      "2-Month Training Program",
+      "1-Year Access to VBT (Recorded Course)",
+      "Covers 4 eBay Business Models with practical",
+      "Access to Empowerers Warehouses for Stock",
+      "Exclusive WhatsApp & Facebook Support Groups",
+    ],
+  },
+
+        {
+    id: 0,
+    img: "/EBAY-E-ABC.jpg",
+    text: "eBay Australia Boot Camp Zoom Based Training",
+    url: "eBay-Training",
+    features: [
+      "12 Live Sessions with Hands-On Training using Real eBay Accounts",
+      "Session Recordings (VBT) for Future Reference",
+      "Support from Experienced Leaders",
+      "Live Q&A Sessions for Instant Clarifications",
+      "Dedicated WhatsApp/Facebook Group for Ongoing Assistance",
+      "Dedicated Exclusive WhatsApp Group",
+      "Access to Empowerers Stock Products"
+    ],
+  },
  
+          {
+    id: 0,
+    img: "/EBAY-ECC.jpg",
+    text: "ECC – eBay Crash Course (3.0)",
+    url: "eBay-Training",
+    features: [
+      "Short Duration, Power-Packed Sessions",
+      "10 Core Modules",
+      "3 Bonus Modules",
+      "3 Practical Assignments",
+      "Fast-Paced Recorded Videos – Perfect for busy individuals ",
+      "First Dollar Challenge – Earn your first dollar online ",
+      "Growth Secret – Unveil the roadmap to becoming an eBay expert"
+    ],
+  },
 
  
   {
     id: 1,
-    img: "/trainingEtsy.jpg",
+    img: "/ETP-Zoom-Based.jpg",
     text: "Etsy Zoom Based Training",
     url: "Etsy-Training",
     features: [
@@ -37,7 +115,7 @@ const outTrainings = [
 
   {
     id: 1,
-    img: "/trainingEtsy.jpg",
+    img: "/ETP-VBT.jpg",
     text: "Etsy Video Based Training",
     url: "Etsy-Training",
     features: [
@@ -51,7 +129,7 @@ const outTrainings = [
 
     {
     id: 1,
-    img: "/trainingEtsy.jpg",
+    img: "/ETP-IBT.jpg",
     text: "Etsy Incubator Based Training",
     url: "Etsy-Training",
     features: [
@@ -128,13 +206,13 @@ function Page() {
             {label} 
           </h1>
     </div>
-    <div className="md:flex my-10 px-10 md:mx-10  gap-5 lg:flex-row flex-wrap flex-col">
+    <div className="md:flex my-12 px-10 md:mx-10  gap-5 lg:flex-row flex-wrap flex-col">
       {outTrainings
         .filter(data => data.url === label)
         .map((data, index) => (
           <div
             key={index}
-            className="border lg:w-[400px] border-gray-300 hover:shadow-2xl transition-all ease-in-out duration-300 rounded-2xl bg-white overflow-hidden mt-5 sm:mt-0 flex flex-col min-h-[250px]"
+            className="border my-5 lg:w-[400px] border-gray-300 hover:shadow-2xl transition-all ease-in-out duration-300 rounded-2xl bg-white overflow-hidden mt-5 sm:mt-0 flex flex-col min-h-[250px]"
           >
             <img
               src={data.img}

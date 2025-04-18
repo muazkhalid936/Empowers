@@ -6,11 +6,11 @@ import axios from "axios";
 import RichTextEditor from "@/components/TextEditor";
 import { toast } from "react-toastify";
 
-export default function AddBlogPage() {
+export default function AddTrainingPage() {
   const router = useRouter();
-  const [title, setTitle] = useState("");
-  const [tags, setTags] = useState("");
-  const [description, setDescription] = useState("");
+  const [trainingName, setTrainingName] = useState("");
+  const [trainingDetails, setTags] = useState("");
+  const [trainingCategory, setTrainingCategory] = useState("");
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -29,19 +29,19 @@ export default function AddBlogPage() {
 
     try {
       const formData = new FormData();
-      formData.append("title", title);
-      formData.append("tags", tags);
-      formData.append("description", description);
+      formData.append("trainingName", trainingName);
+      formData.append("trainingDetails", trainingDetails);
+      formData.append("trainingCategory", trainingCategory);
       formData.append("image", image);
 
-      const response = await axios.post("/api/blog/create_blog", formData, {
+      const response = await axios.post("/api/training/create_training", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
       router.push("/dashboard/admin/blog"); // Redirect to blog list after success
-      toast.success("Blog added successfully");
+      toast.success("Training added successfully");
     } catch (error) {
-      console.error("Error adding blog:", error);
+      console.error("Error adding Training:", error);
     } finally {
       setLoading(false);
     }
@@ -52,21 +52,29 @@ export default function AddBlogPage() {
       <h1 className="text-2xl font-bold mb-4">Add New Blog</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Title */}
+          {/* Title */}
         <input
           type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Training Name"
+          value={trainingName}
+          onChange={(e) => setTrainingName(e.target.value)}
           className="w-full p-2 border rounded"
           required
         />
+
+        <select name="cars" id="cars" onChange={(e) => (setTrainingCategory(e.target.value))}
+          className="w-full p-2 border rounded">
+            <option value="select">Select</option>
+          <option value="tiktok-shop-training">TikTok Shop Training</option>
+          <option value="ebay-training">eBay Training</option>
+          <option value="etsy-training">Etsy Training</option>
+      </select>
 
         {/* Tags */}
         <input
           type="text"
           placeholder="Tags (comma-separated)"
-          value={tags}
+          value={trainingDetails}
           onChange={(e) => setTags(e.target.value)}
           className="w-full p-2 border rounded"
         />
@@ -77,7 +85,7 @@ export default function AddBlogPage() {
         {imagePreview && <img src={imagePreview} alt="Preview" className="w-full h-40 object-cover rounded" />}
 
         {/* Rich Text Editor for Description */}
-        <RichTextEditor value={description} onChange={(e) => setDescription(e)} />
+        {/* <RichTextEditor value={description} onChange={(e) => setDescription(e)} /> */}
 
         {/* Submit Button */}
         <button type="submit" disabled={loading} className="bg-blue-500 text-white px-4 py-2 rounded">

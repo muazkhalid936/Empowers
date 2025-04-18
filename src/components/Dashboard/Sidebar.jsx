@@ -5,11 +5,17 @@ import { Home, LayoutDashboard, Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaBlog } from "react-icons/fa6";
+import { IoIosMenu } from "react-icons/io";
+import { FaEbay, FaEtsy, FaTiktok } from "react-icons/fa";
+import useUserStore from "@/store/useUserStore";
+
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
+
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -43,6 +49,26 @@ const Sidebar = () => {
       name: "Services",
       href: "/dashboard/admin/services",
       icon: LayoutDashboard,
+    },
+    {
+      name: "Training Menu",
+      href: "/dashboard/admin/training/trainingMenu",
+      icon: IoIosMenu,
+    },
+    {
+      name: "TikTok Shop Training",
+      href: "/dashboard/admin/training/tiktok-shop-training",
+      icon: FaTiktok,
+    },
+    {
+      name: "eBay Training",
+      href: "/dashboard/admin/training/ebay-training",
+      icon: FaEbay,
+    },
+    {
+      name: "Etsy Training",
+      href: "/dashboard/admin/training/etsy-training",
+      icon: FaEtsy,
     },
   ];
 
@@ -87,7 +113,7 @@ const Sidebar = () => {
         {/* Menu Items */}
         <nav>
           {menuItems.map((item, index) => (
-            <Link key={index} href={item.href} onClick={closeSidebar}>
+            <Link key={index} href={item.href}  onClick={closeSidebar}>
               <div
                 className={`flex items-center space-x-3 px-5 py-3 cursor-pointer ${
                   pathname === item.href
