@@ -38,7 +38,7 @@ export default function AddTrainingPage() {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
-      router.push("/dashboard/admin/blog"); // Redirect to blog list after success
+      router.push(`/dashboard/admin/training/${trainingCategory}`); // Redirect to blog list after success
       toast.success("Training added successfully");
     } catch (error) {
       console.error("Error adding Training:", error);

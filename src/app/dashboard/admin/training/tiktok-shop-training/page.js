@@ -25,12 +25,13 @@ console.log(lastPart)
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get("/api/training/all_training");
+        const res = await axios.post(`/api/training/get_training_name?trainingCategory=${lastPart}`);
         // console.log(res.data);
         setTraining(res.data);
         setIsLoading(false);
       } catch (error) {
-        console.error("Error fetching blogs:", error);
+        console.error("Error fetching blogs:", error.response.data);
+        setIsLoading(false);
       }
     };
     fetchBlogs();

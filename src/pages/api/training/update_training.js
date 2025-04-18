@@ -30,7 +30,9 @@ const update_training = async (req, res) => {
 
     const newImageUrl = await uploadOnCloudinary(newImage);
 
-    const { trainingName, trainingDetails } = req.body;
+    const { trainingName, trainingDetails, trainingCategory } = req.body;
+
+    const trainingDetailsConvertToArray = trainingDetails.split(",");
 
     const imageUrl = newImageUrl?.url;
     const publicId = newImageUrl?.public_id
@@ -42,7 +44,8 @@ const update_training = async (req, res) => {
           imageUrl,
           publicId,
           trainingName,
-          trainingDetails,
+          trainingDetails : trainingDetailsConvertToArray,
+          trainingCategory
         },
       },
       { new: true }

@@ -9,6 +9,7 @@ const get_training_name = async (req, res) => {
         await dbConnect();
         
         const {trainingCategory} = req.query;
+        console.log(trainingCategory)
 
         if(!trainingCategory) return res.status(400).json("Training Name are required");
 

@@ -23,10 +23,7 @@ export default function EditTrainingPage({ params }) {
     tiktok : "TikTok Shop Training",
     ebay : "eBay Training",
     etsy : "Etsy Training"
-  }
-
-
-
+  };
 
 
   // Fetch blog data
@@ -49,7 +46,6 @@ export default function EditTrainingPage({ params }) {
         if(trainingCategory){
              const splitCategory = trainingCategory.split("-");
             setOldTrainingCategory(splitCategory[0]);
-            console.log(oldTrainingCategory);
         }
 
          
@@ -76,16 +72,16 @@ export default function EditTrainingPage({ params }) {
 
     try {
       const formData = new FormData();
-      formData.append("title", title);
-      formData.append("tags", tags);
-      formData.append("description", description);
+      formData.append("trainingName", trainingName);
+      formData.append("trainingDetails", trainingDetails);
+      formData.append("trainingCategory", trainingCategory);
       if (image) formData.append("image", image);
 
-      await axios.patch(`/api/blog/update_blog?id=${id}`, formData, {
+      await axios.patch(`/api/training/update_training?id=${id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
-      router.push("/dashboard/admin/blog"); // Redirect to blog list after success
+      router.push(`/dashboard/admin/training/${trainingCategory}`); // Redirect to blog list after success
       toast.success("Blog updated successfully");
     } catch (error) {
       console.error("Error updating blog:", error);
@@ -113,7 +109,7 @@ export default function EditTrainingPage({ params }) {
          <select name="cars" id="cars" onChange={(e) => (setTrainingCategory(e.target.value))}
             className="w-full p-2 border rounded">
                 
-            <option value={trainingCategory}>{categories.oldTrainingCategory}</option>
+            <option value={trainingCategory}>{categories[oldTrainingCategory]}</option>
             <option value="tiktok-shop-training">TikTok Shop Training</option>
             <option value="ebay-training">eBay Training</option>
             <option value="etsy-training">Etsy Training</option>

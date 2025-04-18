@@ -25,19 +25,20 @@ console.log(lastPart)
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get("/api/training/all_training");
-        // console.log(res.data);
+        const res = await axios.post(`/api/training/get_training_name?trainingCategory=${lastPart}`);
+        console.log(res.data);
         setTraining(res.data);
         setIsLoading(false);
       } catch (error) {
-        console.error("Error fetching blogs:", error);
+        console.error("Error fetching blogs:", error.response.data);
+        setIsLoading(false);
       }
     };
     fetchBlogs();
   }, []);
 
   const handleEdit = (id) => {
-    router.push(`/dashboard/admin/blog/edit/${id}`);
+    router.push(`/dashboard/admin/training/editTrining/${id}`);
   };
 
   const openDeleteModal = (id) => {
@@ -77,7 +78,7 @@ console.log(lastPart)
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Manage Trainings</h1>
         <button
-          onClick={() => router.push("/dashboard/admin/training/tiktok-shop-training/addTraining")}
+          onClick={() => router.push("/dashboard/admin/training/addTraining")}
           className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
         >
           + Add New Training
@@ -137,7 +138,7 @@ console.log(lastPart)
                )}
                 <div className="flex justify-between px-5 pb-5 gap-2 mt-auto">
                   <button
-                    onClick={handleEdit}
+                    onClick={() => handleEdit(data._id)}
                     className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition">
                     Edit
                   </button>

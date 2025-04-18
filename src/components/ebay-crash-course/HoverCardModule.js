@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from 'react';
 import { FaBookOpen } from 'react-icons/fa';
 
@@ -58,7 +57,6 @@ const modules = [
 ];
 
 export default function HoverCardModule() {
-  const [focus, setFocus] = useState(false);
   return (
     <section className="bg-[#333] py-16 px-4 md:px-16">
       <div className="max-w-6xl mx-auto">
@@ -69,17 +67,24 @@ export default function HoverCardModule() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           {modules.map((module, index) => (
             <div
               key={index}
-              className="relative group bg-[#222] rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:scale-105"
+              className="bg-[#222] rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 group"
             >
-              <div className="p-6 min-h-[180px] flex flex-col justify-start">
-                <h3 className={`text-xl font-semibold text-[#29ab87]  mb-2`}>
+              <div className="p-6 flex flex-col justify-start min-h-[180px]">
+                <h3 className="text-xl font-semibold text-[#29ab87] mb-2">
                   {module.heading}
                 </h3>
-                <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
+
+                {/* Mobile: Always show description */}
+                <p className="text-white md:hidden">
+                  {module.description}
+                </p>
+
+                {/* Desktop: Show only on hover */}
+                <p className="text-white opacity-0 hidden md:block group-hover:opacity-100 transition-opacity duration-300">
                   {module.description}
                 </p>
               </div>
@@ -90,3 +95,6 @@ export default function HoverCardModule() {
     </section>
   );
 }
+
+
+
