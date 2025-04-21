@@ -1,8 +1,9 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
+import axios from 'axios';
 
-const outTrainings = [
+const ourTrainings = [
   {
     id: 0,
     img: "/trainingEbay.jpg",
@@ -191,13 +192,35 @@ const outTrainings = [
   },
 ];
 
-function Page() {
-  const params = useParams();
-  const label = params.label;
 
-  // Optionally log matched training
-  const matchedTraining = outTrainings.find(val => val.url === label);
-  console.log("Matched Training:", matchedTraining);
+
+function Page() {
+  const [trainings, setTrainings] = useState([]);
+  const params = useParams();
+
+  const label = params.label;
+  const labelLowerCase = label.toLowerCase();
+
+  
+  
+
+  // // Optionally log matched training
+  // const matchedTraining = outTrainings.find(val => val.url === label);
+  // console.log("Matched Training:", matchedTraining);
+
+  const getTrainingByName = async () => {
+  try {
+    const response = await axios.post(`/api/training/get_training_name?trainingCategory=${labelLowerCase}`);
+    console.log(response.data);
+    setTrainings(response.data)
+  } catch (error) {
+    console.log(error.response.data)
+  }
+}
+
+useEffect( () => {
+  getTrainingByName();
+},[label]);
 
   return (
     <div className='my-20'>
@@ -207,9 +230,10 @@ function Page() {
           </h1>
     </div>
     <div className="md:flex my-12 px-10 md:mx-10  gap-5 lg:flex-row flex-wrap flex-col">
-      {outTrainings
+       {ourTrainings
         .filter(data => data.url === label)
         .map((data, index) => (
+        
           <div
             key={index}
             className="border my-5 lg:w-[400px] border-gray-300 hover:shadow-2xl transition-all ease-in-out duration-300 rounded-2xl bg-white overflow-hidden mt-5 sm:mt-0 flex flex-col min-h-[250px]"
@@ -217,11 +241,12 @@ function Page() {
             <img
               src={data.img}
               alt="Training"
-              className="hover:cursor-pointer rounded-t-md"
+              className="hover:cursor-pointer h-[200px] rounded-t-md"
             />
             <div className="mx-auto my-5 font-bold text-xl">{data.text}</div>
             <div className="m-4">
               {data.features.map((feature, i) => (
+              // {data.trainingDetails.map((feature, i) => (
                 <ul key={i} className="mb-2 list-disc ml-5">
                   <li className="text-[16px]">{feature}</li>
                 </ul>

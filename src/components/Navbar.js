@@ -134,7 +134,7 @@ function Navbar() {
   const getAllServices = async () => {
     try {
       const response = await axios.get('/api/trainingMenu/all_training_menu');
-      console.log(response.data);
+      // console.log(response.data);
       setTrainingMenu(response.data);
     } catch (error) {
       console.log(error, "error in get all services in navbar")
@@ -159,13 +159,13 @@ function Navbar() {
 
   return (
     <>
-      <div className=" hidden bg-[#29ab87] font_inter p-2  lg:flex justify-between items-center text-white px-16">
+      <div className=" hidden bg-[#29ab87] font_inter p-2 lg:flex justify-between items-center text-white px-16">
         <div className="flex-1 flex justify-between items-center">
           {/* Email and contact on top bar */}
           <div className="flex gap-5 text-xl">
             <div className="flex items-center gap-1">
               <FaPhoneAlt />
-              <p className=" text-[12px] 2xl:text-[16px]">+92 3327195240</p>
+              <p className=" text-[12px] 2xl:text-[15px]">+92 3327195240</p>
             </div>
             <div className="flex items-center gap-1">
               <MdEmail />
