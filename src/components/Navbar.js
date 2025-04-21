@@ -27,6 +27,7 @@ import News from "./News";
 import Link from "next/link";
 import SaleBanner from "./SaleBanner";
 import axios from "axios";
+import { IoIosLogOut } from "react-icons/io";
 const tools = [
   { label: "eBoss", href: "https://eboss.pk/" },
   { label: "GoLogin", href: "https://gologin.com/register" },
@@ -140,6 +141,11 @@ function Navbar() {
     }
   };
 
+  const logout = () => {
+    localStorage.clear();
+    window.location.href = "/";
+  }
+
   useEffect(() => {
     setIsLogin(localStorage.getItem("isLogin"));
     setRole(localStorage.getItem("role"));
@@ -195,7 +201,7 @@ function Navbar() {
               <IoMailSharp />
             </Link>
 
-            {!isLogin && (
+            {!isLogin ? (
               <div className="border-l-2 border-gray-400 px-3">
                 <div className="flex items-center py-1  text-[12px] 2xl:text-[16px] rounded-sm gap-1 text-xl hover:cursor-pointer">
                   <Link href={"/auth/student-registeration"}>Register</Link>
@@ -203,8 +209,7 @@ function Navbar() {
                   <Link href={"/auth/Login"}>Login</Link>
                 </div>
               </div>
-            )}
-
+            ): <div className="cursor-pointer" onClick={logout}>Log Out</div>}
             {<p>Hi, {username}</p>}
           </div>
         </div>

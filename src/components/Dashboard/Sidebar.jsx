@@ -5,7 +5,7 @@ import { Home, LayoutDashboard, Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaBlog } from "react-icons/fa6";
-import { IoIosMenu } from "react-icons/io";
+import { IoIosLogOut, IoIosMenu } from "react-icons/io";
 import { FaEbay, FaEtsy, FaTiktok } from "react-icons/fa";
 import useUserStore from "@/store/useUserStore";
 
@@ -14,6 +14,7 @@ const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
+  const {isLogin} = useUserStore();
 
   
 
@@ -70,7 +71,18 @@ const Sidebar = () => {
       href: "/dashboard/admin/training/etsy-training",
       icon: FaEtsy,
     },
+    {
+      name: "Log Out",
+      href: "",
+      icon: IoIosLogOut,
+    },
   ];
+
+  const logout = () => {
+    console.log("logOut");
+    localStorage.clear();
+    window.location.href = "/";
+  }
 
   return (
     <>
@@ -122,7 +134,7 @@ const Sidebar = () => {
                 }`}
               >
                 <item.icon className="w-5 h-5" />
-                <span>{item.name}</span>
+                <span  onClick={item.name === "Log Out" ? logout : null}>{item.name}</span>
               </div>
             </Link>
           ))}

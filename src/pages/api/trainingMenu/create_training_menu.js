@@ -1,11 +1,17 @@
 import { dbConnect } from "@/utils/dbConnect";
 import TrainingMenu from "@/models/Training_menus_model";
+import authMiddleware from "@/utils/authMiddleware";
 
 const create_trainingMenu = async (req, res) => {
     if(req.method !== "POST") return res.status(405).end();
 
     try {
-        dbConnect();
+        await dbConnect();
+        
+        await authMiddleware(req,res);
+    //     await new Promise((resolve, reject) => {
+    //   authMiddleware(req, res, () => resolve()); // 'resolve' will call 'next()'
+    // });
         const {Training_Menu} = req.body;
 
         if(!Training_Menu){

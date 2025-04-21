@@ -10,8 +10,13 @@ export default function ServicesTable() {
   const [openAdd, setOpenAdd] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
   const [newService, setNewService] = useState("");
+  const [authToken, setAuthToken] = useState("");
 
   useEffect(() => {
+    const getToken = localStorage.getItem("token");
+    if(getToken){
+      setAuthToken(getToken);
+    }
     fetchServices();
   }, []);
 
@@ -22,10 +27,19 @@ export default function ServicesTable() {
   };
 
   const handleAddService = async () => {
-    await axios.post("/api/trainingMenu/create_training_menu", { Training_Menu : newService });
-    setOpenAdd(false);
-    toast.success("Training menu added successfully");
-    fetchServices();
+   try {
+     await axios.post("/api/trainingMenu/create_training_menu", { Training_Menu : newService },{
+      headers : {
+       "Content-Type" : "application/json",
+       "Authorization" : `Bearer ${authToken}`
+      }
+     });
+     setOpenAdd(false);
+     toast.success("Training menu added successfully");
+     fetchServices();
+   } catch (error) {
+    toast.error(error.response.data)
+   }
   };
 
   const handleEditService = async () => {
@@ -60,7 +74,7 @@ export default function ServicesTable() {
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <ul className="divide-y divide-gray-200">
           {services.map((service) => (
-            <li key={service.id} className="p-4 flex justify-between items-center">
+            <li key={service._id} className="p-4 flex justify-between items-center">
               <span>{service.Training_Menu}</span>
               <div>
                 <button

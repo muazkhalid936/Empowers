@@ -9,7 +9,7 @@ const useUserStore = create((set) => ({
   setIsLogin: (isLogin) => set({ isLogin }),
   setRole: (role) => set({ role }),
   
-  logout: () => set({ username: '', isLogin: false, role: '' }),
+  logout: () => set({ username: '', isLogin: false, role: '', token : '' }),
 }));
 
 export default useUserStore;

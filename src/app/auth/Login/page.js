@@ -5,7 +5,7 @@ import { useState } from "react";
 import useUserStore from "@/store/useUserStore";
 import { useRouter } from "next/navigation";
 export default function LoginForm() {
-  const { setIsLogin, setRole, setUsername } = useUserStore();
+  const { setIsLogin, setRole, setUsername} = useUserStore();
   const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
@@ -26,7 +26,6 @@ export default function LoginForm() {
     try {
       const response = await axios.post("/api/auth/login", formData);
       // alert(response.data);
-      console.log(response);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("role", response.data.role);
       localStorage.setItem("isLogin", true);
