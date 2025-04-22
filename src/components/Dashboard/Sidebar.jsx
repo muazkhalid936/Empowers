@@ -63,12 +63,13 @@ const Sidebar = () => {
     },
     {
       name: "eBay Training",
-      href: "/dashboard/admin/training/ebay-training",
+      // href: "/dashboard/admin/training/ebay-training",
+      href: "/dashboard/admin/training",query: { type: "ebay-training" },
       icon: FaEbay,
     },
     {
       name: "Etsy Training",
-      href: "/dashboard/admin/training/etsy-training",
+      href: "/dashboard/admin/training",query: { type: "etsy-training" },
       icon: FaEtsy,
     },
     {

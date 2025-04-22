@@ -17,8 +17,8 @@ const BlogManager = () => {
 
 const pathName = usePathname();
 const trainingByName = pathName.split("/");
-const lastPart = trainingByName[trainingByName.length - 1];
-console.log(lastPart)
+// const lastPart = trainingByName[trainingByName.length - 1];
+console.log(trainingByName)
 
 
   
