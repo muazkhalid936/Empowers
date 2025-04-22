@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import useUserStore from "@/store/useUserStore";
 import { useRouter } from "next/navigation";
+import {toast} from "react-toastify";
+
 export default function LoginForm() {
   const { setIsLogin, setRole, setUsername} = useUserStore();
   const router = useRouter();
@@ -34,8 +36,10 @@ export default function LoginForm() {
       setRole(response.data.role);
       setUsername(response.data.username);
       router.push("/");
+      toast.success(response.data.message);
     } catch (error) {
       console.log(error.response.data);
+      toast.error(error.response.data);
     }
   };
 

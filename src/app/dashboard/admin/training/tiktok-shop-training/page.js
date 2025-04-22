@@ -13,6 +13,7 @@ const BlogManager = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [deleteBlogId, setDeleteBlogId] = useState(null);
+  const [authToken, setAuthToken] = useState("");
 
 const pathName = usePathname();
 const trainingByName = pathName.split("/");
@@ -23,6 +24,12 @@ console.log(lastPart)
   
 
   useEffect(() => {
+
+    const getToken = localStorage.getItem("token");
+      if(getToken){
+        setAuthToken(getToken);
+      }
+
     const fetchBlogs = async () => {
       try {
         const res = await axios.post(`/api/training/get_training_name?trainingCategory=${lastPart}`);
@@ -39,7 +46,7 @@ console.log(lastPart)
 
   const handleEdit = (id) => {
     console.log(id)
-    router.push(`/dashboard/admin/training/editTrining/${id}`);
+    router.push(`/dashboard/admin/training/editTrining/${id}`,);
   };
 
   const openDeleteModal = (id) => {
@@ -56,12 +63,17 @@ console.log(lastPart)
 
   const confirmDeleteBlog = async () => {
     try {
-      await axios.delete(`/api/training/delete_training?id=${deleteBlogId}`);
+      await axios.delete(`/api/training/delete_training?id=${deleteBlogId}`,{
+        headers : {
+          "Content-Type" : "application/json",
+          "Authorization" : `Bearer ${authToken}`
+        }
+      });
       toast.success("Training deleted successfully");
       closeDeleteModal();
       const fetchBlogs = async () => {
         try {
-          const res = await axios.get("/api/training/all_training");
+          const res = await axios.post(`/api/training/get_training_name?trainingCategory=${lastPart}`);
           setTraining(res.data);
           setIsLoading(false);
         } catch (error) {

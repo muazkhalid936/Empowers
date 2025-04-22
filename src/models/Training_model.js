@@ -5,7 +5,8 @@ const trainingSchema = new mongoose.Schema({
     publicId : {type : String},
     trainingName : {type : String},
     trainingCategory : {type : String, required : true},
-    trainingDetails : {type : [String], default : []}
+    trainingDetails : {type : [String], default : []},
+    trainingPrice : {type : String}
 },{timestamps : true});
 
 const Training = mongoose.models.Training || mongoose.model("Training", trainingSchema);

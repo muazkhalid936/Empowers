@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import RichTextEditor from "@/components/TextEditor";
@@ -14,6 +14,7 @@ export default function AddBlogPage() {
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [authToken, setAuthToken] = useState("");
 
   // Handle Image Selection
   const handleImageChange = (e) => {
@@ -35,7 +36,10 @@ export default function AddBlogPage() {
       formData.append("image", image);
 
       const response = await axios.post("/api/blog/create_blog", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "Authorization": `Bearer ${authToken}`
+         },
       });
 
       router.push("/dashboard/admin/blog"); // Redirect to blog list after success
@@ -46,6 +50,13 @@ export default function AddBlogPage() {
       setLoading(false);
     }
   };
+
+  useEffect(() =>{
+    const getToken = localStorage.getItem("token");
+      if(getToken){
+        setAuthToken(getToken);
+      }
+  },[])
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-md">

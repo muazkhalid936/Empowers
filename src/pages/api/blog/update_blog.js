@@ -2,15 +2,20 @@ import { dbConnect } from "@/utils/dbConnect";
 import Blog from "@/models/Blog_model";
 import uploadMiddleware from "@/utils/uploadMiddleware";
 import { deleteOnCloudinary, uploadOnCloudinary } from "@/utils/cloudinary";
+import authMiddleware from "@/utils/authMiddleware";
 
 export const config = {
   api : {bodyParser : false}
 }
 
 const update_blog = async (req, res) => {
+
   if (req.method !== "PATCH") return res.status(405).end();
 
   try {
+
+     const auth = await authMiddleware(req, res);
+            if (auth !== true) return;
 
     await uploadMiddleware(req, res);
     await dbConnect();

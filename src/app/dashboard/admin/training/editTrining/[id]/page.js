@@ -18,6 +18,8 @@ export default function EditTrainingPage({ params }) {
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [authToken, setAuthToken] = useState("");
+
 
   const categories = {
     tiktok : "TikTok Shop Training",
@@ -28,6 +30,10 @@ export default function EditTrainingPage({ params }) {
 
   // Fetch blog data
   useEffect(() => {
+     const getToken = localStorage.getItem("token");
+    if(getToken){
+      setAuthToken(getToken);
+    }
     const fetchBlogData = async () => {
       try {
         const response = await axios.get(`/api/training/get_trainingById?id=${id}`);
@@ -78,13 +84,17 @@ export default function EditTrainingPage({ params }) {
       if (image) formData.append("image", image);
 
       await axios.patch(`/api/training/update_training?id=${id}`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: { 
+          "Content-Type": "multipart/form-data",
+          "Authorization": `Bearer ${authToken}`
+         },
       });
 
       router.push(`/dashboard/admin/training/${trainingCategory}`); // Redirect to blog list after success
       toast.success("Blog updated successfully");
     } catch (error) {
       console.error("Error updating blog:", error);
+      toast.error(error.response.data);
     } finally {
       setLoading(false);
     }

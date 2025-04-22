@@ -2,6 +2,7 @@ import { dbConnect } from "@/utils/dbConnect";
 import Blog from "@/models/Blog_model";
 import uploadMiddleware from "@/utils/uploadMiddleware";
 import { uploadOnCloudinary } from "@/utils/cloudinary";
+import authMiddleware from "@/utils/authMiddleware";
 
 export const config = {
   api: { bodyParser: false },
@@ -11,6 +12,10 @@ export default async function create_blog(req, res) {
 
   if (req.method !== "POST") return res.status(405).end();
   try {
+
+     const auth = await authMiddleware(req, res);
+            if (auth !== true) return;
+
     await uploadMiddleware(req, res);
     
     const localFilePath = req.file?.path;

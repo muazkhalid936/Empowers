@@ -1,12 +1,15 @@
 import { dbConnect } from "@/utils/dbConnect";
 import Blog from "@/models/Blog_model";
 import { deleteOnCloudinary } from "@/utils/cloudinary";
+import authMiddleware from "@/utils/authMiddleware";
 
 const delete_blog = async (req, res) => {
     if(req.method !== "DELETE") return res.status(405).end();
 
     try {
         await dbConnect();
+         const auth = await authMiddleware(req, res);
+                if (auth !== true) return;
 
         const {id} = req.query;
 

@@ -2,6 +2,7 @@ import { dbConnect } from "@/utils/dbConnect";
 import Training from "@/models/Training_model";
 import { deleteOnCloudinary, uploadOnCloudinary } from "@/utils/cloudinary";
 import uploadMiddleware from "@/utils/uploadMiddleware";
+import authMiddleware from "@/utils/authMiddleware";
 
 
 export const config = {
@@ -12,6 +13,8 @@ const update_training = async (req, res) => {
   if (req.method !== "PATCH") return res.status(405).end();
 
   try {
+     const auth = await authMiddleware(req, res);
+            if (auth !== true) return;
     await uploadMiddleware(req,res);
     await dbConnect();
 
@@ -30,7 +33,7 @@ const update_training = async (req, res) => {
 
     const newImageUrl = await uploadOnCloudinary(newImage);
 
-    const { trainingName, trainingDetails, trainingCategory } = req.body;
+    const { trainingName, trainingDetails, trainingCategory, trainingPrice } = req.body;
 
     const trainingDetailsConvertToArray = trainingDetails.split(",");
 
@@ -45,7 +48,8 @@ const update_training = async (req, res) => {
           publicId,
           trainingName,
           trainingDetails : trainingDetailsConvertToArray,
-          trainingCategory
+          trainingCategory,
+          trainingPrice
         },
       },
       { new: true }

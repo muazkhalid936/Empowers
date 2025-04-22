@@ -1,12 +1,14 @@
 import { dbConnect } from "@/utils/dbConnect";
 import Contact from "@/models/contact_model";
+import authMiddleware from "@/utils/authMiddleware";
 
 
 const delete_form = async (req, res) => {
     if(req.method !== "DELETE") return res.status(405).end();
 
     try {
-
+         const auth = await authMiddleware(req, res);
+                if (auth !== true) return;
         dbConnect();
         
         const {id} = req.query;

@@ -16,9 +16,16 @@ export default function EditBlogPage({ params }) {
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [authToken, setAuthToken] = useState("");
 
   // Fetch blog data
   useEffect(() => {
+
+    const getToken = localStorage.getItem("token");
+      if(getToken){
+        setAuthToken(getToken);
+      }
+
     const fetchBlogData = async () => {
       try {
         const response = await axios.get(`/api/blog/get_blog_data?id=${id}`);
@@ -62,13 +69,16 @@ export default function EditBlogPage({ params }) {
       if (image) formData.append("image", image);
 
       await axios.patch(`/api/blog/update_blog?id=${id}`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "Authorization": `Bearer ${authToken}` },
       });
 
       router.push("/dashboard/admin/blog"); // Redirect to blog list after success
       toast.success("Blog updated successfully");
     } catch (error) {
       console.error("Error updating blog:", error);
+      toast.error(error.response.data);
     } finally {
       setLoading(false);
     }

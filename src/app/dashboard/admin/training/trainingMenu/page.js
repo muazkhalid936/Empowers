@@ -43,21 +43,41 @@ export default function ServicesTable() {
   };
 
   const handleEditService = async () => {
-    await axios.patch(`/api/trainingMenu/update_training_menu?id=${selectedService._id}`, {
-      service: selectedService.service,
-    });
-    toast.success("Training menu updated successfully");
-    setOpenEdit(false);
-    fetchServices();
+    try {
+      await axios.patch(`/api/trainingMenu/update_training_menu?id=${selectedService._id}`, {
+        service: selectedService.service,
+      },{
+        headers : {
+         "Content-Type" : "application/json",
+         "Authorization" : `Bearer ${authToken}`
+        }
+      }
+    );
+      toast.success("Training menu updated successfully");
+      setOpenEdit(false);
+      fetchServices();
+    } catch (error) {
+      // console.log(error);
+      toast.error(error.response.data);
+    }
   };
 
   const handleDeleteService = async () => {
-    console.log(selectedService, "Selected training menu"); // Ensure correct property is logged
-
-    await axios.delete(`/api/trainingMenu/delete_training_menu?id=${selectedService._id}`);
-    toast.success("Training menu deleted successfully");
-    setOpenDelete(false);
-    fetchServices();
+   try {
+     console.log(selectedService, "Selected training menu"); // Ensure correct property is logged
+ 
+     await axios.delete(`/api/trainingMenu/delete_training_menu?id=${selectedService._id}`,{
+         headers : {
+          "Content-Type" : "application/json",
+          "Authorization" : `Bearer ${authToken}`
+         }
+       });
+     toast.success("Training menu deleted successfully");
+     setOpenDelete(false);
+     fetchServices();
+   } catch (error) {
+    toast.error(error.response.data);
+   }
   };
 
   return (

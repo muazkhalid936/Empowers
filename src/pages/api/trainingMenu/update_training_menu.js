@@ -1,5 +1,6 @@
 import { dbConnect } from "@/utils/dbConnect";
 import TrainingMenu from "@/models/Training_menus_model";
+import authMiddleware from "@/utils/authMiddleware";
 
 
 const update_trainingMenu = async (req, res) => {
@@ -9,6 +10,9 @@ const update_trainingMenu = async (req, res) => {
     try {
 
         dbConnect();
+
+         const auth = await authMiddleware(req, res);
+                if (auth !== true) return;
 
         const {id} = req.query;
         const {Training_Menu} = req.body;

@@ -1,19 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import RichTextEditor from "@/components/TextEditor";
 import { toast } from "react-toastify";
 
 export default function AddTrainingPage() {
+
   const router = useRouter();
   const [trainingName, setTrainingName] = useState("");
   const [trainingDetails, setTags] = useState("");
   const [trainingCategory, setTrainingCategory] = useState("");
+  const [trainingPrice, setTrainingPrice] = useState("");
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [authToken, setAuthToken] = useState("");
 
   // Handle Image Selection
   const handleImageChange = (e) => {
@@ -33,9 +36,13 @@ export default function AddTrainingPage() {
       formData.append("trainingDetails", trainingDetails);
       formData.append("trainingCategory", trainingCategory);
       formData.append("image", image);
+      formData.append("trainingPrice", trainingPrice);
 
       const response = await axios.post("/api/training/create_training", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "Authorization": `Bearer ${authToken}`
+         },
       });
 
       router.push(`/dashboard/admin/training/${trainingCategory}`); // Redirect to blog list after success
@@ -46,6 +53,13 @@ export default function AddTrainingPage() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+      const getToken = localStorage.getItem("token");
+    if(getToken){
+      setAuthToken(getToken);
+    }
+  },[]);
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-md">
@@ -73,9 +87,18 @@ export default function AddTrainingPage() {
         {/* Tags */}
         <input
           type="text"
-          placeholder="Tags (comma-separated)"
+          placeholder="Bullets (comma-separated)"
           value={trainingDetails}
           onChange={(e) => setTags(e.target.value)}
+          className="w-full p-2 border rounded"
+        />
+
+          {/* Price */}
+         <input
+          type="text"
+          placeholder="Training price"
+          value={trainingPrice}
+          onChange={(e) => setTrainingPrice(e.target.value)}
           className="w-full p-2 border rounded"
         />
 

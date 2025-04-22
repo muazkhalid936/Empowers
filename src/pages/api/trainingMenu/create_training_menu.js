@@ -8,10 +8,9 @@ const create_trainingMenu = async (req, res) => {
     try {
         await dbConnect();
         
-        await authMiddleware(req,res);
-    //     await new Promise((resolve, reject) => {
-    //   authMiddleware(req, res, () => resolve()); // 'resolve' will call 'next()'
-    // });
+      const auth = await authMiddleware(req, res);
+        if (auth !== true) return;
+
         const {Training_Menu} = req.body;
 
         if(!Training_Menu){

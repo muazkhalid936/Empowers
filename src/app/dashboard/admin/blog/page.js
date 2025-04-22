@@ -11,8 +11,15 @@ const BlogManager = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [deleteBlogId, setDeleteBlogId] = useState(null);
+  const [authToken, setAuthToken] = useState("");
 
   useEffect(() => {
+
+    const getToken = localStorage.getItem("token");
+      if(getToken){
+        setAuthToken(getToken);
+      }
+
     const fetchBlogs = async () => {
       try {
         const res = await axios.get("/api/blog/all_blog");
@@ -44,7 +51,12 @@ const BlogManager = () => {
 
   const confirmDeleteBlog = async () => {
     try {
-      await axios.delete(`/api/blog/delete_blog?id=${deleteBlogId}`);
+      await axios.delete(`/api/blog/delete_blog?id=${deleteBlogId}`,{
+        headers : {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${authToken}`
+        }
+      });
       toast.success("Blog deleted successfully");
       closeDeleteModal();
       const fetchBlogs = async () => {
@@ -59,6 +71,7 @@ const BlogManager = () => {
       fetchBlogs();
     } catch (error) {
       console.error("Error deleting blog:", error);
+      toast.error(error.response.data);
     }
   };
 
